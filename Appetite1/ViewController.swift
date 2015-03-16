@@ -9,8 +9,24 @@
 import UIKit
 
 class ViewController: UIViewController {
-  
+ /* These fields and methods will help provide for automatic login using iOS keychain
     
+    let service = "swiftLogin"
+    let userAccount = "swiftLoginUser"
+    let key = "RandomKey"
+  
+    override func viewDidAppear(animated: Bool) {
+        let (dictionary, error) = Locksmith.loadData(forKey: key, inService: service, forUserAccount: userAccount)
+        
+        if let dictionary = dictionary {
+            // User is already logged in, Send them to already logged in view.
+        } else {
+            // Not logged in, send to login view controller
+        }
+    }
+   */
+    
+
 
     @IBOutlet var password: UITextField!
     @IBOutlet var username: UITextField!
@@ -25,6 +41,7 @@ class ViewController: UIViewController {
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+   
     @IBAction func login(sender: AnyObject) {
         
         var error = ""
@@ -36,44 +53,43 @@ class ViewController: UIViewController {
             displayError("Error in Form", error: error)
         }
             
-        else
-        {
-        
-            var user = PFUser()
-            user.username = username.text
-            user.password = password.text
+        else {
             
-            user.signUpInBackgroundWithBlock({(succeeded: Bool!, signupError: NSError!) -> Void in
-                if signupError == nil {
-                    println("Hooray")
+            PFUser.logInWithUsernameInBackground(username.text, password: password.text) {
+                (user: PFUser!, loginError: NSError!) -> Void in
+                if user != nil {
+         
+                    if (PFUser.currentUser() != nil) {
+                        
+                      var role: AnyObject! = PFUser.currentUser().objectForKey("role")
+                        if role as NSString == "diner" {
+                        self.performSegueWithIdentifier("ProfileSegue", sender: nil)
+                        }
+                        else {
+                            self.performSegueWithIdentifier("RestaurantSegue", sender: nil)
+                        }
+              
+                  
+                        
+                    }
                     
+                                    } else {
+                    var loginError = "Please try again or signup"
+                    self.displayError("Login Failed", error: loginError)
                 }
-                else{
-                    if let errorString = signupError.userInfo?["error"] as? NSString {
-                        error = errorString;
-                    }
-                    else{
-                        error = "Please try again later."
-                    }
-                    self.displayError("Could not sign up!", error: error)
-                }
-            })
+            }
+            
             
         }
-
     }
-
-    
     
   
-    
+  
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         //Prints current user to logs for automatic login
         println(PFUser.currentUser())
-        
-        
         //Background image
         let image1 = UIImage(named: "/Users/joshuaseger/Desktop/Appetite1/Appetite1/Backgrounds/main.jpg")
         let imageview = UIImageView(image: image1)
@@ -81,9 +97,14 @@ class ViewController: UIViewController {
         self.view.addSubview(imageview)
         self.view.sendSubviewToBack(imageview)
 imageview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
-
-        
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+override func viewDidAppear(animated: Bool) {
+  
+    
+    
+    
     }
 
     override func didReceiveMemoryWarning() {

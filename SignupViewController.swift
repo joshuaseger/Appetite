@@ -9,6 +9,123 @@
 import UIKit
 
 class SignupViewController: UIViewController {
+    
+
+    
+    @IBAction func Back(sender: AnyObject) {
+    
+        
+       self.dismissViewControllerAnimated(true, completion: nil)
+        
+    }
+
+    
+    
+    func displayError(title:String,error:String)
+    {
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    
+    @IBOutlet var username: UITextField!
+    @IBOutlet var password: UITextField!
+    
+    
+    @IBAction func signupRestaurant(sender: AnyObject) {
+        
+        var error = ""
+        
+        if username.text == "" || password == "" {
+            error = "Please enter a username or password!"}
+        
+        if (error != "") {
+            displayError("Error in Form", error: error)
+        }
+            
+        else
+        {
+            
+            var user = PFUser()
+            user.username = username.text
+            user.password = password.text
+            
+            user.signUpInBackgroundWithBlock({(succeeded: Bool!, signupError: NSError!) -> Void in
+                if signupError == nil {
+                    
+                    
+                    user["role"] = "restaurant"
+                    user.save()
+                    self.dismissViewControllerAnimated(true, completion: nil)
+                    
+                    
+                }
+                else{
+                    if let errorString = signupError.userInfo?["error"] as? NSString {
+                        error = errorString;
+                    }
+                    else{
+                        error = "Please try again later."
+                    }
+                    self.displayError("Could not sign up!", error: error)
+                }
+            })
+            
+        }
+    }
+    
+    @IBAction func signupUser(sender: AnyObject) {
+        var error = ""
+        
+        if username.text == "" || password == "" {
+            error = "Please enter a username or password!"}
+        
+        if (error != "") {
+            displayError("Error in Form", error: error)
+        }
+            
+        else
+        {
+            
+            var user = PFUser()
+            user.username = username.text
+            user.password = password.text
+            
+            user.signUpInBackgroundWithBlock({(succeeded: Bool!, signupError: NSError!) -> Void in
+                if signupError == nil {
+                    
+                    
+                    user["role"] = "diner"
+                    user.save()
+                    self.dismissViewControllerAnimated(true, completion: nil)
+        
+                    
+                }
+                else{
+                    if let errorString = signupError.userInfo?["error"] as? NSString {
+                        error = errorString;
+                    }
+                    else{
+                        error = "Please try again later."
+                    }
+                    self.displayError("Could not sign up!", error: error)
+                }
+            })
+            
+        }
+        
+    }
+        
+        
+        
+    
+ 
+
+
 
   override func viewDidLoad() {
         super.viewDidLoad()

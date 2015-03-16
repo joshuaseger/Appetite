@@ -31,6 +31,12 @@
 		2410867A1A9FFB5500F1E9E2 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241086751A9FFB5500F1E9E2 /* ParseUI.framework */; };
 		2410867F1A9FFC1700F1E9E2 /* Backgrounds in Resources */ = {isa = PBXBuildFile; fileRef = 2410867E1A9FFC1700F1E9E2 /* Backgrounds */; };
 		24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24528ED91AA03B2F005253F3 /* SignupViewController.swift */; };
+		24A19FCD1AA7B12E008A02A7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */; };
+		24CCAAC91AAA6C7900A8945E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCAAC81AAA6C7900A8945E /* Model.swift */; };
+		24EAECE11AB6260400FEE226 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EAECE01AB6260400FEE226 /* MapKit.framework */; };
+		24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */; };
+		24EAECE51AB63DF500FEE226 /* UpdateRestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */; };
+		24EAECE71AB68C0A00FEE226 /* PostsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE61AB68C0A00FEE226 /* PostsListController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +79,12 @@
 		2410867B1A9FFB6900F1E9E2 /* Appetite1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Appetite1-Bridging-Header.h"; sourceTree = "<group>"; };
 		2410867E1A9FFC1700F1E9E2 /* Backgrounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Backgrounds; sourceTree = "<group>"; };
 		24528ED91AA03B2F005253F3 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = ../SignupViewController.swift; sourceTree = "<group>"; };
+		24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
+		24CCAAC81AAA6C7900A8945E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
+		24EAECE01AB6260400FEE226 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantController.swift; path = ../RestaurantController.swift; sourceTree = "<group>"; };
+		24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateRestController.swift; path = ../UpdateRestController.swift; sourceTree = "<group>"; };
+		24EAECE61AB68C0A00FEE226 /* PostsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsListController.swift; path = ../PostsListController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +92,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24EAECE11AB6260400FEE226 /* MapKit.framework in Frameworks */,
 				241086661A9FFB4200F1E9E2 /* AudioToolbox.framework in Frameworks */,
 				241086671A9FFB4200F1E9E2 /* CFNetwork.framework in Frameworks */,
 				241086681A9FFB4200F1E9E2 /* CoreGraphics.framework in Frameworks */,
@@ -112,6 +125,8 @@
 		2410862D1A9FFAFE00F1E9E2 = {
 			isa = PBXGroup;
 			children = (
+				24EAECE01AB6260400FEE226 /* MapKit.framework */,
+				24CCAAC81AAA6C7900A8945E /* Model.swift */,
 				2410865B1A9FFB4200F1E9E2 /* AudioToolbox.framework */,
 				2410865C1A9FFB4200F1E9E2 /* CFNetwork.framework */,
 				2410865D1A9FFB4200F1E9E2 /* CoreGraphics.framework */,
@@ -148,6 +163,10 @@
 				241086741A9FFB5500F1E9E2 /* ParseFacebookUtils.framework */,
 				241086751A9FFB5500F1E9E2 /* ParseUI.framework */,
 				2410863B1A9FFAFE00F1E9E2 /* AppDelegate.swift */,
+				24EAECE61AB68C0A00FEE226 /* PostsListController.swift */,
+				24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */,
+				24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */,
+				24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */,
 				24528ED91AA03B2F005253F3 /* SignupViewController.swift */,
 				2410863D1A9FFAFE00F1E9E2 /* ViewController.swift */,
 				2410863F1A9FFAFE00F1E9E2 /* Main.storyboard */,
@@ -285,7 +304,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24CCAAC91AAA6C7900A8945E /* Model.swift in Sources */,
 				24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */,
+				24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */,
+				24EAECE51AB63DF500FEE226 /* UpdateRestController.swift in Sources */,
+				24A19FCD1AA7B12E008A02A7 /* ProfileViewController.swift in Sources */,
+				24EAECE71AB68C0A00FEE226 /* PostsListController.swift in Sources */,
 				2410863E1A9FFAFE00F1E9E2 /* ViewController.swift in Sources */,
 				2410863C1A9FFAFE00F1E9E2 /* AppDelegate.swift in Sources */,
 			);
