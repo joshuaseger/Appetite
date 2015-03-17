@@ -10,22 +10,15 @@ import UIKit
 
 class PostsListController: UITableViewController {
 
-    var posts = [String]()
+    
+    var posts = [AnyObject]()
+    var images = [UIImage]()
+    var dishNames = [String]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-/*
-        var query = PFObject.query()
-        query.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
-            self.posts.removeAll(keepCapacity: true)
-            for object in objects {
-                var post:PFObject = object as PFObject
-                self.posts.append(post.objectForKey("post"))
-            }
-     
-            self.tableView.reloadData()
-        }
-        */
+        
         // Do any additional setup after loading the view.
     }
 
@@ -33,28 +26,26 @@ class PostsListController: UITableViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+     return 190
+    }
+    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return posts.count
+        return 5
     }
     
+    //Use OOP Principles to manage elements within cell
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell:UITableViewCell = self.tableView.dequeueReusableCellWithIdentifier("cell") as UITableViewCell
-        cell.textLabel?.text = "JT Seger"
+        let cell = self.tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as PostsTableViewCell
+        cell.nameOfDish.text = "General Tso's Chicken"
+        cell.testCell.text = "GENERALS"
+        cell.sizeToFit()
         return cell
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

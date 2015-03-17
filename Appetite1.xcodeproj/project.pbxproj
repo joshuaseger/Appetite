@@ -30,8 +30,16 @@
 		241086791A9FFB5500F1E9E2 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241086741A9FFB5500F1E9E2 /* ParseFacebookUtils.framework */; };
 		2410867A1A9FFB5500F1E9E2 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241086751A9FFB5500F1E9E2 /* ParseUI.framework */; };
 		2410867F1A9FFC1700F1E9E2 /* Backgrounds in Resources */ = {isa = PBXBuildFile; fileRef = 2410867E1A9FFC1700F1E9E2 /* Backgrounds */; };
+		241668F11AB7AA56003E21BD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241668F01AB7AA56003E21BD /* PostViewController.swift */; };
+		241668F71AB7AB7E003E21BD /* dish2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 241668F31AB7AB7E003E21BD /* dish2.jpg */; };
+		241668F81AB7AB7E003E21BD /* dish3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 241668F41AB7AB7E003E21BD /* dish3.jpg */; };
+		241668F91AB7AB7E003E21BD /* dish4.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 241668F51AB7AB7E003E21BD /* dish4.jpg */; };
+		241668FA1AB7AB7E003E21BD /* dish5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 241668F61AB7AB7E003E21BD /* dish5.jpg */; };
+		241668FC1AB7ABE0003E21BD /* Food-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 241668FB1AB7ABE0003E21BD /* Food-Icon.png */; };
+		241668FE1AB7B7BB003E21BD /* PostsNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241668FD1AB7B7BB003E21BD /* PostsNavController.swift */; };
 		24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24528ED91AA03B2F005253F3 /* SignupViewController.swift */; };
 		24A19FCD1AA7B12E008A02A7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */; };
+		24AAAE6F1AB7BC4100B35C51 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */; };
 		24CCAAC91AAA6C7900A8945E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCAAC81AAA6C7900A8945E /* Model.swift */; };
 		24EAECE11AB6260400FEE226 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EAECE01AB6260400FEE226 /* MapKit.framework */; };
 		24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */; };
@@ -78,8 +86,16 @@
 		241086751A9FFB5500F1E9E2 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		2410867B1A9FFB6900F1E9E2 /* Appetite1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Appetite1-Bridging-Header.h"; sourceTree = "<group>"; };
 		2410867E1A9FFC1700F1E9E2 /* Backgrounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Backgrounds; sourceTree = "<group>"; };
+		241668F01AB7AA56003E21BD /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = ../PostViewController.swift; sourceTree = "<group>"; };
+		241668F31AB7AB7E003E21BD /* dish2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish2.jpg; sourceTree = "<group>"; };
+		241668F41AB7AB7E003E21BD /* dish3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish3.jpg; sourceTree = "<group>"; };
+		241668F51AB7AB7E003E21BD /* dish4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish4.jpg; sourceTree = "<group>"; };
+		241668F61AB7AB7E003E21BD /* dish5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish5.jpg; sourceTree = "<group>"; };
+		241668FB1AB7ABE0003E21BD /* Food-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Food-Icon.png"; sourceTree = "<group>"; };
+		241668FD1AB7B7BB003E21BD /* PostsNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsNavController.swift; path = ../PostsNavController.swift; sourceTree = "<group>"; };
 		24528ED91AA03B2F005253F3 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = ../SignupViewController.swift; sourceTree = "<group>"; };
 		24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
+		24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsTableViewCell.swift; path = ../PostsTableViewCell.swift; sourceTree = "<group>"; };
 		24CCAAC81AAA6C7900A8945E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		24EAECE01AB6260400FEE226 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantController.swift; path = ../RestaurantController.swift; sourceTree = "<group>"; };
@@ -163,7 +179,10 @@
 				241086741A9FFB5500F1E9E2 /* ParseFacebookUtils.framework */,
 				241086751A9FFB5500F1E9E2 /* ParseUI.framework */,
 				2410863B1A9FFAFE00F1E9E2 /* AppDelegate.swift */,
+				241668FD1AB7B7BB003E21BD /* PostsNavController.swift */,
 				24EAECE61AB68C0A00FEE226 /* PostsListController.swift */,
+				24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */,
+				241668F01AB7AA56003E21BD /* PostViewController.swift */,
 				24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */,
 				24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */,
 				24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */,
@@ -172,6 +191,7 @@
 				2410863F1A9FFAFE00F1E9E2 /* Main.storyboard */,
 				241086421A9FFAFE00F1E9E2 /* Images.xcassets */,
 				241086441A9FFAFE00F1E9E2 /* LaunchScreen.xib */,
+				241668F21AB7AB7E003E21BD /* Dishes */,
 				2410867E1A9FFC1700F1E9E2 /* Backgrounds */,
 				241086391A9FFAFE00F1E9E2 /* Supporting Files */,
 			);
@@ -201,6 +221,19 @@
 				241086501A9FFAFE00F1E9E2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		241668F21AB7AB7E003E21BD /* Dishes */ = {
+			isa = PBXGroup;
+			children = (
+				241668FB1AB7ABE0003E21BD /* Food-Icon.png */,
+				241668F31AB7AB7E003E21BD /* dish2.jpg */,
+				241668F41AB7AB7E003E21BD /* dish3.jpg */,
+				241668F51AB7AB7E003E21BD /* dish4.jpg */,
+				241668F61AB7AB7E003E21BD /* dish5.jpg */,
+			);
+			name = Dishes;
+			path = "New Folder With Items";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -283,9 +316,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				241668FC1AB7ABE0003E21BD /* Food-Icon.png in Resources */,
 				241086411A9FFAFE00F1E9E2 /* Main.storyboard in Resources */,
+				241668F81AB7AB7E003E21BD /* dish3.jpg in Resources */,
 				241086461A9FFAFE00F1E9E2 /* LaunchScreen.xib in Resources */,
+				241668F71AB7AB7E003E21BD /* dish2.jpg in Resources */,
 				2410867F1A9FFC1700F1E9E2 /* Backgrounds in Resources */,
+				241668FA1AB7AB7E003E21BD /* dish5.jpg in Resources */,
+				241668F91AB7AB7E003E21BD /* dish4.jpg in Resources */,
 				241086431A9FFAFE00F1E9E2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -304,10 +342,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				241668F11AB7AA56003E21BD /* PostViewController.swift in Sources */,
 				24CCAAC91AAA6C7900A8945E /* Model.swift in Sources */,
 				24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */,
+				241668FE1AB7B7BB003E21BD /* PostsNavController.swift in Sources */,
 				24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */,
 				24EAECE51AB63DF500FEE226 /* UpdateRestController.swift in Sources */,
+				24AAAE6F1AB7BC4100B35C51 /* PostsTableViewCell.swift in Sources */,
 				24A19FCD1AA7B12E008A02A7 /* ProfileViewController.swift in Sources */,
 				24EAECE71AB68C0A00FEE226 /* PostsListController.swift in Sources */,
 				2410863E1A9FFAFE00F1E9E2 /* ViewController.swift in Sources */,
