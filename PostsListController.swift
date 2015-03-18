@@ -41,11 +41,17 @@ class PostsListController: UITableViewController {
     
     //Use OOP Principles to manage elements within cell
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = self.tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as PostsTableViewCell
-        cell.nameOfDish.text = "General Tso's Chicken"
-        cell.testCell.text = "GENERALS"
-        cell.sizeToFit()
-        return cell
+        var cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as? PostsTableViewCell
+        if ( cell == nil){
+            var cell = PostsTableViewCell  (
+                style: UITableViewCellStyle.Default, reuseIdentifier: "myCell") as PostsTableViewCell
+        }
+      //  cell!.cellImage = UIImageView()
+      //  cell!.nameOfDish = UILabel()
+        cell!.cellImage.image = UIImage(named: "Food-Icon")
+        cell!.nameOfDish.text = "General Tso's Chicken"
+        cell!.sizeToFit()
+        return cell!
     }
 
 }

@@ -11,7 +11,7 @@ import UIKit
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
 
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-    
+       let user = PFUser.currentUser()
     
     func displayError(title:String,error:String)
     {
@@ -78,6 +78,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             var post = PFObject(className: "Post")
             post["DishName"] = nameOfDish.text
+            post["Restaurant"] = user
             post.saveInBackgroundWithBlock{(success:Bool!, error: NSError!) -> Void in
                 
                 if success == false {
@@ -95,6 +96,12 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         }
                             
                         else{
+                            
+                          
+                            var relation = self.user.relationForKey("PostList")
+                            relation.addObject(post)
+                            self.user.save()
+                            
                             self.activityIndicator.stopAnimating()
                             UIApplication.sharedApplication().endIgnoringInteractionEvents()
                             println("Successfully saved post to Parse")
