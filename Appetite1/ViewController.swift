@@ -72,7 +72,6 @@ class ViewController: UIViewController {
                   
                         
                     }
-                    
                                     } else {
                     var loginError = "Please try again or signup"
                     self.displayError("Login Failed", error: loginError)

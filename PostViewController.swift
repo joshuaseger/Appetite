@@ -13,6 +13,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
        let user = PFUser.currentUser()
     
+    
     func displayError(title:String,error:String)
     {
         var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
@@ -133,12 +134,17 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
 
     /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    UPDATE AN OBJECT QUERY
+    var query = PFQuery(className:"GameScore")
+    query.getObjectInBackgroundWithId("xWMyZEGZ") {
+    (gameScore: PFObject!, error: NSError!) -> Void in
+    if error != nil {
+    println(error)
+    } else {
+    gameScore["cheatMode"] = true
+    gameScore["score"] = 1338
+    gameScore.saveInBackground()
+    }
     }
     */
 

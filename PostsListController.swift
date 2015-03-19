@@ -10,16 +10,32 @@ import UIKit
 
 class PostsListController: UITableViewController {
 
+    var index: Int = 1;
+    let user = PFUser.currentUser();
+    var List: [AnyObject]! = []
     
-    var posts = [AnyObject]()
-    var images = [UIImage]()
-    var dishNames = [String]()
     
-    
-    override func viewDidLoad() {
+    override func viewDidLoad()  {
         super.viewDidLoad()
-        
+    var relation = user.relationForKey("PostList")
+        relation.query().findObjectsInBackgroundWithBlock {
+            (Posts: [AnyObject]!, error: NSError!) -> Void in
+            if error != nil {
+                // There was an error
+            } else {
+                for post in Posts{
+                 //  var dishName: String = post["DishName"] as String
+                self.List.append(post)
+            
+                }
+               
+            }
+                println(self.List);
+            //self.dishNamesList changes are bound to this scope
+        }
+
         // Do any additional setup after loading the view.
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -40,17 +56,19 @@ class PostsListController: UITableViewController {
     }
     
     //Use OOP Principles to manage elements within cell
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as? PostsTableViewCell
         if ( cell == nil){
             var cell = PostsTableViewCell  (
                 style: UITableViewCellStyle.Default, reuseIdentifier: "myCell") as PostsTableViewCell
         }
-      //  cell!.cellImage = UIImageView()
-      //  cell!.nameOfDish = UILabel()
+  
+       println(" \(List.count) IS CURRENT LIST COUNT")
+       println(List)
+       cell!.nameOfDish.text = "hello"
         cell!.cellImage.image = UIImage(named: "Food-Icon")
-        cell!.nameOfDish.text = "General Tso's Chicken"
         cell!.sizeToFit()
+        index = index + 1
         return cell!
     }
 
