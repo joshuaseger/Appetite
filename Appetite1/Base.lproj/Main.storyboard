@@ -209,18 +209,6 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="76S-7Z-lpC">
-                                <rect key="frame" x="110" y="590" width="154" height="30"/>
-                                <state key="normal" title="Add Restaurant Image">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aQN-u7-Teh">
-                                <rect key="frame" x="92" y="545" width="190" height="30"/>
-                                <state key="normal" title="Add Restaurant Description">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Latitude:" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="apL-cd-lLt">
                                 <rect key="frame" x="21" y="264" width="68" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -289,8 +277,18 @@
                                     <action selector="updateInfo:" destination="VSA-OW-fcZ" eventType="touchUpInside" id="Ai0-8U-61F"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOF-X6-QSQ">
+                                <rect key="frame" x="56" y="562" width="237" height="30"/>
+                                <state key="normal" title="Update Description and Profile Pic">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="descriptionSegue:" destination="VSA-OW-fcZ" eventType="touchUpInside" id="4Yn-Kl-HlM"/>
+                                    <segue destination="Eq7-Qm-HBG" kind="show" identifier="descriptionSegue" id="qJb-If-wqo"/>
+                                </connections>
+                            </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UIp-dM-HfG">
-                                <rect key="frame" x="8" y="5" width="35" height="30"/>
+                                <rect key="frame" x="16" y="20" width="35" height="30"/>
                                 <state key="normal" title="Back">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
@@ -315,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="DIX-wU-YCt" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1129.5" y="63.5"/>
+            <point key="canvasLocation" x="1129.5" y="64.5"/>
         </scene>
         <!--SignupViewController-->
         <scene sceneID="q9h-Wc-i3h">
@@ -329,9 +327,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="56M-ee-1zH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bmh-HW-WAS">
                                 <rect key="frame" x="84" y="192" width="152" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -384,6 +379,9 @@
                                     <action selector="signupRestaurant:" destination="oRN-Rl-5uu" eventType="touchUpInside" id="iez-3b-Wb4"/>
                                 </connections>
                             </button>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="56M-ee-1zH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -432,8 +430,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="luJ-qY-Cp9">
-                                <rect key="frame" x="81" y="193" width="212" height="30"/>
+                                <rect key="frame" x="70" y="450" width="235" height="68"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <accessibility key="accessibilityConfiguration">
+                                    <accessibilityTraits key="traits" none="YES" button="YES" image="YES"/>
+                                </accessibility>
                                 <state key="normal" title="Update Restaurant Information">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -441,8 +444,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pE8-5j-9gD">
-                                <rect key="frame" x="110" y="278" width="155" height="30"/>
+                                <rect key="frame" x="70" y="537" width="235" height="69"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Create New Dish Post!">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -456,14 +461,116 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="64t-Nd-7Ym" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="607.5" y="398.5"/>
+            <point key="canvasLocation" x="607.5" y="399"/>
+        </scene>
+        <!--Update Description Controller-->
+        <scene sceneID="Ox7-t0-cKD">
+            <objects>
+                <viewController id="Eq7-Qm-HBG" customClass="UpdateDescriptionController" customModule="Appetite1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="MzA-kU-KJ2"/>
+                        <viewControllerLayoutGuide type="bottom" id="GjN-G0-f31"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9Fa-iT-rK4">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prk-eB-Not">
+                                <rect key="frame" x="16" y="71" width="343" height="166"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOk-vR-JWf">
+                                <rect key="frame" x="110" y="39" width="141" height="35"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayf-8a-WCb">
+                                <rect key="frame" x="143" y="245" width="88" height="30"/>
+                                <color key="backgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Submit">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="submitDescription:" destination="Eq7-Qm-HBG" eventType="touchUpInside" id="kAs-Du-5vv"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="WD7-ze-sDr">
+                                <rect key="frame" x="67" y="296" width="240" height="240"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FaH-IV-nUO">
+                                <rect key="frame" x="96" y="593" width="169" height="48"/>
+                                <color key="backgroundColor" red="0.0" green="0.44106588359487597" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Set Profile Picture">
+                                    <color key="titleColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="setImage:" destination="Eq7-Qm-HBG" eventType="touchUpInside" id="YEs-fT-Vcn"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Lu-9x-HEE">
+                                <rect key="frame" x="149" y="536" width="76" height="30"/>
+                                <state key="normal" title="Pick Image">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="pickImage:" destination="Eq7-Qm-HBG" eventType="touchUpInside" id="cGy-0e-Zil"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6v0-kF-cJ9">
+                                <rect key="frame" x="16" y="20" width="35" height="30"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="backButton:" destination="Eq7-Qm-HBG" eventType="touchUpInside" id="4d9-fo-Met"/>
+                                    <segue destination="VSA-OW-fcZ" kind="show" identifier="back2Update" id="TMY-Oo-8nQ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="descriptionText" destination="prk-eB-Not" id="44z-jS-KIr"/>
+                        <outlet property="profilePic" destination="WD7-ze-sDr" id="KkQ-9u-LKz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="t1D-zl-oRF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1735.5" y="-89.5"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="PeW-Hs-mn7">
+            <objects>
+                <viewController id="rNt-5Z-zOX" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="UEi-kN-UaP"/>
+                        <viewControllerLayoutGuide type="bottom" id="630-F7-KML"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="E8a-rx-nWV">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tzc-Ts-X4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2253" y="28"/>
         </scene>
         <!--PostsListController-->
         <scene sceneID="Jk3-Vx-3Oa">
             <objects>
                 <tableViewController title="PostsListController" id="vnv-mM-8sQ" customClass="PostsListController" customModule="Appetite1" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="190" sectionHeaderHeight="22" sectionFooterHeight="22" id="AVL-Cq-fnC">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
@@ -472,21 +579,19 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ST6-AQ-Lzk" id="NrB-qo-hY6">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vHd-KM-Ji6">
-                                            <rect key="frame" x="55" y="0.0" width="264" height="190"/>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vHd-KM-Ji6">
+                                            <rect key="frame" x="-5" y="0.0" width="198" height="190"/>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF1-ua-sb0">
-                                            <rect key="frame" x="45" y="-6" width="284" height="50"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF1-ua-sb0">
+                                            <rect key="frame" x="197" y="-4" width="178" height="198"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                             <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="centerX" secondItem="nF1-ua-sb0" secondAttribute="centerX" id="Gcv-cC-4sG"/>
-                                        <constraint firstItem="nF1-ua-sb0" firstAttribute="leading" secondItem="NrB-qo-hY6" secondAttribute="leadingMargin" constant="37" id="QNB-1g-1nj"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="nF1-ua-sb0" secondAttribute="trailing" constant="38" id="cgB-Cx-fer"/>
-                                        <constraint firstItem="nF1-ua-sb0" firstAttribute="top" secondItem="NrB-qo-hY6" secondAttribute="topMargin" id="hTL-1V-ltT"/>
+                                        <constraint firstItem="nF1-ua-sb0" firstAttribute="leading" secondItem="vHd-KM-Ji6" secondAttribute="trailing" constant="4" id="FMe-Qh-aL0"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="nF1-ua-sb0" secondAttribute="trailing" constant="-8" id="fA7-6s-mmK"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -590,7 +695,8 @@
         <image name="Food-Icon.png" width="329" height="326"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uaa-DH-cPz"/>
+        <segue reference="TMY-Oo-8nQ"/>
+        <segue reference="V3o-Zc-gtP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

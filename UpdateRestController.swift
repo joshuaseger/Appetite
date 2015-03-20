@@ -28,6 +28,10 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var dollarSigns: UILabel!
     @IBOutlet var slider: UISlider!
     
+    @IBAction func descriptionSegue(sender: AnyObject) {
+        self.performSegueWithIdentifier("descriptionSegue", sender: nil)
+    }
+  
     @IBAction func valueChanged(sender: AnyObject) {
         
         var currentValue = slider.value
@@ -126,7 +130,7 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
     currentLocation = userLocation
     
     
-    
+
     
     }
 

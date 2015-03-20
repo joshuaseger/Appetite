@@ -37,6 +37,7 @@
 		241668FA1AB7AB7E003E21BD /* dish5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 241668F61AB7AB7E003E21BD /* dish5.jpg */; };
 		241668FC1AB7ABE0003E21BD /* Food-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 241668FB1AB7ABE0003E21BD /* Food-Icon.png */; };
 		241668FE1AB7B7BB003E21BD /* PostsNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241668FD1AB7B7BB003E21BD /* PostsNavController.swift */; };
+		242BF88A1ABBB22F00DCF6DA /* UpdateDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242BF8891ABBB22F00DCF6DA /* UpdateDescriptionController.swift */; };
 		244A0C901AB91E07000CAE30 /* dish6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 244A0C8F1AB91E07000CAE30 /* dish6.jpg */; };
 		24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24528ED91AA03B2F005253F3 /* SignupViewController.swift */; };
 		24A19FCD1AA7B12E008A02A7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */; };
@@ -94,6 +95,7 @@
 		241668F61AB7AB7E003E21BD /* dish5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish5.jpg; sourceTree = "<group>"; };
 		241668FB1AB7ABE0003E21BD /* Food-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Food-Icon.png"; sourceTree = "<group>"; };
 		241668FD1AB7B7BB003E21BD /* PostsNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsNavController.swift; path = ../PostsNavController.swift; sourceTree = "<group>"; };
+		242BF8891ABBB22F00DCF6DA /* UpdateDescriptionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateDescriptionController.swift; path = ../UpdateDescriptionController.swift; sourceTree = "<group>"; };
 		244A0C8F1AB91E07000CAE30 /* dish6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish6.jpg; sourceTree = "<group>"; };
 		24528ED91AA03B2F005253F3 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = ../SignupViewController.swift; sourceTree = "<group>"; };
 		24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 				24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */,
 				241668F01AB7AA56003E21BD /* PostViewController.swift */,
 				24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */,
+				242BF8891ABBB22F00DCF6DA /* UpdateDescriptionController.swift */,
 				24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */,
 				24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */,
 				24528ED91AA03B2F005253F3 /* SignupViewController.swift */,
@@ -347,6 +350,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				241668F11AB7AA56003E21BD /* PostViewController.swift in Sources */,
+				242BF88A1ABBB22F00DCF6DA /* UpdateDescriptionController.swift in Sources */,
 				24CCAAC91AAA6C7900A8945E /* Model.swift in Sources */,
 				24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */,
 				241668FE1AB7B7BB003E21BD /* PostsNavController.swift in Sources */,
