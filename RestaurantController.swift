@@ -27,7 +27,7 @@ class RestaurantController: UIViewController {
         super.viewDidLoad()
         var name: String! = user["name"] as String!
         var description: String! = user["description"] as String!
-        if name != nil
+     if name != nil
         {
             restaurantName.text = name
         }

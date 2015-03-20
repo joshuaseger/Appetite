@@ -327,6 +327,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="56M-ee-1zH">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bmh-HW-WAS">
                                 <rect key="frame" x="84" y="192" width="152" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -379,9 +382,6 @@
                                     <action selector="signupRestaurant:" destination="oRN-Rl-5uu" eventType="touchUpInside" id="iez-3b-Wb4"/>
                                 </connections>
                             </button>
-                            <imageView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="2.jpg" translatesAutoresizingMaskIntoConstraints="NO" id="56M-ee-1zH">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
-                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -460,7 +460,7 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU8-Xe-SXe">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU8-Xe-SXe">
                                 <rect key="frame" x="70" y="124" width="235" height="156"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -491,14 +491,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prk-eB-Not">
-                                <rect key="frame" x="16" y="71" width="343" height="166"/>
-                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
-                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                            </textView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOk-vR-JWf">
                                 <rect key="frame" x="110" y="39" width="141" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -549,6 +541,14 @@
                                     <segue destination="VSA-OW-fcZ" kind="show" identifier="back2Update" id="TMY-Oo-8nQ"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prk-eB-Not">
+                                <rect key="frame" x="16" y="71" width="343" height="166"/>
+                                <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -595,10 +595,13 @@
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ST6-AQ-Lzk" id="NrB-qo-hY6">
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vHd-KM-Ji6">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vHd-KM-Ji6">
                                             <rect key="frame" x="-5" y="0.0" width="198" height="190"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="198" id="H9f-Jp-F0K"/>
+                                            </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF1-ua-sb0">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF1-ua-sb0">
                                             <rect key="frame" x="197" y="-4" width="178" height="198"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
                                             <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -606,8 +609,12 @@
                                         </label>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstItem="vHd-KM-Ji6" firstAttribute="centerY" secondItem="nF1-ua-sb0" secondAttribute="centerY" id="5ml-XA-9ti"/>
+                                        <constraint firstItem="vHd-KM-Ji6" firstAttribute="top" secondItem="NrB-qo-hY6" secondAttribute="top" id="8ln-ya-caN"/>
+                                        <constraint firstItem="vHd-KM-Ji6" firstAttribute="leading" secondItem="NrB-qo-hY6" secondAttribute="leadingMargin" constant="-13" id="D22-Mr-HFW"/>
                                         <constraint firstItem="nF1-ua-sb0" firstAttribute="leading" secondItem="vHd-KM-Ji6" secondAttribute="trailing" constant="4" id="FMe-Qh-aL0"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="nF1-ua-sb0" secondAttribute="trailing" constant="-8" id="fA7-6s-mmK"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vHd-KM-Ji6" secondAttribute="bottom" constant="-8.5" id="xhV-O8-qA7"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -622,13 +629,15 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Dish Posts" id="qmq-pX-G8M">
-                        <barButtonItem key="leftBarButtonItem" title="Logout" id="Mx3-Uf-9i6"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DSA-EY-bi7">
                             <connections>
                                 <segue destination="p8n-bT-vXP" kind="show" id="phb-vW-KeJ"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="tableViewPosts" destination="AVL-Cq-fnC" id="FxG-J1-w6H"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHs-nB-dlK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -711,8 +720,8 @@
         <image name="Food-Icon.png" width="329" height="326"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="uaa-DH-cPz"/>
         <segue reference="O5F-q4-0OT"/>
-        <segue reference="V3o-Zc-gtP"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -10,6 +10,7 @@ import UIKit
 
 class PostsListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
+    @IBOutlet var tableViewPosts: UITableView!
     internal var index: Int = 0;
     let user = PFUser.currentUser();
     internal var PostList: [AnyObject]! = []
@@ -32,23 +33,26 @@ class PostsListController: UIViewController, UITableViewDataSource, UITableViewD
                 
             }
             println("\(self.PostList) Inside the scope");
-            //self.dishNamesPostList changes are bound to this scope
+            //self.dishNamesPostList changes are bound to this scope  
+            self.tableViewPosts.reloadData()
         }
-        println("\(self.PostList) Outside the scope");
+        
         
         // Do any additional setup after loading the view.
+        
+    
         
  
     }
 
+    
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-     return 190
-    }
+  
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1

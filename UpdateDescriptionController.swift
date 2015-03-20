@@ -16,6 +16,7 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
 
     @IBOutlet var profilePic: UIImageView!
     @IBOutlet var descriptionText: UITextView!
+    
     @IBAction func backButton(sender: AnyObject) {
         self.performSegueWithIdentifier("back2Update", sender: nil)
     }
