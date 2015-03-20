@@ -10,7 +10,9 @@ import UIKit
 
 class RestaurantController: UIViewController {
 
-    
+    let user: PFUser = PFUser.currentUser()
+    @IBOutlet var restaurantName: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
     @IBAction func UpdateButton(sender: AnyObject) {
         self.performSegueWithIdentifier("UpdateRestSegue", sender: nil)
     }
@@ -23,6 +25,22 @@ class RestaurantController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        var name: String! = user["name"] as String!
+        var description: String! = user["description"] as String!
+        if name != nil
+        {
+            restaurantName.text = name
+        }
+        else {
+            restaurantName.text = ""
+        }
+        if description != nil
+        {
+            descriptionLabel.text = description
+        }
+        else {
+            descriptionLabel.text = ""
+        }
         
         // Do any additional setup after loading the view.
     }
