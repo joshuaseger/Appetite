@@ -99,6 +99,7 @@
                             <constraint firstAttribute="centerX" secondItem="Dre-ns-dZN" secondAttribute="centerX" id="cYw-e6-ScH"/>
                             <constraint firstAttribute="centerX" secondItem="TlY-5R-jM1" secondAttribute="centerX" id="ei9-3Z-lxh"/>
                             <constraint firstItem="kKB-qa-KPN" firstAttribute="top" secondItem="13g-TW-CQA" secondAttribute="bottom" constant="47" id="fAc-qx-gcm"/>
+                            <constraint firstAttribute="centerX" secondItem="kKB-qa-KPN" secondAttribute="centerX" id="g4Y-nU-eQM"/>
                             <constraint firstAttribute="centerX" secondItem="13g-TW-CQA" secondAttribute="centerX" id="gFa-8v-ovV"/>
                             <constraint firstItem="Dre-ns-dZN" firstAttribute="top" secondItem="BAe-IK-wVC" secondAttribute="bottom" constant="8" id="gGe-dR-hZg"/>
                             <constraint firstAttribute="centerX" secondItem="kKB-qa-KPN" secondAttribute="centerX" id="jfG-OO-GMo"/>
@@ -601,9 +602,9 @@
                                                 <constraint firstAttribute="width" constant="198" id="H9f-Jp-F0K"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF1-ua-sb0">
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF1-ua-sb0">
                                             <rect key="frame" x="197" y="-4" width="178" height="198"/>
-                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="22"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
@@ -695,7 +696,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9el-IV-r0L" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2345.5" y="792.5"/>
+            <point key="canvasLocation" x="2358.5" y="775.5"/>
         </scene>
         <!--PostsNavController-->
         <scene sceneID="rzb-AT-a8U">

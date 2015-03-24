@@ -11,9 +11,11 @@ import UIKit
 class PostsListController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet var tableViewPosts: UITableView!
-    internal var index: Int = 0;
+   // internal var index: Int = 0;
     let user = PFUser.currentUser();
-    internal var PostList: [AnyObject]! = []
+    var dishName = [String]();
+    var imageFiles = [PFFile]();
+    var numRows: Int = 0
     
     override func viewDidLoad()  {
         super.viewDidLoad()
@@ -26,14 +28,13 @@ class PostsListController: UIViewController, UITableViewDataSource, UITableViewD
                 // There was an error
             } else {
                 for post in Posts{
-                    //  var dishName: String = post["DishName"] as String
-                    self.PostList.append(post)
-                    
+                    self.dishName.append(post["DishName"] as String);
+                    self.imageFiles.append(post["imageFile"] as PFFile);
                 }
                 
             }
-            println("\(self.PostList) Inside the scope");
-            //self.dishNamesPostList changes are bound to this scope  
+     
+            self.numRows = Posts.count
             self.tableViewPosts.reloadData()
         }
         
@@ -59,25 +60,34 @@ class PostsListController: UIViewController, UITableViewDataSource, UITableViewD
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return numRows
     }
     
     //Use OOP Principles to manage elements within cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
         var cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as? PostsTableViewCell
         if ( cell == nil){
             var cell = PostsTableViewCell  (
                 style: UITableViewCellStyle.Default, reuseIdentifier: "myCell") as PostsTableViewCell
             
         }
-        println("\(index) = OUR INDEX")
-       println(" \(PostList.count) IS CURRENT PostList COUNT")
-       println(PostList)
-       cell!.nameOfDish.text = "hello"
-        cell!.cellImage.image = UIImage(named: "Food-Icon")
+       
+       
+     println(indexPath)
+ 
+       cell!.nameOfDish.text = dishName[indexPath.row]
+        
+        imageFiles[indexPath.row].getDataInBackgroundWithBlock{
+            (imageData: NSData!, error: NSError!) -> Void in
+            if (error == nil){
+         let image = UIImage(data: imageData)
+                cell!.cellImage.image = image;
+            }
+        }
         cell!.sizeToFit()
-        index = index + 1
-        return cell!
+
+            return cell!
     }
 
 }
