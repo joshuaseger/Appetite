@@ -38,22 +38,18 @@ class PostsListController: UIViewController, UITableViewDataSource, UITableViewD
             self.tableViewPosts.reloadData()
         }
         
-        
         // Do any additional setup after loading the view.
-        
-    
-        
- 
     }
 
-    
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
    
-  
+    
+  func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    return 190
+    }
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -65,15 +61,12 @@ class PostsListController: UIViewController, UITableViewDataSource, UITableViewD
     
     //Use OOP Principles to manage elements within cell
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        
         var cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as? PostsTableViewCell
         if ( cell == nil){
             var cell = PostsTableViewCell  (
-                style: UITableViewCellStyle.Default, reuseIdentifier: "myCell") as PostsTableViewCell
+                style: UITableViewCellStyle.Default, reuseIdentifier: "myCell") as PostsTableViewCell;
             
         }
-       
-       
      println(indexPath)
  
        cell!.nameOfDish.text = dishName[indexPath.row]
@@ -85,9 +78,7 @@ class PostsListController: UIViewController, UITableViewDataSource, UITableViewD
                 cell!.cellImage.image = image;
             }
         }
-        cell!.sizeToFit()
-
+  
             return cell!
     }
-
 }

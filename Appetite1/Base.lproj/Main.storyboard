@@ -63,7 +63,6 @@
                                 </state>
                                 <connections>
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ksR-w8-Xv4"/>
-                                    <segue destination="Kg7-YP-XH6" kind="show" identifier="RestaurantLogin" id="uaa-DH-cPz"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dre-ns-dZN">
@@ -72,11 +71,6 @@
                                 <state key="normal" title="Sign Up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="oRN-Rl-5uu" kind="popoverPresentation" popoverAnchorView="Dre-ns-dZN" id="yez-qo-onH">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -114,6 +108,8 @@
                     <connections>
                         <outlet property="password" destination="fbI-gD-i6W" id="Bbk-cx-STU"/>
                         <outlet property="username" destination="kKB-qa-KPN" id="kZz-Jh-r2e"/>
+                        <segue destination="Kg7-YP-XH6" kind="show" identifier="RestaurantLoginSegue" id="p1m-4b-kjt"/>
+                        <segue destination="Y50-Eg-l3O" kind="show" identifier="DinerLoginSegue" id="tfz-lj-DUB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -365,7 +361,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signupUser:" destination="oRN-Rl-5uu" eventType="touchUpInside" id="9BH-sE-Vg5"/>
-                                    <segue destination="Y50-Eg-l3O" kind="show" identifier="ProfileViewController" id="uX9-fY-nPP"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Sign up" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qls-OY-Whi">
@@ -455,24 +450,32 @@
                                     <segue destination="4XY-jN-aHN" kind="show" identifier="PostListSegue" id="sKI-CA-b03"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU8-Xe-SXe">
+                                <rect key="frame" x="70" y="124" width="235" height="128"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="# of Dishes" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="E2G-9v-WD1">
+                                <rect key="frame" x="39" y="260" width="320" height="121"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurant Name" textAlignment="center" lineBreakMode="wordWrap" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z21-xv-vci">
                                 <rect key="frame" x="39" y="28" width="286" height="95"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="22"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="top" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="8" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iU8-Xe-SXe">
-                                <rect key="frame" x="70" y="124" width="235" height="156"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="vNH-tk-lK5"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
                         <outlet property="descriptionLabel" destination="iU8-Xe-SXe" id="fP9-aT-6Fl"/>
+                        <outlet property="numberPostsLabel" destination="E2G-9v-WD1" id="X7e-jT-Bzm"/>
                         <outlet property="restaurantName" destination="z21-xv-vci" id="2aD-Vk-HdR"/>
                     </connections>
                 </viewController>
@@ -495,7 +498,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Description" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AOk-vR-JWf">
                                 <rect key="frame" x="110" y="39" width="141" height="35"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ayf-8a-WCb">
@@ -602,20 +605,22 @@
                                                 <constraint firstAttribute="width" constant="198" id="H9f-Jp-F0K"/>
                                             </constraints>
                                         </imageView>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF1-ua-sb0">
-                                            <rect key="frame" x="197" y="-4" width="178" height="198"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nF1-ua-sb0">
+                                            <rect key="frame" x="197" y="-4" width="170" height="200"/>
                                             <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                             <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="vHd-KM-Ji6" firstAttribute="centerY" secondItem="nF1-ua-sb0" secondAttribute="centerY" id="5ml-XA-9ti"/>
-                                        <constraint firstItem="vHd-KM-Ji6" firstAttribute="top" secondItem="NrB-qo-hY6" secondAttribute="top" id="8ln-ya-caN"/>
-                                        <constraint firstItem="vHd-KM-Ji6" firstAttribute="leading" secondItem="NrB-qo-hY6" secondAttribute="leadingMargin" constant="-13" id="D22-Mr-HFW"/>
-                                        <constraint firstItem="nF1-ua-sb0" firstAttribute="leading" secondItem="vHd-KM-Ji6" secondAttribute="trailing" constant="4" id="FMe-Qh-aL0"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="nF1-ua-sb0" secondAttribute="trailing" constant="-8" id="fA7-6s-mmK"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="vHd-KM-Ji6" secondAttribute="bottom" constant="-8.5" id="xhV-O8-qA7"/>
+                                        <constraint firstItem="nF1-ua-sb0" firstAttribute="leading" secondItem="vHd-KM-Ji6" secondAttribute="trailing" constant="4" id="46i-k1-jbJ"/>
+                                        <constraint firstItem="vHd-KM-Ji6" firstAttribute="top" secondItem="NrB-qo-hY6" secondAttribute="topMargin" constant="-8" id="Hr0-pW-8bI"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="vHd-KM-Ji6" secondAttribute="bottom" constant="-8" id="LwN-sb-adH"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="nF1-ua-sb0" secondAttribute="bottom" constant="-14" id="Prh-sc-M1R"/>
+                                        <constraint firstItem="vHd-KM-Ji6" firstAttribute="leading" secondItem="NrB-qo-hY6" secondAttribute="leadingMargin" constant="-13" id="aGT-EQ-Ou1"/>
+                                        <constraint firstItem="nF1-ua-sb0" firstAttribute="top" secondItem="NrB-qo-hY6" secondAttribute="topMargin" constant="-12" id="fTj-RI-DwE"/>
+                                        <constraint firstItem="nF1-ua-sb0" firstAttribute="trailing" secondItem="NrB-qo-hY6" secondAttribute="trailingMargin" id="pCs-LF-Rs2"/>
+                                        <constraint firstItem="nF1-ua-sb0" firstAttribute="leading" secondItem="vHd-KM-Ji6" secondAttribute="trailing" constant="4" id="rRl-xn-AHv"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -642,7 +647,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHs-nB-dlK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814.5" y="792.5"/>
+            <point key="canvasLocation" x="1582.5" y="811.5"/>
         </scene>
         <!--Create Dish Post-->
         <scene sceneID="iy8-NB-eNf">
@@ -701,6 +706,7 @@
         <!--PostsNavController-->
         <scene sceneID="rzb-AT-a8U">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xn6-Gk-1RD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="PostsNavController" id="4XY-jN-aHN" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kgy-UC-6e4">
@@ -711,7 +717,6 @@
                         <segue destination="vnv-mM-8sQ" kind="relationship" relationship="rootViewController" id="pZK-9g-A92"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xn6-Gk-1RD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1130" y="824"/>
         </scene>
@@ -721,7 +726,7 @@
         <image name="Food-Icon.png" width="329" height="326"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="uaa-DH-cPz"/>
+        <segue reference="p1m-4b-kjt"/>
         <segue reference="O5F-q4-0OT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>

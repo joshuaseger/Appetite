@@ -25,13 +25,11 @@ class ViewController: UIViewController {
         }
     }
    */
-    
-
 
     @IBOutlet var password: UITextField!
     @IBOutlet var username: UITextField!
     
-    func displayError(title:String,error:String)
+    func displayError(title:String, error:String)
     {
         var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
@@ -63,10 +61,10 @@ class ViewController: UIViewController {
                         
                       var role: AnyObject! = PFUser.currentUser().objectForKey("role")
                         if role as NSString == "diner" {
-                        self.performSegueWithIdentifier("ProfileSegue", sender: nil)
+                        self.performSegueWithIdentifier("DinerLoginSegue", sender: nil)
                         }
                         else {
-                            self.performSegueWithIdentifier("RestaurantSegue", sender: nil)
+                            self.performSegueWithIdentifier("RestaurantLoginSegue", sender: nil)
                         }
               
                   

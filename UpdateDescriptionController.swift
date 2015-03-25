@@ -14,6 +14,8 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
     let user = PFUser.currentUser()
     var photoSelected:Bool = false
 
+    
+
     @IBOutlet var profilePic: UIImageView!
     @IBOutlet var descriptionText: UITextView!
     
@@ -122,10 +124,12 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
     {
         var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
-            self.dismissViewControllerAnimated(true, completion: nil)
+            alert.dismissViewControllerAnimated(true, completion: nil)
+            self.viewDidLoad()
             
         }))
         self.presentViewController(alert, animated: true, completion: nil)
+        
     }
 
     
@@ -138,9 +142,24 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
     }
         
     override func viewDidLoad() {
+        
+        
+      
+        var imageFile = user["profilePic"] as PFFile
+        imageFile.getDataInBackgroundWithBlock{
+            (imageData: NSData!, error: NSError!) -> Void in
+            if (error == nil){
+                let image = UIImage(data: imageData)
+               self.profilePic.image = image
+            }
+        }
+        
+        
+        
+        
         photoSelected = false
         descriptionText.text = ""
-        profilePic.image = UIImage(named: "Food-Icon.png")
+        
         var description = user["description"] as String!
         if description != nil
         {

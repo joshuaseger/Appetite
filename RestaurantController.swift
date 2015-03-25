@@ -11,7 +11,9 @@ import UIKit
 class RestaurantController: UIViewController {
 
     let user: PFUser = PFUser.currentUser()
+    var numberOfPosts: Int = 0;
     @IBOutlet var restaurantName: UILabel!
+    @IBOutlet var numberPostsLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBAction func UpdateButton(sender: AnyObject) {
         self.performSegueWithIdentifier("UpdateRestSegue", sender: nil)
@@ -23,8 +25,32 @@ class RestaurantController: UIViewController {
         self.performSegueWithIdentifier("PostsNavController", sender: nil)
     }
     
+    override func viewWillAppear(animated: Bool) {
+    
+     
+        //Query to find number of Posts a Restaurant user has posted on Appetite.
+        var relation = user.relationForKey("PostList")
+        relation.query().findObjectsInBackgroundWithBlock{
+            (Posts: [AnyObject]!, error: NSError!) -> Void in
+            if error != nil {
+                // There was an error
+            } else {
+                for post in Posts{
+                    self.numberOfPosts++;
+                }
+                self.numberPostsLabel.text = "# of dishes posted: \(self.numberOfPosts)"
+            }
+        }
+        
+     
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+       
+
+        
         var name: String! = user["name"] as String!
         var description: String! = user["description"] as String!
      if name != nil
@@ -41,9 +67,11 @@ class RestaurantController: UIViewController {
         else {
             descriptionLabel.text = ""
         }
-        
+    
         // Do any additional setup after loading the view.
     }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
