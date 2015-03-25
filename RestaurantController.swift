@@ -20,6 +20,7 @@ class RestaurantController: UIViewController {
     }
     
 
+    @IBOutlet var ProfilePic: UIImageView!
     @IBAction func PostButton(sender: AnyObject) {
         
         self.performSegueWithIdentifier("PostsNavController", sender: nil)
@@ -35,9 +36,7 @@ class RestaurantController: UIViewController {
             if error != nil {
                 // There was an error
             } else {
-                for post in Posts{
-                    self.numberOfPosts++;
-                }
+                self.numberOfPosts = Posts.count;
                 self.numberPostsLabel.text = "# of dishes posted: \(self.numberOfPosts)"
             }
         }
@@ -47,7 +46,16 @@ class RestaurantController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        
+        //Code chunk used to retrieve and display a single image from Parse
+        var imageFile = user["profilePic"] as PFFile
+        imageFile.getDataInBackgroundWithBlock{
+            (imageData: NSData!, error: NSError!) -> Void in
+            if (error == nil){
+                let image = UIImage(data: imageData)
+                self.ProfilePic.image = image
+            }
+        }
        
 
         

@@ -142,9 +142,8 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
     }
         
     override func viewDidLoad() {
-        
-        
       
+        //Code chunk used to retrieve and display a single image from Parse
         var imageFile = user["profilePic"] as PFFile
         imageFile.getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in
@@ -154,9 +153,6 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
             }
         }
         
-        
-        
-        
         photoSelected = false
         descriptionText.text = ""
         
@@ -165,10 +161,6 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
         {
             descriptionText.text = description
         }
-    
-       
-     
-        
         
         // Do any additional setup after loading the view.
     }
