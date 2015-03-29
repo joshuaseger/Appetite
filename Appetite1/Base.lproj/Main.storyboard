@@ -546,7 +546,9 @@
                                 </state>
                                 <connections>
                                     <action selector="backButton:" destination="Eq7-Qm-HBG" eventType="touchUpInside" id="4d9-fo-Met"/>
-                                    <segue destination="VSA-OW-fcZ" kind="show" identifier="back2Update" id="TMY-Oo-8nQ"/>
+                                    <segue destination="VSA-OW-fcZ" kind="popoverPresentation" identifier="back2Update" popoverAnchorView="6v0-kF-cJ9" id="oaE-yH-bDB">
+                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
+                                    </segue>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prk-eB-Not">
@@ -569,25 +571,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="t1D-zl-oRF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1735.5" y="-89.5"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="PeW-Hs-mn7">
-            <objects>
-                <viewController id="rNt-5Z-zOX" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="UEi-kN-UaP"/>
-                        <viewControllerLayoutGuide type="bottom" id="630-F7-KML"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="E8a-rx-nWV">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tzc-Ts-X4T" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2253" y="28"/>
         </scene>
         <!--PostsListController-->
         <scene sceneID="Jk3-Vx-3Oa">
@@ -735,7 +718,7 @@
         <image name="Food-Icon.png" width="329" height="326"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="O5F-q4-0OT"/>
+        <segue reference="oaE-yH-bDB"/>
         <segue reference="1LA-hu-q7g"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
