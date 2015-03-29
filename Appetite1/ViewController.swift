@@ -86,13 +86,6 @@ class ViewController: UIViewController {
     
         //Prints current user to logs for automatic login
         println(PFUser.currentUser())
-        //Background image
-        let image1 = UIImage(named: "/Users/joshuaseger/Desktop/Appetite1/Appetite1/Backgrounds/main.jpg")
-        let imageview = UIImageView(image: image1)
-        imageview.contentMode = UIViewContentMode.ScaleAspectFill
-        self.view.addSubview(imageview)
-        self.view.sendSubviewToBack(imageview)
-        imageview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
         // Do any additional setup after loading the view, typically from a nib.
     }
 
