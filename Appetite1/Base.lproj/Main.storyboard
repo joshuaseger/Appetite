@@ -639,6 +639,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Dish Posts" id="qmq-pX-G8M">
+                        <barButtonItem key="leftBarButtonItem" title="Back" id="5l0-c1-8uz">
+                            <connections>
+                                <segue destination="Kg7-YP-XH6" kind="show" id="1LA-hu-q7g"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DSA-EY-bi7">
                             <connections>
                                 <segue destination="p8n-bT-vXP" kind="show" id="phb-vW-KeJ"/>
@@ -651,7 +656,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHs-nB-dlK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1582.5" y="811.5"/>
+            <point key="canvasLocation" x="1805.5" y="921.5"/>
         </scene>
         <!--Create Dish Post-->
         <scene sceneID="iy8-NB-eNf">
@@ -710,7 +715,6 @@
         <!--PostsNavController-->
         <scene sceneID="rzb-AT-a8U">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xn6-Gk-1RD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController title="PostsNavController" id="4XY-jN-aHN" sceneMemberID="viewController">
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="kgy-UC-6e4">
@@ -721,6 +725,7 @@
                         <segue destination="vnv-mM-8sQ" kind="relationship" relationship="rootViewController" id="pZK-9g-A92"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xn6-Gk-1RD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1130" y="824"/>
         </scene>
@@ -730,8 +735,8 @@
         <image name="Food-Icon.png" width="329" height="326"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p1m-4b-kjt"/>
         <segue reference="O5F-q4-0OT"/>
+        <segue reference="1LA-hu-q7g"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

@@ -44,9 +44,12 @@ class RestaurantController: UIViewController {
      
     }
     
+ 
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+       self.navigationController?.navigationBarHidden = true
         //Code chunk used to retrieve and display a single image from Parse
         var imageFile = user["profilePic"] as PFFile
         imageFile.getDataInBackgroundWithBlock{

@@ -95,6 +95,7 @@ class SignupViewController: UIViewController {
             user.username = username.text
             user.password = password.text
             
+       
             user.signUpInBackgroundWithBlock({(succeeded: Bool!, signupError: NSError!) -> Void in
                 if signupError == nil {
                     
