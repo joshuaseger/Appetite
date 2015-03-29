@@ -13,8 +13,7 @@ class PostsTableViewCell: UITableViewCell {
     @IBOutlet var cellImage: UIImageView!
     @IBOutlet var nameOfDish: UILabel!
 
-    
-    
+
     override func awakeFromNib() {
 
         super.awakeFromNib()

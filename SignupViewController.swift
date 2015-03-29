@@ -11,31 +11,12 @@ import UIKit
 class SignupViewController: UIViewController {
     
 
-    
-    @IBAction func Back(sender: AnyObject) {
-    
-        
-       self.dismissViewControllerAnimated(true, completion: nil)
-        
-    }
-
-    
-    
-    func displayError(title:String,error:String)
-    {
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
-            self.dismissViewControllerAnimated(true, completion: nil)
-            
-        }))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    
     @IBOutlet var username: UITextField!
     @IBOutlet var password: UITextField!
-    
-    
+    @IBAction func Back(sender: AnyObject) {
+       self.dismissViewControllerAnimated(true, completion: nil)
+    }
+
     @IBAction func signupRestaurant(sender: AnyObject) {
         
         var error = ""
@@ -116,18 +97,19 @@ class SignupViewController: UIViewController {
                     self.displayError("Could not sign up!", error: error)
                 }
             })
-            
         }
-        
     }
-        
-        
-        
     
- 
-
-
-
+    func displayError(title:String,error:String)
+    {
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
   override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -135,6 +117,15 @@ class SignupViewController: UIViewController {
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
+    }
+    
+    @IBAction func textFieldDoneEditing(sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func backgroundTap(sender: UIControl) {
+        username.resignFirstResponder()
+        password.resignFirstResponder()
     }
     
 }

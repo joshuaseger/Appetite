@@ -9,6 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
+    
  /* These fields and methods will help provide for automatic login using iOS keychain
     
     let service = "swiftLogin"
@@ -80,8 +81,6 @@ class ViewController: UIViewController {
         }
     }
     
-  
-  
     override func viewDidLoad() {
         super.viewDidLoad()
     
@@ -93,21 +92,24 @@ class ViewController: UIViewController {
         imageview.contentMode = UIViewContentMode.ScaleAspectFill
         self.view.addSubview(imageview)
         self.view.sendSubviewToBack(imageview)
-imageview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
+        imageview.frame = CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)
         // Do any additional setup after loading the view, typically from a nib.
-    }
-    
-override func viewDidAppear(animated: Bool) {
-  
-    
-    
-    
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    @IBAction func textFieldDoneEditing(sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func backgroundTap(sender: UIControl) {
+       password.resignFirstResponder()
+        username.resignFirstResponder()
+    }
+    
 }
 
 

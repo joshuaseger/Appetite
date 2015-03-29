@@ -13,20 +13,10 @@
                         <viewControllerLayoutGuide type="top" id="jyV-Pf-zRb"/>
                         <viewControllerLayoutGuide type="bottom" id="2fi-mo-0CV"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS">
+                    <view key="view" contentMode="scaleToFill" id="kh9-bI-dsS" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="or" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BAe-IK-wVC">
-                                <rect key="frame" x="141" y="255" width="38" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="21" id="6Xx-Go-c4Y"/>
-                                    <constraint firstAttribute="width" constant="38" id="kcl-dB-1N3"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fbI-gD-i6W">
                                 <rect key="frame" x="84" y="180" width="152" height="30"/>
                                 <constraints>
@@ -34,16 +24,10 @@
                                     <constraint firstAttribute="height" constant="30" id="bTZ-ol-l0d"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kKB-qa-KPN">
-                                <rect key="frame" x="84" y="128" width="152" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="152" id="IL4-KR-gEh"/>
-                                    <constraint firstAttribute="height" constant="30" id="iVX-Bn-FF1"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES" secureTextEntry="YES"/>
+                                <connections>
+                                    <action selector="textFieldDoneEditing:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="PAf-N5-VvR"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="App-etite" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="13g-TW-CQA">
                                 <rect key="frame" x="89" y="39" width="142" height="42"/>
@@ -65,28 +49,37 @@
                                     <action selector="login:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="ksR-w8-Xv4"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dre-ns-dZN">
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Dre-ns-dZN">
                                 <rect key="frame" x="114" y="284" width="92" height="42"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                 <state key="normal" title="Sign Up">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
+                                <connections>
+                                    <segue destination="oRN-Rl-5uu" kind="presentation" id="CXd-6O-b78"/>
+                                </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="kKB-qa-KPN">
+                                <rect key="frame" x="84" y="128" width="152" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="152" id="IL4-KR-gEh"/>
+                                    <constraint firstAttribute="height" constant="30" id="iVX-Bn-FF1"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="textFieldDoneEditing:" destination="vXZ-lx-hvc" eventType="editingDidEndOnExit" id="hdP-gP-SIa"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="BAe-IK-wVC" secondAttribute="centerX" id="0FP-dr-JNG"/>
                             <constraint firstAttribute="trailingMargin" secondItem="TlY-5R-jM1" secondAttribute="trailing" constant="101" id="6j8-gT-DTY"/>
                             <constraint firstAttribute="centerX" secondItem="fbI-gD-i6W" secondAttribute="centerX" id="7hZ-9A-PqX"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Dre-ns-dZN" secondAttribute="trailing" constant="98" id="CeF-Uw-vDi"/>
                             <constraint firstItem="Dre-ns-dZN" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="98" id="InD-mo-WDp"/>
-                            <constraint firstAttribute="centerX" secondItem="BAe-IK-wVC" secondAttribute="centerX" id="OE0-n2-aRU"/>
-                            <constraint firstItem="BAe-IK-wVC" firstAttribute="top" secondItem="TlY-5R-jM1" secondAttribute="bottom" constant="3" id="P8m-H9-45u"/>
                             <constraint firstItem="2fi-mo-0CV" firstAttribute="top" secondItem="Dre-ns-dZN" secondAttribute="bottom" constant="242" id="R6x-Hu-Y80"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="BAe-IK-wVC" secondAttribute="trailing" constant="125" id="S5k-a4-bB7"/>
                             <constraint firstItem="fbI-gD-i6W" firstAttribute="top" secondItem="kKB-qa-KPN" secondAttribute="bottom" constant="22" id="TOo-aK-Sll"/>
-                            <constraint firstItem="BAe-IK-wVC" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="125" id="WDg-Wm-dve"/>
-                            <constraint firstItem="BAe-IK-wVC" firstAttribute="top" secondItem="TlY-5R-jM1" secondAttribute="bottom" constant="3" id="WIN-kE-2KM"/>
                             <constraint firstItem="13g-TW-CQA" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="73" id="YVa-DJ-COh"/>
                             <constraint firstItem="TlY-5R-jM1" firstAttribute="leading" secondItem="kh9-bI-dsS" secondAttribute="leadingMargin" constant="101" id="Zrt-8F-HCf"/>
                             <constraint firstItem="TlY-5R-jM1" firstAttribute="top" secondItem="fbI-gD-i6W" secondAttribute="bottom" constant="8" id="b4m-A9-5Hx"/>
@@ -95,7 +88,6 @@
                             <constraint firstItem="kKB-qa-KPN" firstAttribute="top" secondItem="13g-TW-CQA" secondAttribute="bottom" constant="47" id="fAc-qx-gcm"/>
                             <constraint firstAttribute="centerX" secondItem="kKB-qa-KPN" secondAttribute="centerX" id="g4Y-nU-eQM"/>
                             <constraint firstAttribute="centerX" secondItem="13g-TW-CQA" secondAttribute="centerX" id="gFa-8v-ovV"/>
-                            <constraint firstItem="Dre-ns-dZN" firstAttribute="top" secondItem="BAe-IK-wVC" secondAttribute="bottom" constant="8" id="gGe-dR-hZg"/>
                             <constraint firstAttribute="centerX" secondItem="kKB-qa-KPN" secondAttribute="centerX" id="jfG-OO-GMo"/>
                             <constraint firstAttribute="trailingMargin" secondItem="13g-TW-CQA" secondAttribute="trailing" constant="73" id="kHl-ZU-AbM"/>
                             <constraint firstItem="TlY-5R-jM1" firstAttribute="top" secondItem="fbI-gD-i6W" secondAttribute="bottom" constant="8" id="lLy-yG-CZP"/>
@@ -103,6 +95,9 @@
                             <constraint firstItem="13g-TW-CQA" firstAttribute="top" secondItem="jyV-Pf-zRb" secondAttribute="bottom" constant="19" id="yyI-l1-bBQ"/>
                             <constraint firstItem="TlY-5R-jM1" firstAttribute="top" secondItem="fbI-gD-i6W" secondAttribute="bottom" constant="8" id="zb8-bA-vbe"/>
                         </constraints>
+                        <connections>
+                            <action selector="backgroundTap:" destination="vXZ-lx-hvc" eventType="touchDown" id="727-w6-SG1"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -173,7 +168,7 @@
                         <viewControllerLayoutGuide type="top" id="lFq-Cu-dXA"/>
                         <viewControllerLayoutGuide type="bottom" id="NTE-W2-BHL"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="YRt-dU-Ouh">
+                    <view key="view" contentMode="scaleToFill" id="YRt-dU-Ouh" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -186,7 +181,10 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="58O-Iu-Q7L">
                                 <rect key="frame" x="150" y="81" width="209" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="textFieldDoneEditing:" destination="VSA-OW-fcZ" eventType="editingDidEndOnExit" id="U4o-rD-e8t"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Restaurant Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2jk-eS-BpT">
                                 <rect key="frame" x="8" y="90" width="134" height="21"/>
@@ -239,12 +237,18 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2Ue-nL-hp2">
                                 <rect key="frame" x="150" y="115" width="209" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="textFieldDoneEditing:" destination="VSA-OW-fcZ" eventType="editingDidEndOnExit" id="CUn-yV-j6x"/>
+                                </connections>
                             </textField>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vz9-qT-Aun">
                                 <rect key="frame" x="150" y="150" width="209" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="textFieldDoneEditing:" destination="VSA-OW-fcZ" eventType="editingDidEndOnExit" id="ADM-Ot-YYp"/>
+                                </connections>
                             </textField>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="50" minValue="1" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="riH-1q-yz7">
                                 <rect key="frame" x="6" y="188" width="159" height="31"/>
@@ -274,7 +278,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Kg7-YP-XH6" kind="show" id="V3o-Zc-gtP"/>
+                                    <segue destination="Kg7-YP-XH6" kind="presentation" modalTransitionStyle="crossDissolve" id="V3o-Zc-gtP"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UOF-X6-QSQ">
@@ -295,6 +299,9 @@
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTap:" destination="VSA-OW-fcZ" eventType="touchDown" id="meJ-JJ-FBL"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -320,7 +327,7 @@
                         <viewControllerLayoutGuide type="top" id="Fcv-MT-mtL"/>
                         <viewControllerLayoutGuide type="bottom" id="ii1-g6-tlr"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="hFo-zm-KVt">
+                    <view key="view" contentMode="scaleToFill" id="hFo-zm-KVt" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -330,12 +337,10 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Username" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Bmh-HW-WAS">
                                 <rect key="frame" x="84" y="192" width="152" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IrS-Ed-oEp">
-                                <rect key="frame" x="84" y="244" width="152" height="30"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="textFieldDoneEditing:" destination="oRN-Rl-5uu" eventType="editingDidEndOnExit" id="7YT-Fi-kEO"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c3w-H0-4fm">
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -378,6 +383,14 @@
                                     <action selector="signupRestaurant:" destination="oRN-Rl-5uu" eventType="touchUpInside" id="iez-3b-Wb4"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="IrS-Ed-oEp">
+                                <rect key="frame" x="84" y="244" width="152" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="textFieldDoneEditing:" destination="oRN-Rl-5uu" eventType="editingDidEndOnExit" id="fbt-em-yTP"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -402,6 +415,9 @@
                             <constraint firstItem="BxB-PO-cY4" firstAttribute="top" secondItem="SYy-k4-Ehj" secondAttribute="bottom" constant="19" id="xqW-T5-Xpu"/>
                             <constraint firstItem="Qls-OY-Whi" firstAttribute="leading" secondItem="hFo-zm-KVt" secondAttribute="leadingMargin" constant="74" id="zzI-d6-EUG"/>
                         </constraints>
+                        <connections>
+                            <action selector="backgroundTap:" destination="oRN-Rl-5uu" eventType="touchDown" id="JXt-Or-G2Z"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
@@ -495,7 +511,7 @@
                         <viewControllerLayoutGuide type="top" id="MzA-kU-KJ2"/>
                         <viewControllerLayoutGuide type="bottom" id="GjN-G0-f31"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="9Fa-iT-rK4">
+                    <view key="view" contentMode="scaleToFill" id="9Fa-iT-rK4" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -546,9 +562,7 @@
                                 </state>
                                 <connections>
                                     <action selector="backButton:" destination="Eq7-Qm-HBG" eventType="touchUpInside" id="4d9-fo-Met"/>
-                                    <segue destination="VSA-OW-fcZ" kind="popoverPresentation" identifier="back2Update" popoverAnchorView="6v0-kF-cJ9" id="oaE-yH-bDB">
-                                        <popoverArrowDirection key="popoverArrowDirection" up="YES" down="YES" left="YES" right="YES"/>
-                                    </segue>
+                                    <segue destination="VSA-OW-fcZ" kind="presentation" identifier="back2Update" modalTransitionStyle="crossDissolve" id="oaE-yH-bDB"/>
                                 </connections>
                             </button>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="prk-eB-Not">
@@ -561,6 +575,9 @@
                             </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTap:" destination="Eq7-Qm-HBG" eventType="touchDown" id="v2J-XE-Qts"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -624,7 +641,7 @@
                     <navigationItem key="navigationItem" title="Dish Posts" id="qmq-pX-G8M">
                         <barButtonItem key="leftBarButtonItem" title="Back" id="5l0-c1-8uz">
                             <connections>
-                                <segue destination="Kg7-YP-XH6" kind="show" id="1LA-hu-q7g"/>
+                                <segue destination="Kg7-YP-XH6" kind="presentation" modalTransitionStyle="crossDissolve" id="1LA-hu-q7g"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="DSA-EY-bi7">
@@ -649,7 +666,7 @@
                         <viewControllerLayoutGuide type="top" id="SxV-lL-htq"/>
                         <viewControllerLayoutGuide type="bottom" id="VlG-br-1rD"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Rak-dU-QKq">
+                    <view key="view" contentMode="scaleToFill" id="Rak-dU-QKq" customClass="UIControl">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -680,10 +697,16 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name of Dish" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="yyK-bG-QyW">
                                 <rect key="frame" x="16" y="350" width="343" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="done" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <action selector="textFieldDoneEditing:" destination="p8n-bT-vXP" eventType="editingDidEndOnExit" id="Uhh-wm-Kmz"/>
+                                </connections>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <connections>
+                            <action selector="backgroundTap:" destination="p8n-bT-vXP" eventType="touchDown" id="2HE-Yo-PWd"/>
+                        </connections>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
                     <connections>
@@ -718,8 +741,8 @@
         <image name="Food-Icon.png" width="329" height="326"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="p1m-4b-kjt"/>
         <segue reference="oaE-yH-bDB"/>
-        <segue reference="1LA-hu-q7g"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

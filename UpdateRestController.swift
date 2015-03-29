@@ -11,8 +11,6 @@ import CoreLocation
 import MapKit
 class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
-
-    
     var locationManager = CLLocationManager()
     var currentLocation:CLLocation!
     @IBOutlet var latitude: UILabel!
@@ -71,19 +69,6 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
     }
     
-    
-    func displayAlertWithTitle(title: String, message: String){
-        let controller = UIAlertController(title: title,
-            message: message,
-            preferredStyle: .Alert)
-        controller.addAction(UIAlertAction(title: "OK",
-            style: .Default,
-            handler: nil))
-        presentViewController(controller, animated: true, completion: nil)
-    }
-
-    
-    
     @IBAction func CurrestPositionButton(sender: AnyObject) {
      //Create coordinates object
         var location = PFObject(className:"LocationObject")
@@ -103,13 +88,19 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 println(error)
             }
         }
-        
- 
-  
-        
-        
     }
     
+    func displayAlertWithTitle(title: String, message: String){
+        let controller = UIAlertController(title: title,
+            message: message,
+            preferredStyle: .Alert)
+        controller.addAction(UIAlertAction(title: "OK",
+            style: .Default,
+            handler: nil))
+        presentViewController(controller, animated: true, completion: nil)
+    }
+
+
    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
     var userLocation:CLLocation = locations[0] as CLLocation
     latitudeDegrees = userLocation.coordinate.latitude
@@ -200,6 +191,17 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+
+    
+    @IBAction func textFieldDoneEditing(sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func backgroundTap(sender: UIControl) {
+        restEmail.resignFirstResponder()
+        restName.resignFirstResponder()
+        restPhone.resignFirstResponder()
     }
 
 }

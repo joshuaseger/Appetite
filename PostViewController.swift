@@ -9,33 +9,10 @@
 import UIKit
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
-
-    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
-       let user = PFUser.currentUser()
     
-    
-    func displayError(title:String,error:String)
-    {
-        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
-            self.dismissViewControllerAnimated(true, completion: nil)
-            
-        }))
-        self.presentViewController(alert, animated: true, completion: nil)
-    }
-    
-    var photoSelected:Bool = false
-    
-     func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
-        
-        self.dismissViewControllerAnimated(true, completion: nil)
-        image2Post.image = image
-        photoSelected = true
-        
-    }
-    
+    @IBOutlet var nameOfDish: UITextField!
     @IBOutlet var image2Post: UIImageView!
-    
+    var photoSelected:Bool = false
     @IBAction func postImageButton(sender: AnyObject) {
         
         var image = UIImagePickerController()
@@ -45,8 +22,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
         self.presentViewController(image, animated: true, completion: nil)
     }
-    
-    @IBOutlet var nameOfDish: UITextField!
+
     
     @IBAction func createPost(sender: AnyObject) {
         
@@ -117,6 +93,28 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         
     }
+}
+
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    let user = PFUser.currentUser()
+    
+    
+    func displayError(title:String,error:String)
+    {
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
+            self.dismissViewControllerAnimated(true, completion: nil)
+            
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+        
+        self.dismissViewControllerAnimated(true, completion: nil)
+        image2Post.image = image
+        photoSelected = true
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -132,6 +130,13 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func textFieldDoneEditing(sender: UITextField) {
+        sender.resignFirstResponder()
+    }
+    
+    @IBAction func backgroundTap(sender: UIControl) {
+        nameOfDish.resignFirstResponder()
+    }
 
     /*
     UPDATE AN OBJECT QUERY

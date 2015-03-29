@@ -28,8 +28,7 @@ class RestaurantController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
     
-     
-        //Query to find number of Posts a Restaurant user has posted on Appetite.
+    //Query to find number of Posts a Restaurant user has posted on Appetite.
         var relation = user.relationForKey("PostList")
         relation.query().findObjectsInBackgroundWithBlock{
             (Posts: [AnyObject]!, error: NSError!) -> Void in
@@ -44,9 +43,6 @@ class RestaurantController: UIViewController {
      
     }
     
- 
-
-    
     override func viewDidLoad() {
         super.viewDidLoad()
        self.navigationController?.navigationBarHidden = true
@@ -59,9 +55,6 @@ class RestaurantController: UIViewController {
                 self.ProfilePic.image = image
             }
         }
-       
-
-        
         var name: String! = user["name"] as String!
         var description: String! = user["description"] as String!
      if name != nil
@@ -81,7 +74,6 @@ class RestaurantController: UIViewController {
     
         // Do any additional setup after loading the view.
     }
-    
     
     
     override func didReceiveMemoryWarning() {
