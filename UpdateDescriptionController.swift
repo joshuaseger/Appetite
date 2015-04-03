@@ -14,8 +14,6 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
     let user = PFUser.currentUser()
     var photoSelected:Bool = false
 
-    
-
     @IBOutlet var profilePic: UIImageView!
     @IBOutlet var descriptionText: UITextView!
     
@@ -58,12 +56,13 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
                     println("Successfully saved description to Parse")
                     self.displayError("Great Success!", error: "Your image has been posted successfully and can be viewed in Posts List")
                     self.descriptionText.text = ""
-                    
+                  
                     
                 }
             }
         }
     }
+    
     @IBAction func pickImage(sender: AnyObject) {
         
         var image = UIImagePickerController()
@@ -113,6 +112,7 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
                     self.photoSelected = false
                     self.profilePic.image = UIImage(named: "Food-Icon.png")
                     self.descriptionText.text = ""
+                
                     
                     
                 }
@@ -144,13 +144,16 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
       
         //Code chunk used to retrieve and display a single image from Parse
-        var imageFile = user["profilePic"] as PFFile
+        var imageFile = user["profilePic"] as PFFile!
+        if(imageFile != nil)    {
         imageFile.getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in
             if (error == nil){
+                if imageData != nil {
                 let image = UIImage(data: imageData)
                self.profilePic.image = image
-            }
+                }}
+        }
         }
         
         photoSelected = false

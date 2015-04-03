@@ -26,6 +26,8 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var dollarSigns: UILabel!
     @IBOutlet var slider: UISlider!
     
+    let user: PFUser! = PFUser.currentUser()
+    
     @IBAction func descriptionSegue(sender: AnyObject) {
         self.performSegueWithIdentifier("descriptionSegue", sender: nil)
     }
@@ -69,25 +71,27 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
         
     }
     
-    @IBAction func CurrestPositionButton(sender: AnyObject) {
-     //Create coordinates object
-        var location = PFObject(className:"LocationObject")
-        let coordinates = PFGeoPoint(latitude: latitudeDegrees, longitude: longitudeDegrees)
-        location["coordinates"] = coordinates
-        location.saveInBackgroundWithBlock { (success: Bool, error: NSError!) -> Void in
-            if (success) {
-               println("Location successfully saved")
-                //give user coordinates object
-                var user = PFUser.currentUser()
-                user["location"] = location
-                user.save()
-                self.displayAlertWithTitle("Coordinates Saved", message: "Your location has been successfully saved")
-        
-               
-            } else {
-                println(error)
+    @IBAction func CurrentPositionButton(sender: AnyObject) {
+    
+        PFGeoPoint.geoPointForCurrentLocationInBackground{ (geopoint: PFGeoPoint!, error: NSError!) -> Void in
+            
+          var newLocation = PFObject(className:"RestaurantLocation")
+            newLocation["restaurantLocation"] = geopoint
+            newLocation["userPointer"] = PFUser.currentUser()
+            newLocation.saveInBackgroundWithBlock {
+                (success: Bool, error: NSError!) -> Void in
+                if (success) {
+                    self.displayAlertWithTitle("Great Success!", message: "Your current position has been saved :)")
+                    // The object has been saved.
+                } else {
+                    self.displayAlertWithTitle("Failed to Save", message: "Your current position failed to save")
+                }
             }
-        }
+            }
+        
+    
+
+
     }
     
     func displayAlertWithTitle(title: String, message: String){

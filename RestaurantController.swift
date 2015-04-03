@@ -35,8 +35,14 @@ class RestaurantController: UIViewController {
             if error != nil {
                 // There was an error
             } else {
+                if(Posts != nil){
                 self.numberOfPosts = Posts.count;
                 self.numberPostsLabel.text = "# of dishes posted: \(self.numberOfPosts)"
+                }
+                else
+                {
+                    self.numberPostsLabel.text = "No dishes have been posted at this time!"
+                }
             }
         }
         
@@ -47,7 +53,9 @@ class RestaurantController: UIViewController {
         super.viewDidLoad()
        self.navigationController?.navigationBarHidden = true
         //Code chunk used to retrieve and display a single image from Parse
-        var imageFile = user["profilePic"] as PFFile
+       
+      var imageFile = user["profilePic"] as PFFile!
+        if imageFile != nil {
         imageFile.getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in
             if (error == nil){
@@ -55,6 +63,8 @@ class RestaurantController: UIViewController {
                 self.ProfilePic.image = image
             }
         }
+        }
+        
         var name: String! = user["name"] as String!
         var description: String! = user["description"] as String!
      if name != nil

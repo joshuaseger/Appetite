@@ -37,17 +37,19 @@
 		241668FA1AB7AB7E003E21BD /* dish5.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 241668F61AB7AB7E003E21BD /* dish5.jpg */; };
 		241668FC1AB7ABE0003E21BD /* Food-Icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 241668FB1AB7ABE0003E21BD /* Food-Icon.png */; };
 		241668FE1AB7B7BB003E21BD /* PostsNavController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241668FD1AB7B7BB003E21BD /* PostsNavController.swift */; };
+		241A7AE41ACDE4F800D2FB4E /* MethodHelper.strings in Resources */ = {isa = PBXBuildFile; fileRef = 241A7AE31ACDE4F800D2FB4E /* MethodHelper.strings */; };
 		242BF88A1ABBB22F00DCF6DA /* UpdateDescriptionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 242BF8891ABBB22F00DCF6DA /* UpdateDescriptionController.swift */; };
 		244A0C901AB91E07000CAE30 /* dish6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 244A0C8F1AB91E07000CAE30 /* dish6.jpg */; };
 		245236251AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 245236241AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg */; };
 		24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24528ED91AA03B2F005253F3 /* SignupViewController.swift */; };
-		24A19FCD1AA7B12E008A02A7 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */; };
+		247AE0231ACF4CDA00E1C0B8 /* SimpleMatchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */; };
+		2497F6011ACCD6AD0085BEDA /* UserMatchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */; };
 		24AAAE6F1AB7BC4100B35C51 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */; };
-		24CCAAC91AAA6C7900A8945E /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24CCAAC81AAA6C7900A8945E /* Model.swift */; };
 		24EAECE11AB6260400FEE226 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EAECE01AB6260400FEE226 /* MapKit.framework */; };
 		24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */; };
 		24EAECE51AB63DF500FEE226 /* UpdateRestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */; };
 		24EAECE71AB68C0A00FEE226 /* PostsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE61AB68C0A00FEE226 /* PostsListController.swift */; };
+		24F954DB1ACF1EF9002B4DD5 /* PracticeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F954DA1ACF1EF9002B4DD5 /* PracticeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,17 +98,19 @@
 		241668F61AB7AB7E003E21BD /* dish5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish5.jpg; sourceTree = "<group>"; };
 		241668FB1AB7ABE0003E21BD /* Food-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Food-Icon.png"; sourceTree = "<group>"; };
 		241668FD1AB7B7BB003E21BD /* PostsNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsNavController.swift; path = ../PostsNavController.swift; sourceTree = "<group>"; };
+		241A7AE31ACDE4F800D2FB4E /* MethodHelper.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = MethodHelper.strings; sourceTree = "<group>"; };
 		242BF8891ABBB22F00DCF6DA /* UpdateDescriptionController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateDescriptionController.swift; path = ../UpdateDescriptionController.swift; sourceTree = "<group>"; };
 		244A0C8F1AB91E07000CAE30 /* dish6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish6.jpg; sourceTree = "<group>"; };
 		245236241AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "004-Franklins-BBQ-copy.jpg"; sourceTree = "<group>"; };
 		24528ED91AA03B2F005253F3 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = ../SignupViewController.swift; sourceTree = "<group>"; };
-		24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProfileViewController.swift; path = ../ProfileViewController.swift; sourceTree = "<group>"; };
+		247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleMatchingController.swift; path = ../SimpleMatchingController.swift; sourceTree = "<group>"; };
+		2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserMatchingController.swift; path = ../UserMatchingController.swift; sourceTree = "<group>"; };
 		24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsTableViewCell.swift; path = ../PostsTableViewCell.swift; sourceTree = "<group>"; };
-		24CCAAC81AAA6C7900A8945E /* Model.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		24EAECE01AB6260400FEE226 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantController.swift; path = ../RestaurantController.swift; sourceTree = "<group>"; };
 		24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateRestController.swift; path = ../UpdateRestController.swift; sourceTree = "<group>"; };
 		24EAECE61AB68C0A00FEE226 /* PostsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsListController.swift; path = ../PostsListController.swift; sourceTree = "<group>"; };
+		24F954DA1ACF1EF9002B4DD5 /* PracticeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -147,8 +151,10 @@
 		2410862D1A9FFAFE00F1E9E2 = {
 			isa = PBXGroup;
 			children = (
+				24F954DA1ACF1EF9002B4DD5 /* PracticeController.swift */,
+				241A7AE31ACDE4F800D2FB4E /* MethodHelper.strings */,
+				241086381A9FFAFE00F1E9E2 /* Appetite1 */,
 				24EAECE01AB6260400FEE226 /* MapKit.framework */,
-				24CCAAC81AAA6C7900A8945E /* Model.swift */,
 				2410865B1A9FFB4200F1E9E2 /* AudioToolbox.framework */,
 				2410865C1A9FFB4200F1E9E2 /* CFNetwork.framework */,
 				2410865D1A9FFB4200F1E9E2 /* CoreGraphics.framework */,
@@ -160,7 +166,6 @@
 				241086631A9FFB4200F1E9E2 /* Security.framework */,
 				241086641A9FFB4200F1E9E2 /* StoreKit.framework */,
 				241086651A9FFB4200F1E9E2 /* SystemConfiguration.framework */,
-				241086381A9FFAFE00F1E9E2 /* Appetite1 */,
 				2410864E1A9FFAFE00F1E9E2 /* Appetite1Tests */,
 				241086371A9FFAFE00F1E9E2 /* Products */,
 				2410867B1A9FFB6900F1E9E2 /* Appetite1-Bridging-Header.h */,
@@ -179,12 +184,10 @@
 		241086381A9FFAFE00F1E9E2 /* Appetite1 */ = {
 			isa = PBXGroup;
 			children = (
-				241086711A9FFB5500F1E9E2 /* Bolts.framework */,
-				241086721A9FFB5500F1E9E2 /* Parse.framework */,
-				241086731A9FFB5500F1E9E2 /* ParseCrashReporting.framework */,
-				241086741A9FFB5500F1E9E2 /* ParseFacebookUtils.framework */,
-				241086751A9FFB5500F1E9E2 /* ParseUI.framework */,
-				2410863B1A9FFAFE00F1E9E2 /* AppDelegate.swift */,
+				247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */,
+				2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */,
+				24528ED91AA03B2F005253F3 /* SignupViewController.swift */,
+				2410863D1A9FFAFE00F1E9E2 /* ViewController.swift */,
 				241668FD1AB7B7BB003E21BD /* PostsNavController.swift */,
 				24EAECE61AB68C0A00FEE226 /* PostsListController.swift */,
 				24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */,
@@ -192,9 +195,12 @@
 				24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */,
 				242BF8891ABBB22F00DCF6DA /* UpdateDescriptionController.swift */,
 				24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */,
-				24A19FCC1AA7B12E008A02A7 /* ProfileViewController.swift */,
-				24528ED91AA03B2F005253F3 /* SignupViewController.swift */,
-				2410863D1A9FFAFE00F1E9E2 /* ViewController.swift */,
+				241086711A9FFB5500F1E9E2 /* Bolts.framework */,
+				241086721A9FFB5500F1E9E2 /* Parse.framework */,
+				241086731A9FFB5500F1E9E2 /* ParseCrashReporting.framework */,
+				241086741A9FFB5500F1E9E2 /* ParseFacebookUtils.framework */,
+				241086751A9FFB5500F1E9E2 /* ParseUI.framework */,
+				2410863B1A9FFAFE00F1E9E2 /* AppDelegate.swift */,
 				2410863F1A9FFAFE00F1E9E2 /* Main.storyboard */,
 				241086421A9FFAFE00F1E9E2 /* Images.xcassets */,
 				241086441A9FFAFE00F1E9E2 /* LaunchScreen.xib */,
@@ -326,6 +332,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				241668FC1AB7ABE0003E21BD /* Food-Icon.png in Resources */,
+				241A7AE41ACDE4F800D2FB4E /* MethodHelper.strings in Resources */,
 				241086411A9FFAFE00F1E9E2 /* Main.storyboard in Resources */,
 				241668F81AB7AB7E003E21BD /* dish3.jpg in Resources */,
 				241086461A9FFAFE00F1E9E2 /* LaunchScreen.xib in Resources */,
@@ -353,15 +360,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				247AE0231ACF4CDA00E1C0B8 /* SimpleMatchingController.swift in Sources */,
 				241668F11AB7AA56003E21BD /* PostViewController.swift in Sources */,
 				242BF88A1ABBB22F00DCF6DA /* UpdateDescriptionController.swift in Sources */,
-				24CCAAC91AAA6C7900A8945E /* Model.swift in Sources */,
+				24F954DB1ACF1EF9002B4DD5 /* PracticeController.swift in Sources */,
 				24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */,
 				241668FE1AB7B7BB003E21BD /* PostsNavController.swift in Sources */,
 				24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */,
 				24EAECE51AB63DF500FEE226 /* UpdateRestController.swift in Sources */,
 				24AAAE6F1AB7BC4100B35C51 /* PostsTableViewCell.swift in Sources */,
-				24A19FCD1AA7B12E008A02A7 /* ProfileViewController.swift in Sources */,
+				2497F6011ACCD6AD0085BEDA /* UserMatchingController.swift in Sources */,
 				24EAECE71AB68C0A00FEE226 /* PostsListController.swift in Sources */,
 				2410863E1A9FFAFE00F1E9E2 /* ViewController.swift in Sources */,
 				2410863C1A9FFAFE00F1E9E2 /* AppDelegate.swift in Sources */,

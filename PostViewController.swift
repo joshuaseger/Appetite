@@ -56,6 +56,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             var post = PFObject(className: "Post")
             post["DishName"] = nameOfDish.text
             post["Restaurant"] = user
+            post["numberMatches"] = 0
             post.saveInBackgroundWithBlock{(success:Bool!, error: NSError!) -> Void in
                 
                 if success == false {
@@ -78,7 +79,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                             var relation = self.user.relationForKey("PostList")
                             relation.addObject(post)
                             self.user.save()
-                            
                             self.activityIndicator.stopAnimating()
                             UIApplication.sharedApplication().endIgnoringInteractionEvents()
                             println("Successfully saved post to Parse")

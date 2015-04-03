@@ -1,0 +1,59 @@
+/* 
+  MethodHelper.strings
+  Appetite1
+
+  Created by Joshua Seger on 4/2/15.
+  Copyright (c) 2015 JoshuaSeger. All rights reserved.
+*/
+
+/*
+ func wasDragged(gesture: UIPanGestureRecognizer){
+ let translation = gesture.translationInView(self.view)
+ var xFromCenter: CGFloat = 0.00
+ var label = gesture.view!
+ 
+ xFromCenter += translation.x
+ 
+ var scale = min(100 / abs(xFromCenter), 1)
+ 
+ label.center = CGPoint(x: label.center.x + translation.x, y: label.center.y + translation.y)
+ gesture.setTranslation(CGPointZero, inView: self.view)
+ var rotation: CGAffineTransform = CGAffineTransformMakeRotation(xFromCenter / 200)
+ var stretch: CGAffineTransform = CGAffineTransformScale(rotation, scale, scale)
+ label.transform = stretch
+ if label.center.x < 100 {
+ 
+ }
+ else if label.center.x > self.view.bounds.width - 100 {
+ println("chosen")
+ 
+ }
+ if gesture.state == UIGestureRecognizerState.Ended {
+ 
+ self.currentUser++
+ 
+ label.removeFromSuperview()
+ 
+ if self.currentUser < self.dishImages.count {
+ 
+ var userImage: UIImageView = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+ userImage.image = UIImage(data: self.dishImages[self.currentUser])
+ userImage.contentMode = UIViewContentMode.ScaleAspectFit
+ self.view.addSubview(userImage)
+ 
+ var gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
+ userImage.addGestureRecognizer(gesture)
+ 
+ userImage.userInteractionEnabled = true
+ 
+ xFromCenter = 0
+ 
+ } else {
+ 
+ println("No more users")
+ 
+ }
+ }
+ }
+ */
+ 
