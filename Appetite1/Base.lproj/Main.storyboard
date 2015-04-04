@@ -112,6 +112,7 @@
                         <outlet property="username" destination="kKB-qa-KPN" id="kZz-Jh-r2e"/>
                         <segue destination="Kg7-YP-XH6" kind="show" identifier="RestaurantLoginSegue" id="p1m-4b-kjt"/>
                         <segue destination="zmF-RA-GcI" kind="show" identifier="DinerLoginSegue" id="8An-OM-MnU"/>
+                        <segue destination="mVR-gr-OQb" kind="show" identifier="DinerPostsSegue" id="itj-ga-nKG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -202,7 +203,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoB-Jj-Lrs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="161.5" y="948.5"/>
+            <point key="canvasLocation" x="-252.5" y="1215.5"/>
         </scene>
         <!--UpdateRestController-->
         <scene sceneID="Wcb-ZE-cux">
@@ -830,7 +831,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vHs-nB-dlK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1805.5" y="921.5"/>
+            <point key="canvasLocation" x="1768.5" y="804.5"/>
         </scene>
         <!--Create Dish Post-->
         <scene sceneID="iy8-NB-eNf">
@@ -892,52 +893,6 @@
             </objects>
             <point key="canvasLocation" x="2358.5" y="775.5"/>
         </scene>
-        <!--Table View Controller-->
-        <scene sceneID="Iwc-Dv-5Ag">
-            <objects>
-                <tableViewController storyboardIdentifier="PageContentViewController3" useStoryboardIdentifierAsRestorationIdentifier="YES" id="GuA-xj-a54" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="l0n-1D-GpM">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="tLo-13-W4p">
-                                <autoresizingMask key="autoresizingMask"/>
-                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="tLo-13-W4p" id="d8w-iA-ehP">
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </tableViewCellContentView>
-                            </tableViewCell>
-                        </prototypes>
-                        <connections>
-                            <outlet property="dataSource" destination="GuA-xj-a54" id="czi-bw-0fx"/>
-                            <outlet property="delegate" destination="GuA-xj-a54" id="ctX-yQ-ZLp"/>
-                        </connections>
-                    </tableView>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Bsy-5C-KyS" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="189.5" y="1918.5"/>
-        </scene>
-        <!--Page View Controller-->
-        <scene sceneID="46c-Eu-WXb">
-            <objects>
-                <viewController id="ByH-vG-eru" customClass="PageViewController" customModule="Appetite1" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="wZJ-hf-ufe"/>
-                        <viewControllerLayoutGuide type="bottom" id="5QJ-rZ-2lo"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="RHM-RK-CG0">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="AxO-uV-KKL" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="691.5" y="1942.5"/>
-        </scene>
         <!--PostsNavController-->
         <scene sceneID="rzb-AT-a8U">
             <objects>
@@ -953,7 +908,73 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xn6-Gk-1RD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1130" y="824"/>
+            <point key="canvasLocation" x="803.5" y="1449.5"/>
+        </scene>
+        <!--UserListController-->
+        <scene sceneID="Pyf-Kr-pZk">
+            <objects>
+                <tableViewController title="UserListController" id="bFu-jN-7HQ" customClass="UserPostListController" customModule="Appetite1" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="190" sectionHeaderHeight="22" sectionFooterHeight="22" id="fWU-c4-m1G">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="myCell" rowHeight="190" id="78C-Hx-HDM" customClass="UserPostViewCell" customModule="Appetite1" customModuleProvider="target">
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="78C-Hx-HDM" id="fI1-mz-4xe">
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SC3-Ae-uQL">
+                                            <rect key="frame" x="188" y="4" width="179" height="178"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mv1-Ax-bvH">
+                                            <rect key="frame" x="8" y="8" width="182" height="174"/>
+                                        </imageView>
+                                    </subviews>
+                                </tableViewCellContentView>
+                                <accessibility key="accessibilityConfiguration">
+                                    <bool key="isElement" value="YES"/>
+                                </accessibility>
+                                <connections>
+                                    <outlet property="cellImage" destination="mv1-Ax-bvH" id="wRt-1k-oje"/>
+                                    <outlet property="nameOfDish" destination="SC3-Ae-uQL" id="M00-yx-mWR"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="bFu-jN-7HQ" id="n4h-aE-lL1"/>
+                            <outlet property="delegate" destination="bFu-jN-7HQ" id="b7L-sX-2Nv"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="Root View Controller" id="5V0-B2-X61"/>
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <connections>
+                        <outlet property="tableViewPosts" destination="fWU-c4-m1G" id="Vxo-qF-Gsy"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rKg-g5-KzG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1294.5" y="-818.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="rUi-lF-lhn">
+            <objects>
+                <navigationController id="mVR-gr-OQb" sceneMemberID="viewController">
+                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="9gG-YO-MFe">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="bFu-jN-7HQ" kind="relationship" relationship="rootViewController" id="A7H-zL-T8w"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dYY-w0-e0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="767.5" y="-563.5"/>
         </scene>
     </scenes>
     <resources>
@@ -961,8 +982,8 @@
         <image name="Food-Icon.png" width="329" height="326"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="p1m-4b-kjt"/>
         <segue reference="CXd-6O-b78"/>
+        <segue reference="1LA-hu-q7g"/>
         <segue reference="O5F-q4-0OT"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>

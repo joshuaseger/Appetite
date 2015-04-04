@@ -45,6 +45,8 @@
 		247AE0231ACF4CDA00E1C0B8 /* SimpleMatchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */; };
 		2497F6011ACCD6AD0085BEDA /* UserMatchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */; };
 		24AAAE6F1AB7BC4100B35C51 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */; };
+		24AC0DFD1AD07D3400FE4A5E /* UserPostListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AC0DFC1AD07D3400FE4A5E /* UserPostListController.swift */; };
+		24AC0E011AD07EA800FE4A5E /* UserPostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AC0E001AD07EA800FE4A5E /* UserPostViewCell.swift */; };
 		24EAECE11AB6260400FEE226 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EAECE01AB6260400FEE226 /* MapKit.framework */; };
 		24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */; };
 		24EAECE51AB63DF500FEE226 /* UpdateRestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */; };
@@ -106,6 +108,8 @@
 		247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleMatchingController.swift; path = ../SimpleMatchingController.swift; sourceTree = "<group>"; };
 		2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserMatchingController.swift; path = ../UserMatchingController.swift; sourceTree = "<group>"; };
 		24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsTableViewCell.swift; path = ../PostsTableViewCell.swift; sourceTree = "<group>"; };
+		24AC0DFC1AD07D3400FE4A5E /* UserPostListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPostListController.swift; path = ../UserPostListController.swift; sourceTree = "<group>"; };
+		24AC0E001AD07EA800FE4A5E /* UserPostViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostViewCell.swift; sourceTree = "<group>"; };
 		24EAECE01AB6260400FEE226 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantController.swift; path = ../RestaurantController.swift; sourceTree = "<group>"; };
 		24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateRestController.swift; path = ../UpdateRestController.swift; sourceTree = "<group>"; };
@@ -184,17 +188,9 @@
 		241086381A9FFAFE00F1E9E2 /* Appetite1 */ = {
 			isa = PBXGroup;
 			children = (
-				247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */,
-				2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */,
-				24528ED91AA03B2F005253F3 /* SignupViewController.swift */,
-				2410863D1A9FFAFE00F1E9E2 /* ViewController.swift */,
-				241668FD1AB7B7BB003E21BD /* PostsNavController.swift */,
-				24EAECE61AB68C0A00FEE226 /* PostsListController.swift */,
-				24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */,
-				241668F01AB7AA56003E21BD /* PostViewController.swift */,
-				24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */,
-				242BF8891ABBB22F00DCF6DA /* UpdateDescriptionController.swift */,
-				24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */,
+				24A6FAC41AD086BC001ECAFB /* Authentication */,
+				24A6FAC31AD086B2001ECAFB /* Restaurant App */,
+				24A6FAC21AD086A7001ECAFB /* User App */,
 				241086711A9FFB5500F1E9E2 /* Bolts.framework */,
 				241086721A9FFB5500F1E9E2 /* Parse.framework */,
 				241086731A9FFB5500F1E9E2 /* ParseCrashReporting.framework */,
@@ -249,6 +245,40 @@
 			);
 			name = Dishes;
 			path = "New Folder With Items";
+			sourceTree = "<group>";
+		};
+		24A6FAC21AD086A7001ECAFB /* User App */ = {
+			isa = PBXGroup;
+			children = (
+				24AC0E001AD07EA800FE4A5E /* UserPostViewCell.swift */,
+				24AC0DFC1AD07D3400FE4A5E /* UserPostListController.swift */,
+				247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */,
+				2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */,
+			);
+			name = "User App";
+			sourceTree = "<group>";
+		};
+		24A6FAC31AD086B2001ECAFB /* Restaurant App */ = {
+			isa = PBXGroup;
+			children = (
+				241668FD1AB7B7BB003E21BD /* PostsNavController.swift */,
+				24EAECE61AB68C0A00FEE226 /* PostsListController.swift */,
+				24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */,
+				241668F01AB7AA56003E21BD /* PostViewController.swift */,
+				24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */,
+				242BF8891ABBB22F00DCF6DA /* UpdateDescriptionController.swift */,
+				24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */,
+			);
+			name = "Restaurant App";
+			sourceTree = "<group>";
+		};
+		24A6FAC41AD086BC001ECAFB /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+				24528ED91AA03B2F005253F3 /* SignupViewController.swift */,
+				2410863D1A9FFAFE00F1E9E2 /* ViewController.swift */,
+			);
+			name = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +394,7 @@
 				241668F11AB7AA56003E21BD /* PostViewController.swift in Sources */,
 				242BF88A1ABBB22F00DCF6DA /* UpdateDescriptionController.swift in Sources */,
 				24F954DB1ACF1EF9002B4DD5 /* PracticeController.swift in Sources */,
+				24AC0DFD1AD07D3400FE4A5E /* UserPostListController.swift in Sources */,
 				24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */,
 				241668FE1AB7B7BB003E21BD /* PostsNavController.swift in Sources */,
 				24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */,
@@ -371,6 +402,7 @@
 				24AAAE6F1AB7BC4100B35C51 /* PostsTableViewCell.swift in Sources */,
 				2497F6011ACCD6AD0085BEDA /* UserMatchingController.swift in Sources */,
 				24EAECE71AB68C0A00FEE226 /* PostsListController.swift in Sources */,
+				24AC0E011AD07EA800FE4A5E /* UserPostViewCell.swift in Sources */,
 				2410863E1A9FFAFE00F1E9E2 /* ViewController.swift in Sources */,
 				2410863C1A9FFAFE00F1E9E2 /* AppDelegate.swift in Sources */,
 			);

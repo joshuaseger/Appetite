@@ -64,7 +64,7 @@ class ViewController: UIViewController {
                         if role as NSString == "diner" {
                             println("called segue to diner")
                             
-                        self.performSegueWithIdentifier("DinerLoginSegue", sender: nil)
+                        self.performSegueWithIdentifier("DinerPostsSegue", sender: nil)
                          
                             
                         }

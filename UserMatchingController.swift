@@ -134,11 +134,6 @@ class UserMatchingController: UIViewController {
                 label.transform = stretch
                 
                 
-                
-                
-                
-                
-                
                 /*label.removeFromSuperview()
                 var userImage: UIImageView = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
                 userImage.image = UIImage(data: self.dishImages[self.currentDishIndex])
