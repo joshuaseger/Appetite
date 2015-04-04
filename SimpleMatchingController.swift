@@ -9,9 +9,19 @@ import Foundation
 import UIKit
 
 class SimpleMatchingController: UIViewController {
-
+    
+    
+    
+    let user = PFUser.currentUser()
+    var posts = [PFObject]()
+    var currentDishIndex = 0
+    var usersMatches = [AnyObject]()
+    var currentLocation: PFGeoPoint!
+    var loadedUsersMatches: Bool = false
+    
     @IBOutlet var dishNameLabel: UILabel!
     @IBOutlet var dishImage: UIImageView!
+    
     @IBAction func likeButton(sender: AnyObject) {
         retrieveNewPost();
         println("Post was liked!")
@@ -28,8 +38,6 @@ class SimpleMatchingController: UIViewController {
         relation.addObject(post2Add)
         self.user.save()
         }
-
-        
     }
     
     @IBAction func dislikeButton(sender: AnyObject) {
@@ -37,47 +45,58 @@ class SimpleMatchingController: UIViewController {
         println("Post was not liked")
     }
     
-    let user = PFUser.currentUser()
-    var posts = [PFObject]()
-    var currentDishIndex = 0
+  
     
-    var currentLocation: PFGeoPoint!
+    override func viewWillAppear(animated: Bool) {
+ 
+        PFGeoPoint.geoPointForCurrentLocationInBackground{ (geopoint: PFGeoPoint!, error: NSError!) -> Void in
+        
+            if error == nil{
+                 self.user["location"] = geopoint
+                self.currentLocation = self.user["location"] as PFGeoPoint!
+                self.findPosts()
+            }
+            else {
+                println(error)
+                self.currentLocation = self.user["location"] as PFGeoPoint!
+                self.findPosts()
+            }
+        }
+        }
+    
+    
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        
-        currentLocation = user["location"] as PFGeoPoint!
-        var query = PFQuery(className:"RestaurantLocation")
-        query.whereKey("restaurantLocation", nearGeoPoint: currentLocation, withinMiles: 100.00)
-        
-        query.findObjectsInBackgroundWithBlock {
-            (restaurants: [AnyObject]!, error: NSError!) -> Void in
-            for restaurant in restaurants{
-                var  matchedUser: PFUser! = restaurant["userPointer"] as PFUser
-                var relation = matchedUser.relationForKey("PostList")
-                relation.query().findObjectsInBackgroundWithBlock {
-                    (Posts: [AnyObject]!, error: NSError!) -> Void in
-                    if error != nil {
-                        // There was an error
-                    } else {
-                        println(Posts)
-                        for post in Posts{
-                            
-                            //STILL NEED TO CHECK AGAINST POSTLIST to make sure user hasn't already matched a post!
-                            
-                            
-                            
-                            self.posts.append(post as PFObject);
-                            println("All posts added!")
-                        }}
-                 self.posts = self.shuffle(self.posts)
-                    self.retrieveNewPost()
-                }}
-           
+   
+        var relation = user.relationForKey("PostList")
+        if (relation != nil){
+            println("Tried calling relation query")
+            relation.query().findObjectsInBackgroundWithBlock {
+                (Posts: [AnyObject]!, error: NSError!) -> Void in
+                if error != nil {
+                    // There was an error
+                    self.loadedUsersMatches = true
+                    self.viewWillAppear(true)
+                }
+                else
+                {
+                    for post in Posts{
+                        println(post)
+                        println("EXECUTED CORRECTLY")
+                        self.usersMatches.append(post as AnyObject);
+                    }
+       
+                    self.loadedUsersMatches = true
+                    self.viewWillAppear(true)
+                }
+            }
         }
-        // Do any additional setup after loading the view.
-    }
+      }
 
+
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -112,6 +131,34 @@ class SimpleMatchingController: UIViewController {
             self.dishImage.image = UIImage(named: "Food-Icon.png")
         }
     }
+    
+    
+    func findPosts(){
+        var query = PFQuery(className:"RestaurantLocation")
+        
+        query.whereKey("restaurantLocation", nearGeoPoint: self.currentLocation, withinMiles: 100.00)
+        
+        query.findObjectsInBackgroundWithBlock {
+            (restaurants: [AnyObject]!, error: NSError!) -> Void in
+            for restaurant in restaurants{
+                var  matchedUser: PFUser! = restaurant["userPointer"] as PFUser
+                var relation = matchedUser.relationForKey("PostList")
+                relation.query().findObjectsInBackgroundWithBlock {
+                    (Posts: [AnyObject]!, error: NSError!) -> Void in
+                    if error != nil {
+                        // There was an error
+                    } else {
+                        println(Posts)
+                        for post in Posts{  self.posts.append(post as PFObject)  }
+                        self.posts = self.shuffle(self.posts)
+                        self.retrieveNewPost()
+                    }}}
+            
+        }
+    }
+    
+    
+    
     }
     /*
     // MARK: - Navigation
