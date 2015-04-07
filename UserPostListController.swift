@@ -8,7 +8,7 @@
 
 import UIKit
 
-class UserPostListController: UITableViewController{
+class UserPostListController: UITableViewController {
     
    
     @IBOutlet var tableViewPosts: UITableView!
@@ -18,6 +18,7 @@ class UserPostListController: UITableViewController{
     var imageFiles = [PFFile]();
     var posts = [PFObject]();
     var numRows: Int = 0
+    let index = 0
     
     func displayError(title:String, error:String)
     {
@@ -31,6 +32,8 @@ class UserPostListController: UITableViewController{
     
     override func viewDidLoad()  {
         super.viewDidLoad()
+        self.tableViewPosts.delegate = self
+        tableViewPosts.dataSource = self
         
         self.navigationController?.navigationBarHidden = false
         var relation = user.relationForKey("PostList")
@@ -68,6 +71,8 @@ class UserPostListController: UITableViewController{
         return true
     }
     
+    
+    
     override func tableView(tableViewPosts: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
@@ -89,27 +94,22 @@ class UserPostListController: UITableViewController{
         }
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 190
-    }
-    
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
     }
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(tableViewPosts: UITableView, numberOfRowsInSection section: Int) -> Int {
         return numRows
     }
     
     //Use OOP Principles to manage elements within cell
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as? UserPostViewCell
+        var cell = tableViewPosts.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as? UserPostViewCell
         if ( cell == nil){
             var cell = UserPostViewCell (
                 style: UITableViewCellStyle.Default, reuseIdentifier: "myCell") as UserPostViewCell;
             
         }
-        println(indexPath)
-        
+        cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
         cell!.nameOfDish.text = dishName[indexPath.row]
         
         imageFiles[indexPath.row].getDataInBackgroundWithBlock{
@@ -122,5 +122,36 @@ class UserPostListController: UITableViewController{
         
         return cell!
     }
+    
+    override func tableView(tableViewPosts: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+       
+        if let vc : PostDetailsController  = self.storyboard?.instantiateViewControllerWithIdentifier("PostDetailsController") as? PostDetailsController{
+            
+            //set label text before presenting the viewController
+             var post = posts[indexPath.row]
+            let restaurant: PFObject = post["Restaurant"] as PFObject
+            vc.restaurant = restaurant
+            //load detail view controller
+            self.presentViewController(vc, animated: true, completion: nil)
+        }
+        
+        
+    }
+    
+    /*
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+      if segue.identifier == "PostDetailsSegue"{
+        var index = self.tableViewPosts.indexPathForSelectedRow()?.row
+        println(index)
+        var post = posts[index!]
+        let restaurant = post["Restaurant"] as PFObject
+        println(restaurant)
+        let destinationController =  PostDetailsController()
+        destinationController.restaurant = restaurant
+        destinationController.performSegueWithIdentifier("PostDetailsSegue", sender: self)
+        }
+    }
+  */
+    
 }
 

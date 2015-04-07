@@ -44,6 +44,7 @@
 		24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24528ED91AA03B2F005253F3 /* SignupViewController.swift */; };
 		247AE0231ACF4CDA00E1C0B8 /* SimpleMatchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */; };
 		2497F6011ACCD6AD0085BEDA /* UserMatchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */; };
+		24A6FAC81AD08EC9001ECAFB /* PostDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6FAC71AD08EC9001ECAFB /* PostDetailsController.swift */; };
 		24AAAE6F1AB7BC4100B35C51 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */; };
 		24AC0DFD1AD07D3400FE4A5E /* UserPostListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AC0DFC1AD07D3400FE4A5E /* UserPostListController.swift */; };
 		24AC0E011AD07EA800FE4A5E /* UserPostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AC0E001AD07EA800FE4A5E /* UserPostViewCell.swift */; };
@@ -51,6 +52,7 @@
 		24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */; };
 		24EAECE51AB63DF500FEE226 /* UpdateRestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */; };
 		24EAECE71AB68C0A00FEE226 /* PostsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE61AB68C0A00FEE226 /* PostsListController.swift */; };
+		24EC46001AD362EA001CD0F5 /* PagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EC45FF1AD362EA001CD0F5 /* PagedScrollViewController.swift */; };
 		24F954DB1ACF1EF9002B4DD5 /* PracticeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F954DA1ACF1EF9002B4DD5 /* PracticeController.swift */; };
 /* End PBXBuildFile section */
 
@@ -107,6 +109,7 @@
 		24528ED91AA03B2F005253F3 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = ../SignupViewController.swift; sourceTree = "<group>"; };
 		247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleMatchingController.swift; path = ../SimpleMatchingController.swift; sourceTree = "<group>"; };
 		2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserMatchingController.swift; path = ../UserMatchingController.swift; sourceTree = "<group>"; };
+		24A6FAC71AD08EC9001ECAFB /* PostDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostDetailsController.swift; path = ../PostDetailsController.swift; sourceTree = "<group>"; };
 		24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsTableViewCell.swift; path = ../PostsTableViewCell.swift; sourceTree = "<group>"; };
 		24AC0DFC1AD07D3400FE4A5E /* UserPostListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPostListController.swift; path = ../UserPostListController.swift; sourceTree = "<group>"; };
 		24AC0E001AD07EA800FE4A5E /* UserPostViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostViewCell.swift; sourceTree = "<group>"; };
@@ -114,6 +117,7 @@
 		24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantController.swift; path = ../RestaurantController.swift; sourceTree = "<group>"; };
 		24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateRestController.swift; path = ../UpdateRestController.swift; sourceTree = "<group>"; };
 		24EAECE61AB68C0A00FEE226 /* PostsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsListController.swift; path = ../PostsListController.swift; sourceTree = "<group>"; };
+		24EC45FF1AD362EA001CD0F5 /* PagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedScrollViewController.swift; sourceTree = "<group>"; };
 		24F954DA1ACF1EF9002B4DD5 /* PracticeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -155,6 +159,7 @@
 		2410862D1A9FFAFE00F1E9E2 = {
 			isa = PBXGroup;
 			children = (
+				24EC45FF1AD362EA001CD0F5 /* PagedScrollViewController.swift */,
 				24F954DA1ACF1EF9002B4DD5 /* PracticeController.swift */,
 				241A7AE31ACDE4F800D2FB4E /* MethodHelper.strings */,
 				241086381A9FFAFE00F1E9E2 /* Appetite1 */,
@@ -250,6 +255,7 @@
 		24A6FAC21AD086A7001ECAFB /* User App */ = {
 			isa = PBXGroup;
 			children = (
+				24A6FAC71AD08EC9001ECAFB /* PostDetailsController.swift */,
 				24AC0E001AD07EA800FE4A5E /* UserPostViewCell.swift */,
 				24AC0DFC1AD07D3400FE4A5E /* UserPostListController.swift */,
 				247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */,
@@ -396,6 +402,8 @@
 				24F954DB1ACF1EF9002B4DD5 /* PracticeController.swift in Sources */,
 				24AC0DFD1AD07D3400FE4A5E /* UserPostListController.swift in Sources */,
 				24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */,
+				24A6FAC81AD08EC9001ECAFB /* PostDetailsController.swift in Sources */,
+				24EC46001AD362EA001CD0F5 /* PagedScrollViewController.swift in Sources */,
 				241668FE1AB7B7BB003E21BD /* PostsNavController.swift in Sources */,
 				24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */,
 				24EAECE51AB63DF500FEE226 /* UpdateRestController.swift in Sources */,
