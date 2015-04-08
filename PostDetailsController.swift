@@ -12,6 +12,11 @@ class PostDetailsController: UIViewController {
 
     var restaurant: PFObject?
     
+    @IBAction func backButton(sender: AnyObject) {
+        
+         self.navigationController?.navigationBarHidden = true
+        self.navigationController?.popToRootViewControllerAnimated(true)
+    }
     @IBOutlet var restaurantNameLabel: UILabel!
     @IBOutlet var RestaurantImage: UIImageView!
     @IBOutlet var priceLabel: UILabel!
@@ -19,9 +24,11 @@ class PostDetailsController: UIViewController {
     @IBOutlet var phoneLabel: UILabel!
     @IBOutlet var descriptionLabel: UILabel!
     @IBOutlet var profilePic: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
    
+         self.navigationController?.navigationBarHidden = false
         //Controller was only passed object reference.  Must fetch actual object from Parse now.
         
         var x: PFObject =  restaurant?.fetchIfNeeded() as PFObject!
