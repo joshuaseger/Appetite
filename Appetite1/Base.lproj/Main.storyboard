@@ -18,11 +18,77 @@
                     <connections>
                         <segue destination="zmF-RA-GcI" kind="relationship" relationship="viewControllers" id="8ex-GM-ojG"/>
                         <segue destination="mVR-gr-OQb" kind="relationship" relationship="viewControllers" id="80E-sn-4Ni"/>
+                        <segue destination="H06-bO-ysH" kind="relationship" relationship="viewControllers" id="odm-ip-Nee"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FRq-Qk-r6c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1186" y="-440"/>
+        </scene>
+        <!--Settings-->
+        <scene sceneID="bpB-ks-D8f">
+            <objects>
+                <viewController title="Settings" id="H06-bO-ysH" customClass="UserSettingsController" customModule="Appetite1" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="FrF-iY-3rc"/>
+                        <viewControllerLayoutGuide type="bottom" id="iJt-ew-L5r"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="sbU-IL-QjW">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <slider opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="1" minValue="0.0" maxValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="nXL-dF-u2Q">
+                                <rect key="frame" x="148" y="170" width="304" height="31"/>
+                                <connections>
+                                    <action selector="sliderChanged:" destination="H06-bO-ysH" eventType="valueChanged" id="OUp-R8-NKx"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Price Range" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BjL-ic-tjp">
+                                <rect key="frame" x="253" y="265" width="94" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yXm-XY-Neb">
+                                <rect key="frame" x="150" y="317" width="300" height="29"/>
+                                <segments>
+                                    <segment title="All"/>
+                                    <segment title="$"/>
+                                </segments>
+                                <connections>
+                                    <action selector="changedPriceRange:" destination="H06-bO-ysH" eventType="valueChanged" id="VvK-P9-BKj"/>
+                                </connections>
+                            </segmentedControl>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Search Distance" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mRR-cU-VQ0">
+                                <rect key="frame" x="187" y="125" width="226" height="23"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="centerX" secondItem="nXL-dF-u2Q" secondAttribute="centerX" id="9OR-HU-vb7"/>
+                            <constraint firstAttribute="centerX" secondItem="mRR-cU-VQ0" secondAttribute="centerX" id="Guz-6W-STp"/>
+                            <constraint firstAttribute="centerX" secondItem="BjL-ic-tjp" secondAttribute="centerX" id="VY8-1o-ziQ"/>
+                            <constraint firstItem="BjL-ic-tjp" firstAttribute="top" secondItem="nXL-dF-u2Q" secondAttribute="bottom" constant="65" id="WMR-9S-1im"/>
+                            <constraint firstItem="mRR-cU-VQ0" firstAttribute="top" secondItem="FrF-iY-3rc" secondAttribute="bottom" constant="105" id="gLC-2Z-Dwa"/>
+                            <constraint firstAttribute="centerX" secondItem="yXm-XY-Neb" secondAttribute="centerX" id="odk-IA-LUc"/>
+                            <constraint firstItem="yXm-XY-Neb" firstAttribute="top" secondItem="BjL-ic-tjp" secondAttribute="bottom" constant="31" id="qDC-Ap-SYs"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" tag="-3" title="Settings" image="Settings-32.png" id="bvZ-ea-PF8">
+                        <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="0.0"/>
+                    </tabBarItem>
+                    <connections>
+                        <outlet property="distanceLabel" destination="mRR-cU-VQ0" id="NOZ-pq-YTV"/>
+                        <outlet property="distanceSlider" destination="nXL-dF-u2Q" id="h8z-iD-QMH"/>
+                        <outlet property="priceRangeSelector" destination="yXm-XY-Neb" id="NxF-uP-U4f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZPY-ZP-F5T" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-509" y="-644"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="ufC-wZ-h7g">
@@ -1102,6 +1168,7 @@
         <image name="2.jpg" width="1920" height="1080"/>
         <image name="Dining Room-32.png" width="32" height="32"/>
         <image name="Food-Icon.png" width="329" height="326"/>
+        <image name="Settings-32.png" width="32" height="32"/>
         <image name="Waiter-32.png" width="32" height="32"/>
     </resources>
     <inferredMetricsTieBreakers>
