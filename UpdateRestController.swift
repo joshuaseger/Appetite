@@ -75,6 +75,9 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
         PFGeoPoint.geoPointForCurrentLocationInBackground{ (geopoint: PFGeoPoint!, error: NSError!) -> Void in
             
+            self.user["location"] = geopoint
+            self.user.save()
+            
           var newLocation = PFObject(className:"RestaurantLocation")
             newLocation["restaurantLocation"] = geopoint
             newLocation["userPointer"] = PFUser.currentUser()
