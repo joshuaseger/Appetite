@@ -18,7 +18,7 @@ class UserPostListController: UITableViewController {
         relation.query().findObjectsInBackgroundWithBlock {
             (Posts: [AnyObject]!, error: NSError!) -> Void in
             if error != nil {
-                // There was an error
+                // There was an error here
             } else {
                 for post in Posts{
                     self.posts.append(post as PFObject);
