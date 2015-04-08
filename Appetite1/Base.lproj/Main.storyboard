@@ -49,11 +49,14 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="yXm-XY-Neb">
+                            <segmentedControl opaque="NO" tag="3" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="bar" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="yXm-XY-Neb">
                                 <rect key="frame" x="150" y="317" width="300" height="29"/>
                                 <segments>
                                     <segment title="All"/>
                                     <segment title="$"/>
+                                    <segment title="$$"/>
+                                    <segment title="$$$"/>
+                                    <segment title="$$$$"/>
                                 </segments>
                                 <connections>
                                     <action selector="changedPriceRange:" destination="H06-bO-ysH" eventType="valueChanged" id="VvK-P9-BKj"/>

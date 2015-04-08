@@ -10,16 +10,27 @@ import UIKit
 
 class UserSettingsController: UIViewController {
 
+    let user = PFUser.currentUser()
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet var distanceSlider: UISlider!
+    var valueToStore: NSNumber!
     
     @IBAction func sliderChanged(sender: AnyObject) {
         var currentValue = distanceSlider.value
         var value = String(format: "%0.f", currentValue)
         distanceLabel.text = "Search Distance: \(value) Miles"
+        valueToStore = NSNumber(float: currentValue)
+        
     }
     @IBOutlet var priceRangeSelector: UISegmentedControl!
     @IBAction func changedPriceRange(sender: AnyObject) {
+      
+    }
+    
+    override func viewWillDisappear(animated: Bool) {
+        println("Search Distance Stored!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        user["SearchDistance"] = valueToStore
+        user.save()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,6 +40,7 @@ class UserSettingsController: UIViewController {
         distanceSlider.value = 50
         distanceLabel.text = "Search Distance: 50 Miles"
 
+        priceRangeSelector.selectedSegmentIndex = 0
         // Do any additional setup after loading the view.
     }
 

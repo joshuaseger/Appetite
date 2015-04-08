@@ -11,6 +11,7 @@ import UIKit
 class SimpleMatchingController: UIViewController {
     
     let user = PFUser.currentUser()
+    var distanceToSearch: Double = 50.00
     var posts = [PFObject]()
     var restaurants = [PFUser]()
     var currentDishIndex = 0
@@ -70,8 +71,17 @@ class SimpleMatchingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        println("View Did Load Called")
+        var distanceStored: Float! = user["SearchDistance"] as Float!
+        println(distanceStored)
+        if distanceStored != nil{
+            distanceToSearch = Double(distanceStored)
+            println("DISTANCE TO Search")
+            println(distanceToSearch)
+        }
    
+        
+        
+        
         var relation = user.relationForKey("PostList")
         if (relation != nil){
             
@@ -167,8 +177,11 @@ class SimpleMatchingController: UIViewController {
     
     //Queries for Restaurants near current users location.
     func findRestaurants(){
+        println("Searching by Distance offfffffffff")
+        println(self.distanceToSearch)
         var query = PFQuery(className:"RestaurantLocation")
-        query.whereKey("restaurantLocation", nearGeoPoint: self.currentLocation, withinMiles: 100.00)
+
+        query.whereKey("restaurantLocation", nearGeoPoint: self.currentLocation, withinMiles: self.distanceToSearch)
         query.findObjectsInBackgroundWithBlock { (restaurants: [AnyObject]!, error: NSError!) -> Void in
 
             for restaurant in restaurants
