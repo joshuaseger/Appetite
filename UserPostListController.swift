@@ -10,9 +10,32 @@ import UIKit
 
 class UserPostListController: UITableViewController {
     
+
+    func refresh(sender:AnyObject)
+    {
+        
+        var relation = user.relationForKey("PostList")
+        relation.query().findObjectsInBackgroundWithBlock {
+            (Posts: [AnyObject]!, error: NSError!) -> Void in
+            if error != nil {
+                // There was an error
+            } else {
+                for post in Posts{
+                    self.posts.append(post as PFObject);
+                    self.dishName.append(post["DishName"] as String);
+                    self.imageFiles.append(post["imageFile"] as PFFile);
+                    
+                }
+                self.numRows = Posts.count
+                self.tableViewPosts.reloadData()
+            }
+            
+            
+        }
+        self.refreshControl?.endRefreshing()
+    }
    
     @IBOutlet var tableViewPosts: UITableView!
-    // internal var index: Int = 0;
     let user = PFUser.currentUser();
     var dishName = [String]();
     var imageFiles = [PFFile]();
@@ -24,7 +47,7 @@ class UserPostListController: UITableViewController {
     {
         var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
-            self.dismissViewControllerAnimated(true, completion: nil)
+           
             
         }))
         self.presentViewController(alert, animated: true, completion: nil)
@@ -32,10 +55,10 @@ class UserPostListController: UITableViewController {
     
     override func viewDidLoad()  {
         super.viewDidLoad()
-        self.tableViewPosts.delegate = self
-        tableViewPosts.dataSource = self
+        self.navigationController?.navigationBarHidden = true
+        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
+ 
         
-        self.navigationController?.navigationBarHidden = false
         var relation = user.relationForKey("PostList")
         relation.query().findObjectsInBackgroundWithBlock {
             (Posts: [AnyObject]!, error: NSError!) -> Void in
@@ -48,11 +71,11 @@ class UserPostListController: UITableViewController {
                     self.imageFiles.append(post["imageFile"] as PFFile);
              
                 }
-                
-            }
-            
             self.numRows = Posts.count
             self.tableViewPosts.reloadData()
+            }
+            
+           
         }
         
         // Do any additional setup after loading the view.
@@ -83,8 +106,9 @@ class UserPostListController: UITableViewController {
                     self.dishName.removeAtIndex(indexPath.row)
                     self.imageFiles.removeAtIndex(indexPath.row)
                     self.posts.removeAtIndex(indexPath.row)
-                    self.displayError("Delete Successful!", error: "The Post was removed from Appetite")
-                    tableViewPosts.reloadData()
+                    self.displayError("Post Deleted", error: "The Post was removed from Appetite")
+                    self.numRows = self.dishName.count
+                    self.tableViewPosts.reloadData()
                 }
                 else {
                     self.displayError("Delete failed", error: "Failed to connect to Parse database")
@@ -110,6 +134,7 @@ class UserPostListController: UITableViewController {
             
         }
         cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
+    
         cell!.nameOfDish.text = dishName[indexPath.row]
         
         imageFiles[indexPath.row].getDataInBackgroundWithBlock{
@@ -132,7 +157,7 @@ class UserPostListController: UITableViewController {
             let restaurant: PFObject = post["Restaurant"] as PFObject
             vc.restaurant = restaurant
             //load detail view controller
-            self.presentViewController(vc, animated: true, completion: nil)
+            self.navigationController?.pushViewController(vc, animated: true)
         }
         
         
