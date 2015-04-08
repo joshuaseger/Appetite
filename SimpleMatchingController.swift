@@ -10,29 +10,29 @@ import UIKit
 
 class SimpleMatchingController: UIViewController {
     
-    
-    
     let user = PFUser.currentUser()
     var posts = [PFObject]()
+    var restaurants = [PFUser]()
     var currentDishIndex = 0
     var usersMatches = [AnyObject]()
     var currentLocation: PFGeoPoint!
     var loadedUsersMatches: Bool = false
+    var loadedPosts: Bool = false
+    var loadedRestaurants: Bool = false
     
     @IBOutlet var dishNameLabel: UILabel!
     @IBOutlet var dishImage: UIImageView!
     
     @IBAction func likeButton(sender: AnyObject) {
         retrieveNewPost();
-        println("Post was liked!")
-        if currentDishIndex < self.posts.count {
+        if currentDishIndex <= self.posts.count {
         var relation = self.user.relationForKey("PostList")
         var post2Add: PFObject = self.posts[currentDishIndex - 1] as PFObject
-        var numMatches: Int! = post2Add["numberMatches"] as Int!
+            var numMatches: Int! = post2Add["numberMatches"] as Int!
             if (numMatches == nil){
                 numMatches = 0;
             }
-        numMatches = numMatches + 1
+            numMatches = numMatches + 1
         post2Add["numberMatches"] = numMatches
         post2Add.save()
         relation.addObject(post2Add)
@@ -48,48 +48,73 @@ class SimpleMatchingController: UIViewController {
   
     
     override func viewWillAppear(animated: Bool) {
- 
-        PFGeoPoint.geoPointForCurrentLocationInBackground{ (geopoint: PFGeoPoint!, error: NSError!) -> Void in
+        println("View Will Appear Called")
+       if (self.loadedRestaurants == false && self.loadedUsersMatches == true)
+       {
+        findRestaurants();
+        }
+        if (self.loadedRestaurants == true && self.loadedPosts == false){
+            findPosts();
+        }
         
-            if error == nil{
-                 self.user["location"] = geopoint
-                self.currentLocation = self.user["location"] as PFGeoPoint!
-                self.findPosts()
-            }
-            else {
-                println(error)
-                self.currentLocation = self.user["location"] as PFGeoPoint!
-                self.findPosts()
-            }
+        if (loadedPosts == true && loadedRestaurants == true){
+            println(self.posts)
+        self.posts = self.shuffle(self.posts)
+        self.retrieveNewPost()
+    
         }
-        }
+       
+ 
     
+    }
     
-    
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        println("View Did Load Called")
    
         var relation = user.relationForKey("PostList")
         if (relation != nil){
-            println("Tried calling relation query")
+            
             relation.query().findObjectsInBackgroundWithBlock {
                 (Posts: [AnyObject]!, error: NSError!) -> Void in
                 if error != nil {
                     // There was an error
                     self.loadedUsersMatches = true
-                    self.viewWillAppear(true)
+                    PFGeoPoint.geoPointForCurrentLocationInBackground{ (geopoint: PFGeoPoint!, error: NSError!) -> Void in
+                        
+                        if error == nil{
+                            self.user["location"] = geopoint
+                            self.currentLocation = self.user["location"] as PFGeoPoint!
+                            self.viewWillAppear(true)
+                        }
+                        else {
+                            println(error)
+                            self.currentLocation = self.user["location"] as PFGeoPoint!
+                            self.viewWillAppear(true)
+                        }
+                    }
                 }
                 else
                 {
+                    //For loop adds posts that user has already been matched with
                     for post in Posts{
-                        println(post)
-                        println("EXECUTED CORRECTLY")
                         self.usersMatches.append(post as AnyObject);
                     }
        
                     self.loadedUsersMatches = true
-                    self.viewWillAppear(true)
+                    PFGeoPoint.geoPointForCurrentLocationInBackground{ (geopoint: PFGeoPoint!, error: NSError!) -> Void in
+                        
+                        if error == nil{
+                            self.user["location"] = geopoint
+                            self.currentLocation = self.user["location"] as PFGeoPoint!
+                            self.viewWillAppear(true)                        }
+                        else {
+                            println(error)
+                            self.currentLocation = self.user["location"] as PFGeoPoint!
+                            self.viewWillAppear(true)
+                        }
+                    }
+                    
                 }
             }
         }
@@ -111,20 +136,28 @@ class SimpleMatchingController: UIViewController {
         return list
     }
 
+    /*
+    
+
+    */
     func retrieveNewPost() {
-     
+        println("Called Retrieve New Post with Index of :")
+        println(currentDishIndex)
+        println(self.posts.count)
         if currentDishIndex < self.posts.count{
             var postToDisplay = self.posts[self.currentDishIndex]
-            var dishName = (postToDisplay["DishName"] as String);
+            var dishName = postToDisplay["DishName"] as String;
             self.dishNameLabel.text = dishName
             var imageToAdd = postToDisplay["imageFile"] as PFFile;
             imageToAdd.getDataInBackgroundWithBlock{
                 (imageData: NSData!, error: NSError!) -> Void in
                 if (error == nil){
                     self.dishImage.image = UIImage(data: imageData)
-                    println("Image added!")
                 }}
-        currentDishIndex++
+          
+                currentDishIndex++
+            
+        
         }
         else{
             self.dishNameLabel.text = "No more Dish posts available in your area"
@@ -132,34 +165,56 @@ class SimpleMatchingController: UIViewController {
         }
     }
     
-    
-    func findPosts(){
+    //Queries for Restaurants near current users location.
+    func findRestaurants(){
         var query = PFQuery(className:"RestaurantLocation")
-        
         query.whereKey("restaurantLocation", nearGeoPoint: self.currentLocation, withinMiles: 100.00)
-        
-        query.findObjectsInBackgroundWithBlock {
-            (restaurants: [AnyObject]!, error: NSError!) -> Void in
-            for restaurant in restaurants{
-                var  matchedUser: PFUser! = restaurant["userPointer"] as PFUser
-                var relation = matchedUser.relationForKey("PostList")
-                relation.query().findObjectsInBackgroundWithBlock {
-                    (Posts: [AnyObject]!, error: NSError!) -> Void in
-                    if error != nil {
-                        // There was an error
-                    } else {
-                        println(Posts)
-                        for post in Posts{  self.posts.append(post as PFObject)  }
-                        self.posts = self.shuffle(self.posts)
-                        self.retrieveNewPost()
-                    }}}
+        query.findObjectsInBackgroundWithBlock { (restaurants: [AnyObject]!, error: NSError!) -> Void in
+
+            for restaurant in restaurants
+            {
+                var  userPointer: PFUser! = restaurant["userPointer"] as PFUser
+                self.restaurants.append(userPointer)
+            }
+                self.loadedRestaurants = true
+                self.viewWillAppear(true)
+            }
             
         }
+    
+    func findPosts(){
+        var index = self.restaurants.count
+        for restaurant in self.restaurants{
+            var relation = restaurant.relationForKey("PostList")
+            relation.query().findObjectsInBackgroundWithBlock {
+                (Posts: [AnyObject]!, error: NSError!) -> Void in
+                if error != nil
+                {
+                    // There was an error
+                }
+                else {
+                    for post in Posts
+                    {
+                        self.posts.append(post as PFObject)
+                    }
+                }
+                index = index - 1
+                if index == 0{
+                self.loadedPosts = true
+                self.viewWillAppear(true)
+                    
+                }
+               
+            }
+            
+        }
+        
     }
-    
-    
-    
-    }
+}
+
+
+
+
     /*
     // MARK: - Navigation
 
