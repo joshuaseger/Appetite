@@ -9,17 +9,31 @@
 import UIKit
 
 class UserPostListController: UITableViewController {
-    
+ 
 
-    func refresh(sender:AnyObject)
-    {
-        
+
+   
+    @IBOutlet var tableViewPosts: UITableView!
+    let user = PFUser.currentUser();
+   
+    var dishName = [String]();
+    var imageFiles = [PFFile]();
+    var posts = [PFObject]();
+    var numRows: Int = 0
+    let index = 0
+    
+    
+    func refresh(){
+
         var relation = user.relationForKey("PostList")
         relation.query().findObjectsInBackgroundWithBlock {
             (Posts: [AnyObject]!, error: NSError!) -> Void in
             if error != nil {
                 // There was an error here
             } else {
+                self.posts = [PFObject]()
+                self.dishName = [String]()
+                self.imageFiles = [PFFile]()
                 for post in Posts{
                     self.posts.append(post as PFObject);
                     self.dishName.append(post["DishName"] as String);
@@ -27,21 +41,21 @@ class UserPostListController: UITableViewController {
                     
                 }
                 self.numRows = Posts.count
+                println(self.posts)
                 self.tableViewPosts.reloadData()
             }
             
             
         }
         self.refreshControl?.endRefreshing()
+        
     }
-   
-    @IBOutlet var tableViewPosts: UITableView!
-    let user = PFUser.currentUser();
-    var dishName = [String]();
-    var imageFiles = [PFFile]();
-    var posts = [PFObject]();
-    var numRows: Int = 0
-    let index = 0
+    
+    func refresh(sender:AnyObject)
+    {
+     self.refresh()
+    }
+    
     
     func displayError(title:String, error:String)
     {
@@ -65,6 +79,9 @@ class UserPostListController: UITableViewController {
             if error != nil {
                 // There was an error
             } else {
+                self.posts = [PFObject]()
+                self.dishName = [String]()
+                self.imageFiles = [PFFile]()
                 for post in Posts{
                     self.posts.append(post as PFObject);
                     self.dishName.append(post["DishName"] as String);
@@ -79,6 +96,11 @@ class UserPostListController: UITableViewController {
         }
         
         // Do any additional setup after loading the view.
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        self.refresh()
+
     }
     
     override func didReceiveMemoryWarning() {
@@ -100,20 +122,18 @@ class UserPostListController: UITableViewController {
         if (editingStyle == UITableViewCellEditingStyle.Delete) {
             // handle delete (by removing the data from your array and updating the tableview)
             // Fist must delete post from Parse database, then remove post data from local arrays and reload the table view
+            var relation = user.relationForKey("PostList")
             var postToDelete: PFObject = self.posts[indexPath.row]
-            postToDelete.deleteInBackgroundWithBlock({(deleted: Bool!, error: NSError!) -> Void in
-                if error == nil {
+            relation.removeObject(postToDelete)
+            user.save()
                     self.dishName.removeAtIndex(indexPath.row)
                     self.imageFiles.removeAtIndex(indexPath.row)
                     self.posts.removeAtIndex(indexPath.row)
                     self.displayError("Post Deleted", error: "The Post was removed from Appetite")
                     self.numRows = self.dishName.count
-                    self.tableViewPosts.reloadData()
-                }
-                else {
-                    self.displayError("Delete failed", error: "Failed to connect to Parse database")
-                }
-            })
+                    self.viewDidLoad()
+            
+        
             
         }
     }
