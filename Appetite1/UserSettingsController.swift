@@ -13,7 +13,7 @@ class UserSettingsController: UIViewController {
     let user = PFUser.currentUser()
     @IBOutlet var distanceLabel: UILabel!
     @IBOutlet var distanceSlider: UISlider!
-    var valueToStore: NSNumber!
+    var valueToStore: NSNumber! = 50.00
     
     @IBAction func sliderChanged(sender: AnyObject) {
         var currentValue = distanceSlider.value
@@ -23,9 +23,7 @@ class UserSettingsController: UIViewController {
         
     }
     @IBOutlet var priceRangeSelector: UISegmentedControl!
-    @IBAction func changedPriceRange(sender: AnyObject) {
-      
-    }
+    @IBAction func changedPriceRange(sender: AnyObject) { }
     
     override func viewWillDisappear(animated: Bool) {
         println("Search Distance Stored!!!!!!!!!!!!!!!!!!!!!!!!!!")

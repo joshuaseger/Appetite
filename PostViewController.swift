@@ -13,6 +13,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet var nameOfDish: UITextField!
     @IBOutlet var image2Post: UIImageView!
     var photoSelected:Bool = false
+    
     @IBAction func postImageButton(sender: AnyObject) {
         
         var image = UIImagePickerController()
@@ -96,6 +97,10 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
 }
 
+    
+
+    
+   
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     let user = PFUser.currentUser()
     
@@ -104,7 +109,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     {
         var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
-            self.dismissViewControllerAnimated(true, completion: nil)
+          
             
         }))
         self.presentViewController(alert, animated: true, completion: nil)

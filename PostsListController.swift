@@ -18,19 +18,32 @@ class PostsListController: UITableViewController{
     var posts = [PFObject]();
     var numRows: Int = 0
     
+    func refresh(){
+        self.viewDidLoad()
+        self.refreshControl?.endRefreshing()
+    }
+    
+    func refresh(sender:AnyObject)
+    {
+        self.refresh()
+    }
+    
     func displayError(title:String, error:String)
     {
         var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
-            self.dismissViewControllerAnimated(true, completion: nil)
+
             
         }))
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
+    override func viewWillAppear(animated: Bool) {
+        self.refresh()
+    }
     override func viewDidLoad()  {
         super.viewDidLoad()
-        
+        self.refreshControl?.addTarget(self, action: "refresh:", forControlEvents: UIControlEvents.ValueChanged)
         self.navigationController?.navigationBarHidden = false
         var relation = user.relationForKey("PostList")
         relation.query().findObjectsInBackgroundWithBlock {
@@ -38,6 +51,9 @@ class PostsListController: UITableViewController{
             if error != nil {
                 // There was an error
             } else {
+                self.posts = [PFObject]()
+                self.dishName = [String]()
+                self.imageFiles = [PFFile]()
                 for post in Posts{
                     self.posts.append(post as PFObject);
                     self.dishName.append(post["DishName"] as String);
@@ -77,7 +93,7 @@ class PostsListController: UITableViewController{
                     self.imageFiles.removeAtIndex(indexPath.row)
                     self.posts.removeAtIndex(indexPath.row)
                     self.displayError("Delete Successful!", error: "The Post was removed from Appetite")
-                    tableViewPosts.reloadData()
+                   self.viewDidLoad()
                 }
                 else {
                     self.displayError("Delete failed", error: "Failed to connect to Parse database")
