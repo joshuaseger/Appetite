@@ -26,7 +26,7 @@ class UserSettingsController: UIViewController {
     @IBAction func changedPriceRange(sender: AnyObject) { }
     
     override func viewWillDisappear(animated: Bool) {
-        println("Search Distance Stored!!!!!!!!!!!!!!!!!!!!!!!!!!")
+        println("Search Distance Stored!")
         user["SearchDistance"] = valueToStore
         user.save()
     }
