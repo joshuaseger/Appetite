@@ -22,43 +22,14 @@ class UserMatchingController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
-      
-        currentLocation = user["location"] as PFGeoPoint!
-        var query = PFQuery(className:"RestaurantLocation")
-        query.whereKey("restaurantLocation", nearGeoPoint: currentLocation, withinMiles: 100.00)
         
-        query.findObjectsInBackgroundWithBlock {
-            (restaurants: [AnyObject]!, error: NSError!) -> Void in
-            for restaurant in restaurants{
-                var  matchedUser: PFUser! = restaurant["userPointer"] as PFUser
-                var relation = matchedUser.relationForKey("PostList")
-                relation.query().findObjectsInBackgroundWithBlock {
-                    (Posts: [AnyObject]!, error: NSError!) -> Void in
-                    if error != nil {
-                        // There was an error
-                    } else {
-                        println(Posts)
-                        for post in Posts{
-                            self.posts.append(post as PFObject);
-                            self.dishName.append(post["DishName"] as String);
-                            var imageToAdd = post["imageFile"] as PFFile;
-                            
-                            imageToAdd.getDataInBackgroundWithBlock{
-                                (imageData: NSData!, error: NSError!) -> Void in
-                                if (error == nil){
-                                    self.dishImages.append(imageData)
-                                    println("Image added!")
-                                }}}}}}
-       
             var postImage = UIImage(named: "Food-Icon.png")
             self.userImage.image = postImage
             self.userImage.contentMode = UIViewContentMode.ScaleAspectFit
-      
             var gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
             self.userImage.addGestureRecognizer(gesture)
             self.userImage.userInteractionEnabled = true
-        }
+        
     }
 
         // Do any additional setup after loading the view.
@@ -132,8 +103,6 @@ class UserMatchingController: UIViewController {
                 var rotation: CGAffineTransform = CGAffineTransformMakeRotation(xFromCenter / 200)
                 var stretch: CGAffineTransform = CGAffineTransformScale(rotation, scale, scale)
                 label.transform = stretch
-                
-                
                 /*label.removeFromSuperview()
                 var userImage: UIImageView = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
                 userImage.image = UIImage(data: self.dishImages[self.currentDishIndex])
@@ -143,31 +112,25 @@ class UserMatchingController: UIViewController {
                 userImage.addGestureRecognizer(gesture)
                 userImage.userInteractionEnabled = true
                 xFromCenter = 0*/
-                
             }
         }
         if hasBeenSwiped == true {
-            
             if self.currentDishIndex < self.dishImages.count   {
                 label.removeFromSuperview()
                 var userImage: UIImageView = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
                 userImage.image = UIImage(data: self.dishImages[self.currentDishIndex])
                 userImage.contentMode = UIViewContentMode.ScaleAspectFit
                 self.view.addSubview(userImage)
-      
                 var gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
                 userImage.addGestureRecognizer(gesture)
                 userImage.userInteractionEnabled = true
                 xFromCenter = 0
-                
             } else {
                 
                 println("No more users")
                 
             }
-           
         }
-    
     }
 
 }

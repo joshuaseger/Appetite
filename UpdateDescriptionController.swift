@@ -51,16 +51,13 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
                     UIApplication.sharedApplication().endIgnoringInteractionEvents()
                     self.displayError("Failed to save description", error: "Cannot reach Parse Database")
                     
-                }
-                    
+                }  
                 else{
                     self.activityIndicator.stopAnimating()
                     UIApplication.sharedApplication().endIgnoringInteractionEvents()
                     println("Successfully saved description to Parse")
                     self.displayError("Great Success!", error: "Your image has been posted successfully and can be viewed in Posts List")
                     self.descriptionText.text = ""
-                  
-                    
                 }
             }
         }
