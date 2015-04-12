@@ -38,7 +38,7 @@ class SimpleMatchingController: UIViewController {
         post2Add.save()
         relation.addObject(post2Add)
         self.user.save()
-            println(post2Add)
+        println(post2Add)
             
         }
          retrieveNewPost();
@@ -46,11 +46,9 @@ class SimpleMatchingController: UIViewController {
     
     @IBAction func dislikeButton(sender: AnyObject) {
         retrieveNewPost()
-        println("Post was not liked")
     }
     
     func prepareForDisplay(){
-        println("PREPARE FOR DISPLAY CALLED")
         if (self.loadedRestaurants == false && self.loadedUsersMatches == true)
         {
             findRestaurants();
@@ -60,23 +58,38 @@ class SimpleMatchingController: UIViewController {
         }
         
         if (loadedPosts == true && loadedRestaurants == true){
-            println(self.posts)
-            self.posts = self.shuffle(self.posts)
+            if self.posts.count > 0 {self.posts = self.shuffle(self.posts)}
             self.retrieveNewPost()
     }
     }
   
+    override func viewWillAppear(animated: Bool) {
+
+        if(self.loadedRestaurants == true){
+            
+        
+            var distanceStored: Float! = user["SearchDistance"] as Float!
+            if distanceStored != nil{
+                distanceToSearch = Double(distanceStored)
+            }
+        self.posts = [PFObject]()
+        self.restaurants = [PFUser]()
+        self.currentDishIndex = 0
+        self.usersMatches = [PFObject]()
+        self.loadedUsersMatches  = false
+        self.loadedPosts  = false
+        self.loadedRestaurants = false
+        viewDidLoad()
+        }
+    }
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         var distanceStored: Float! = user["SearchDistance"] as Float!
-        println(distanceStored)
         if distanceStored != nil{
             distanceToSearch = Double(distanceStored)
-            println("DISTANCE TO Search")
-            println(distanceToSearch)
         }
-        println("VIEW DID LOAD CALLED")
         
         var relation = user.relationForKey("PostList")
         if (relation != nil){
@@ -144,9 +157,6 @@ class SimpleMatchingController: UIViewController {
 
   
     func retrieveNewPost() {
-        println("Called Retrieve New Post with Index of :")
-        println(currentDishIndex)
-        println(self.posts.count)
         if currentDishIndex < self.posts.count{
             var postToDisplay = self.posts[self.currentDishIndex]
             var dishName = postToDisplay["DishName"] as String;
@@ -170,11 +180,7 @@ class SimpleMatchingController: UIViewController {
     
     //Queries for Restaurants near current users location.
     func findRestaurants(){
-        println("FIND RESTAURANTS CALLED")
-        println("Searching by Distance of-------------------------------")
-        println(self.distanceToSearch)
         var query = PFQuery(className:"RestaurantLocation")
-
         query.whereKey("restaurantLocation", nearGeoPoint: self.currentLocation, withinMiles: self.distanceToSearch)
         query.findObjectsInBackgroundWithBlock { (restaurants: [AnyObject]!, error: NSError!) -> Void in
 
@@ -192,8 +198,6 @@ class SimpleMatchingController: UIViewController {
         }
     
     func findPosts(){
-        println("FIND POSTS CALLED")
-        println(self.restaurants)
         var index = self.restaurants.count
         for restaurant in self.restaurants{
             var relation = restaurant.relationForKey("PostList")

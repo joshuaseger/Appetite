@@ -20,6 +20,7 @@ class UserSettingsController: UIViewController {
         var value = String(format: "%0.f", currentValue)
         distanceLabel.text = "Search Distance: \(value) Miles"
         valueToStore = NSNumber(float: currentValue)
+       
         
     }
     @IBAction func Logout(sender: AnyObject) {
@@ -52,8 +53,17 @@ class UserSettingsController: UIViewController {
 
         distanceSlider.minimumValue = 1
         distanceSlider.maximumValue = 100
-        distanceSlider.value = 50
-        distanceLabel.text = "Search Distance: 50 Miles"
+        
+        var storedValue = user["SearchDistance"] as Float!
+        if (storedValue == nil){
+            distanceSlider.value = 50
+        }
+        else{
+            distanceSlider.value = storedValue
+        }
+        var currentValue = distanceSlider.value
+        var value = String(format: "%0.f", currentValue)
+        distanceLabel.text = "Search Distance: \(value) Miles"
 
         priceRangeSelector.selectedSegmentIndex = 0
         // Do any additional setup after loading the view.

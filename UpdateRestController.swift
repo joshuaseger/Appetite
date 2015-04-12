@@ -93,6 +93,7 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
             self.user.save()
             restaurant["restaurantLocation"] = geopoint
             restaurant.save()
+            self.displayAlertWithTitle("Location Saved", message: "Your current location has been set successfully")
         
     
         }
