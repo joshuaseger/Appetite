@@ -47,7 +47,10 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
             user.saveInBackgroundWithBlock{(success:Bool!, error: NSError!) -> Void in
                 
                 if success == false {
+                    self.activityIndicator.stopAnimating()
+                    UIApplication.sharedApplication().endIgnoringInteractionEvents()
                     self.displayError("Failed to save description", error: "Cannot reach Parse Database")
+                    
                 }
                     
                 else{
