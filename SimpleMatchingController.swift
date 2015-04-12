@@ -15,7 +15,7 @@ class SimpleMatchingController: UIViewController {
     var posts = [PFObject]()
     var restaurants = [PFUser]()
     var currentDishIndex = 0
-    var usersMatches = [AnyObject]()
+    var usersMatches = [PFObject]()
     var currentLocation: PFGeoPoint!
     var loadedUsersMatches: Bool = false
     var loadedPosts: Bool = false
@@ -50,6 +50,7 @@ class SimpleMatchingController: UIViewController {
     }
     
     func prepareForDisplay(){
+        println("PREPARE FOR DISPLAY CALLED")
         if (self.loadedRestaurants == false && self.loadedUsersMatches == true)
         {
             findRestaurants();
@@ -75,7 +76,7 @@ class SimpleMatchingController: UIViewController {
             println("DISTANCE TO Search")
             println(distanceToSearch)
         }
-   
+        println("VIEW DID LOAD CALLED")
         
         var relation = user.relationForKey("PostList")
         if (relation != nil){
@@ -103,7 +104,7 @@ class SimpleMatchingController: UIViewController {
                 {
                     //For loop adds posts that user has already been matched with
                     for post in Posts{
-                        self.usersMatches.append(post as AnyObject);
+                        self.usersMatches.append(post as PFObject);
                     }
        
                     self.loadedUsersMatches = true
@@ -169,6 +170,7 @@ class SimpleMatchingController: UIViewController {
     
     //Queries for Restaurants near current users location.
     func findRestaurants(){
+        println("FIND RESTAURANTS CALLED")
         println("Searching by Distance of-------------------------------")
         println(self.distanceToSearch)
         var query = PFQuery(className:"RestaurantLocation")
@@ -179,7 +181,9 @@ class SimpleMatchingController: UIViewController {
             for restaurant in restaurants
             {
                 var  userPointer: PFUser! = restaurant["userPointer"] as PFUser
+              
                 self.restaurants.append(userPointer)
+                
             }
                 self.loadedRestaurants = true
                 self.prepareForDisplay()
@@ -188,6 +192,8 @@ class SimpleMatchingController: UIViewController {
         }
     
     func findPosts(){
+        println("FIND POSTS CALLED")
+        println(self.restaurants)
         var index = self.restaurants.count
         for restaurant in self.restaurants{
             var relation = restaurant.relationForKey("PostList")
@@ -200,7 +206,16 @@ class SimpleMatchingController: UIViewController {
                 else {
                     for post in Posts
                     {
-                        self.posts.append(post as PFObject)
+                        var canAdd = true
+                        for userPost: PFObject in self.usersMatches{
+                            if (userPost.objectId == post.objectId){
+                                canAdd = false
+                            }
+                        }
+                        if (canAdd == true){
+                            self.posts.append(post as PFObject)
+                        }
+                        
                     }
                 }
                 index = index - 1

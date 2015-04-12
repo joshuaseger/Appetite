@@ -26,6 +26,13 @@ class RestaurantController: UIViewController {
         self.performSegueWithIdentifier("PostsNavController", sender: nil)
     }
     
+    @IBAction func Logout(sender: AnyObject) {
+        
+        PFUser.logOut()
+        self.performSegueWithIdentifier("LogoutSegue", sender: nil)
+        
+        
+    }
     override func viewWillAppear(animated: Bool) {
     
     //Query to find number of Posts a Restaurant user has posted on Appetite.

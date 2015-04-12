@@ -22,8 +22,25 @@ class UserSettingsController: UIViewController {
         valueToStore = NSNumber(float: currentValue)
         
     }
+    @IBAction func Logout(sender: AnyObject) {
+        
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0)) {
+            // do some task 
+            self.viewWillDisappear(true)
+            dispatch_async(dispatch_get_main_queue()) {
+                // update some UI 
+            PFUser.logOut()
+        self.performSegueWithIdentifier("LogoutUserSegue", sender: nil)
+            }
+        }
+       
+       
+        
+    }
     @IBOutlet var priceRangeSelector: UISegmentedControl!
     @IBAction func changedPriceRange(sender: AnyObject) { }
+    
     
     override func viewWillDisappear(animated: Bool) {
         println("Search Distance Stored!")

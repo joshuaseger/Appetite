@@ -25,6 +25,10 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
     @IBOutlet var restName: UITextField!
     @IBOutlet var dollarSigns: UILabel!
     @IBOutlet var slider: UISlider!
+    @IBOutlet var address: UITextField!
+    @IBOutlet var city: UITextField!
+    @IBOutlet var state: UITextField!
+    @IBOutlet var zip: UITextField!
     
     let user: PFUser! = PFUser.currentUser()
     
@@ -53,13 +57,17 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
     }
     
     @IBAction func updateInfo(sender: AnyObject) {
-        if (restEmail.text != "" || restPhone.text != "" || restEmail.text != "")
+        if (restEmail.text != "" || restPhone.text != "" || restEmail.text != "" || address.text != "" || city.text != "" || state.text != "" || zip.text != "")
         {
         var user = PFUser.currentUser()
         user["name"] = restName.text
         user["phone"] = restPhone.text
         user["email"] = restEmail.text
         user["priceGrade"] = dollarSigns.text
+        user["address"] = address.text
+        user["city"] = city.text
+        user["state"] = state.text
+        user["zip"] = zip.text
         user.save()
             displayAlertWithTitle("Great Success!", message: "All fields were saved.")
         }
@@ -107,34 +115,21 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
         presentViewController(controller, animated: true, completion: nil)
     }
 
+    
 
    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
     var userLocation:CLLocation = locations[0] as CLLocation
     latitudeDegrees = userLocation.coordinate.latitude
     longitudeDegrees = userLocation.coordinate.longitude
-        var latDelta:CLLocationDegrees = 0.01
-        var longDelta:CLLocationDegrees = 0.01
-        var span:MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
-        var location:CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitudeDegrees, longitudeDegrees)
-        var region:MKCoordinateRegion = MKCoordinateRegionMake(location, span)
-        myMap.setRegion(region, animated: true)
-        var annotation = MKPointAnnotation()
-        annotation.coordinate = location
-        annotation.title = "Your Position"
-        annotation.subtitle = "Does this look right?"
-        myMap.addAnnotation(annotation)
-       latitude.text = "\(latitudeDegrees)"
-        longitude.text = "\(longitudeDegrees)"
+    latitude.text = "\(latitudeDegrees)"
+    longitude.text = "\(longitudeDegrees)"
     currentLocation = userLocation
-    
-    
-
     
     }
 
     func locationManager(manager: CLLocationManager!, didFailWithError error: NSError!) {
 
-        //Print Error
+      
     }
     
     
@@ -159,6 +154,31 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
             restEmail.text = email
         }
         
+        let address1 = user["address"] as String!
+        if address1 != nil
+        {
+            address.text = address1
+        }
+        
+        let city1 = user["city"] as String!
+        if city1 != nil
+        {
+            city.text = city1
+        }
+        
+        let state1 = user["state"] as String!
+        if state1 != nil
+        {
+            state.text = state1
+        }
+        
+        let zip1 = user["zip"] as String!
+        if zip != nil
+        {
+            zip.text = zip1
+        }
+
+        
         let price = user["priceGrade"] as String!
         if price != nil{
             
@@ -182,11 +202,7 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
             {
                 slider.value = 90
             }
-
-            
         }
-        
-        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()

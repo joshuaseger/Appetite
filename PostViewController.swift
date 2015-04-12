@@ -55,7 +55,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             
             var post = PFObject(className: "Post")
-            post["removed"] = "false"
             post["DishName"] = nameOfDish.text
             post["Restaurant"] = user
             post["numberMatches"] = 0

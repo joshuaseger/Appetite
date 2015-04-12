@@ -37,8 +37,6 @@ class SignupViewController: UIViewController {
             
             user.signUpInBackgroundWithBlock({(succeeded: Bool!, signupError: NSError!) -> Void in
                 if signupError == nil {
-                    
-                    
                     user["role"] = "restaurant"
                     user.save()
                     self.dismissViewControllerAnimated(true, completion: nil)

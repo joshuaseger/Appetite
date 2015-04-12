@@ -11,10 +11,8 @@ import UIKit
 class PostsListController: UITableViewController{
 
     @IBOutlet var tableViewPosts: UITableView!
-   // internal var index: Int = 0;
+
     let user = PFUser.currentUser();
-    var dishName = [String]();
-    var imageFiles = [PFFile]();
     var posts = [PFObject]();
     var numRows: Int = 0
     
@@ -50,19 +48,15 @@ class PostsListController: UITableViewController{
             (Posts: [AnyObject]!, error: NSError!) -> Void in
             if error != nil {
                 // There was an error
+                self.displayError("Failed to Find Posts", error: "Please check your connection")
             } else {
+                //success
                 self.posts = [PFObject]()
-                self.dishName = [String]()
-                self.imageFiles = [PFFile]()
                 for post in Posts{
                     self.posts.append(post as PFObject);
-                    self.dishName.append(post["DishName"] as String);
-                    self.imageFiles.append(post["imageFile"] as PFFile);
                 }
-                
             }
-     
-            self.numRows = Posts.count
+            self.numRows = self.posts.count
             self.tableViewPosts.reloadData()
         }
         
@@ -89,8 +83,6 @@ class PostsListController: UITableViewController{
             var postToDelete: PFObject = self.posts[indexPath.row]
             postToDelete.deleteInBackgroundWithBlock({(deleted: Bool!, error: NSError!) -> Void in
                 if error == nil {
-                    self.dishName.removeAtIndex(indexPath.row)
-                    self.imageFiles.removeAtIndex(indexPath.row)
                     self.posts.removeAtIndex(indexPath.row)
                     self.displayError("Delete Successful!", error: "The Post was removed from Appetite")
                    self.viewDidLoad()
@@ -103,9 +95,6 @@ class PostsListController: UITableViewController{
         }
     }
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-    return 190
-    }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return 1
@@ -120,13 +109,11 @@ class PostsListController: UITableViewController{
         if ( cell == nil){
             var cell = PostsTableViewCell  (
                 style: UITableViewCellStyle.Default, reuseIdentifier: "myCell") as PostsTableViewCell;
-            
         }
-     println(indexPath)
- 
-       cell!.nameOfDish.text = dishName[indexPath.row]
-        
-        imageFiles[indexPath.row].getDataInBackgroundWithBlock{
+        var post = self.posts[indexPath.row]
+        cell!.nameOfDish.text = post["DishName"] as String!
+        var imageFile = post["imageFile"] as PFFile!
+        imageFile.getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in
             if (error == nil){
          let image = UIImage(data: imageData)
