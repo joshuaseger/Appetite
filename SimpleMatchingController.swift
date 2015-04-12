@@ -215,34 +215,20 @@ class SimpleMatchingController: UIViewController {
                         if (canAdd == true){
                             self.posts.append(post as PFObject)
                         }
-                        
                     }
                 }
                 index = index - 1
                 if index == 0{
                 self.loadedPosts = true
                 self.prepareForDisplay()
-                    
                 }
-               
             }
-            
         }
-        
     }
 }
 
 
 
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 

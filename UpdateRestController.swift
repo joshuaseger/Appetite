@@ -80,28 +80,22 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
     }
     
     @IBAction func CurrentPositionButton(sender: AnyObject) {
+        
+       var userPointerQuery = PFQuery(className: "RestaurantLocation")
+        userPointerQuery.whereKey("userPointer", equalTo: user)
+        var restaurant:PFObject = userPointerQuery.getFirstObject()
+        println(restaurant)
+        
     
         PFGeoPoint.geoPointForCurrentLocationInBackground{ (geopoint: PFGeoPoint!, error: NSError!) -> Void in
             
             self.user["location"] = geopoint
             self.user.save()
-            
-          var newLocation = PFObject(className:"RestaurantLocation")
-            newLocation["restaurantLocation"] = geopoint
-            newLocation["userPointer"] = PFUser.currentUser()
-            newLocation.saveInBackgroundWithBlock {
-                (success: Bool, error: NSError!) -> Void in
-                if (success) {
-                    self.displayAlertWithTitle("Great Success!", message: "Your current position has been saved :)")
-                    // The object has been saved.
-                } else {
-                    self.displayAlertWithTitle("Failed to Save", message: "Your current position failed to save")
-                }
-            }
-            }
+            restaurant["restaurantLocation"] = geopoint
+            restaurant.save()
         
     
-
+        }
 
     }
     

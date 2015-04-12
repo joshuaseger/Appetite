@@ -16,6 +16,15 @@ class SignupViewController: UIViewController {
     @IBAction func Back(sender: AnyObject) {
        self.dismissViewControllerAnimated(true, completion: nil)
     }
+    func displayAlertWithTitle(title:String,error:String)
+    {
+        var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
+        alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
+            
+            
+        }))
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
 
     @IBAction func signupRestaurant(sender: AnyObject) {
         
@@ -39,9 +48,26 @@ class SignupViewController: UIViewController {
                 if signupError == nil {
                     user["role"] = "restaurant"
                     user.save()
+                    user = PFUser.currentUser()
+                    PFGeoPoint.geoPointForCurrentLocationInBackground{ (geopoint: PFGeoPoint!, error: NSError!) -> Void in
+                        
+                        user["location"] = geopoint
+                        user.save()
+                        
+                        var newLocation = PFObject(className:"RestaurantLocation")
+                        newLocation["restaurantLocation"] = geopoint
+                        newLocation["userPointer"] = PFUser.currentUser()
+                        newLocation.saveInBackgroundWithBlock {
+                            (success: Bool, error: NSError!) -> Void in
+                            if (success) {
+                                self.displayAlertWithTitle("User Created", error: "You have successfully created a restaurant user.")
+                                // The object has been saved.
+                            } else {
+                               
+                            }
+                        }
+                    }
                     self.dismissViewControllerAnimated(true, completion: nil)
-                    
-                    
                 }
                 else{
                     if let errorString = signupError.userInfo?["error"] as? NSString {
