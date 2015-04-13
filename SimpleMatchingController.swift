@@ -22,7 +22,6 @@ class SimpleMatchingController: UIViewController {
     var loadedRestaurants: Bool = false
     
     @IBOutlet var dishNameLabel: UILabel!
-    @IBOutlet var dishImage: UIImageView!
     
     @IBAction func likeButton(sender: AnyObject) {
 
@@ -41,11 +40,11 @@ class SimpleMatchingController: UIViewController {
         println(post2Add)
             
         }
-         retrieveNewPost();
+        
     }
     
     @IBAction func dislikeButton(sender: AnyObject) {
-        retrieveNewPost()
+       
     }
     
     func prepareForDisplay(){
@@ -59,9 +58,85 @@ class SimpleMatchingController: UIViewController {
         
         if (loadedPosts == true && loadedRestaurants == true){
             if self.posts.count > 0 {self.posts = self.shuffle(self.posts)}
-            self.retrieveNewPost()
+            //self.retrieveNewPost()
+            
+            for post in self.posts {
+                var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 175, self.view.bounds.height / 2 - 250, 350, 350))
+                var gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
+                image.addGestureRecognizer(gesture)
+                image.userInteractionEnabled = true
+                var imageToAdd = post["imageFile"] as PFFile;
+                imageToAdd.getDataInBackgroundWithBlock{
+                    (imageData: NSData!, error: NSError!) -> Void in
+                    if (error == nil){
+                        image.image = UIImage(data: imageData)
+                    }}
+                
+                view.addSubview(image)
+            }
+            
+            
     }
     }
+    
+    func wasDragged(gesture: UIPanGestureRecognizer){
+        
+        var hasBeenSwiped: Bool = false
+        let translation = gesture.translationInView(self.view)
+        var xFromCenter: CGFloat = 0.00
+        var label = gesture.view!
+        xFromCenter += translation.x
+        var scale = min(50 / abs(xFromCenter), 1)
+        label.center = CGPoint(x: label.center.x + translation.x, y: label.center.y + translation.y)
+        gesture.setTranslation(CGPointZero, inView: self.view)
+        var rotation: CGAffineTransform = CGAffineTransformMakeRotation(xFromCenter / 300)
+        var stretch: CGAffineTransform = CGAffineTransformScale(rotation, scale, scale)
+        label.transform = stretch
+        if gesture.state == UIGestureRecognizerState.Ended {
+        
+            
+          
+            if(finalPoint.x > self.view.bounds.width - 5){
+                println("Chosen")
+                self.currentDishIndex++
+                hasBeenSwiped = true
+            }
+            else if(finalPoint.x < self.view.bounds.width - 370){
+                println("Not Chosen")
+                self.currentDishIndex++
+                hasBeenSwiped = true
+            }
+            else if self.currentDishIndex < self.posts.count  {
+                xFromCenter = 0.00
+             //   var scale = min(100 / abs(xFromCenter), 1)
+                label.center = CGPoint(x: 0, y: 0 )
+                gesture.setTranslation(CGPointZero, inView: self.view)
+                var rotation: CGAffineTransform = CGAffineTransformMakeRotation(xFromCenter / 200)
+                var stretch: CGAffineTransform = CGAffineTransformScale(rotation, scale, scale)
+                label.transform = stretch
+                
+                /*label.removeFromSuperview()
+                var userImage: UIImageView = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
+                userImage.image = UIImage(data: self.dishImages[self.currentDishIndex])
+                userImage.contentMode = UIViewContentMode.ScaleAspectFit
+                self.view.addSubview(userImage)
+                var gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
+                userImage.addGestureRecognizer(gesture)
+                userImage.userInteractionEnabled = true
+                xFromCenter = 0*/
+            }
+        }
+    
+        if hasBeenSwiped == true {
+            if self.currentDishIndex < self.posts.count   {
+                label.removeFromSuperview()
+            } else {
+                println("No more users")
+                
+            }
+        }
+    }
+
   
     override func viewWillAppear(animated: Bool) {
 
@@ -84,8 +159,12 @@ class SimpleMatchingController: UIViewController {
     }
     
     override func viewDidLoad() {
-        
         super.viewDidLoad()
+    
+        
+        
+        
+        
         var distanceStored: Float! = user["SearchDistance"] as Float!
         if distanceStored != nil{
             distanceToSearch = Double(distanceStored)
@@ -155,7 +234,8 @@ class SimpleMatchingController: UIViewController {
         return list
     }
 
-  
+ 
+    /*
     func retrieveNewPost() {
         if currentDishIndex < self.posts.count{
             var postToDisplay = self.posts[self.currentDishIndex]
@@ -167,10 +247,7 @@ class SimpleMatchingController: UIViewController {
                 if (error == nil){
                     self.dishImage.image = UIImage(data: imageData)
                 }}
-          
                 currentDishIndex++
-            
-        
         }
         else{
             self.dishNameLabel.text = "No more Dish posts available in your area"
@@ -178,6 +255,7 @@ class SimpleMatchingController: UIViewController {
         }
     }
     
+*/
     //Queries for Restaurants near current users location.
     func findRestaurants(){
         var query = PFQuery(className:"RestaurantLocation")
@@ -231,8 +309,18 @@ class SimpleMatchingController: UIViewController {
     }
 }
 
+/*
+let velocity = gesture.velocityInView(self.view)
+let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
+let slideMultiplier = magnitude / 500
+println("magnitude: \(magnitude), slideMultiplier: \(slideMultiplier)")
+let slideFactor = 0.1 * slideMultiplier     //Increase for more of a slide
+var finalPoint = CGPoint(x:gesture.view!.center.x + (velocity.x * slideFactor),
+y:gesture.view!.center.y + (velocity.y * slideFactor))
+finalPoint.x = min(max(finalPoint.x, 0), self.view.bounds.size.width)
+finalPoint.y = min(max(finalPoint.y, 0), self.view.bounds.size.height)
+UIView.animateWithDuration(Double(slideFactor * 1), delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: {gesture.view!.center = finalPoint }, completion: nil)
 
-
-
+*/
 
 
