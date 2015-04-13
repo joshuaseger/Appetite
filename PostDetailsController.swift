@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PostDetailsController: UIViewController {
+class PostDetailsController: UITableViewController {
 
     var restaurant: PFObject?
     

@@ -74,9 +74,6 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
         else{
             displayAlertWithTitle("Can't Update!", message: "Check your fields.")
         }
-        
-        
-        
     }
     
     @IBAction func CurrentPositionButton(sender: AnyObject) {
