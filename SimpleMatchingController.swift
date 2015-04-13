@@ -86,6 +86,12 @@ class SimpleMatchingController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
+        
+
+        
+        
+        
+        
         var distanceStored: Float! = user["SearchDistance"] as Float!
         if distanceStored != nil{
             distanceToSearch = Double(distanceStored)
