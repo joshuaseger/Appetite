@@ -8,8 +8,9 @@
 
 import UIKit
 
-class PostDetailsController: UITableViewController {
+class PostDetailsController: UIViewController{
 
+    @IBOutlet var scrollView: UIScrollView!
     var restaurant: PFObject?
     
     @IBAction func backButton(sender: AnyObject) {
@@ -17,36 +18,29 @@ class PostDetailsController: UITableViewController {
          self.navigationController?.navigationBarHidden = true
         self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    @IBOutlet var restaurantNameLabel: UILabel!
-    @IBOutlet var RestaurantImage: UIImageView!
-    @IBOutlet var priceLabel: UILabel!
-    @IBOutlet var emailLabel: UILabel!
-    @IBOutlet var phoneLabel: UILabel!
-    @IBOutlet var descriptionLabel: UILabel!
-    @IBOutlet var profilePic: UIImageView!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   
+      
+        let width = self.view.frame.size.width
+        let height = self.view.frame.size.height
+        let center = width/2
+        
+        var x: PFObject = restaurant?.fetchIfNeeded() as PFObject!
          self.navigationController?.navigationBarHidden = false
         //Controller was only passed object reference.  Must fetch actual object from Parse now.
         
-        var x: PFObject =  restaurant?.fetchIfNeeded() as PFObject!
-        
-        restaurantNameLabel.text = x["name"] as? String
-        priceLabel.text = x["priceGrade"] as? String
-        emailLabel.text = x["email"]  as? String
-        phoneLabel.text = x["phone"] as? String
-        descriptionLabel.text = x["description"] as? String
-        var imageFile = x["profilePic"] as PFFile
-        imageFile.getDataInBackgroundWithBlock{
-            (imageData: NSData!, error: NSError!) -> Void in
-            if (error == nil){
-                let image = UIImage(data: imageData)
-                self.profilePic.image = image;
-            }
-        }
-
+        let restaurantName: UILabel = UILabel(frame: CGRectMake(center, 15, 120, 50))
+        restaurantName.layer.borderColor = UIColor.redColor().CGColor
+        restaurantName.layer.borderWidth = 3.0
+        restaurantName.textAlignment = NSTextAlignment.Center
+       restaurantName.text = x["name"] as String!
+        scrollView.contentSize = CGSize(width: 350, height: 2500)
+        scrollView.showsVerticalScrollIndicator = true
+        scrollView.addSubview(restaurantName)
+    
+   
      
        
         // Do any additional setup after loading the view.
