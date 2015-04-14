@@ -10,6 +10,7 @@ import UIKit
 
 class SimpleMatchingController: UIViewController {
     
+    @IBOutlet var likedLabel: UILabel!
     let user = PFUser.currentUser()
     var distanceToSearch: Double = 50.00
     var posts = [PFObject]()
@@ -38,9 +39,7 @@ class SimpleMatchingController: UIViewController {
         relation.addObject(post2Add)
         self.user.save()
         println(post2Add)
-            
         }
-        
     }
     
     @IBAction func dislikeButton(sender: AnyObject) {
@@ -59,9 +58,12 @@ class SimpleMatchingController: UIViewController {
         if (loadedPosts == true && loadedRestaurants == true){
             if self.posts.count > 0 {self.posts = self.shuffle(self.posts)}
             //self.retrieveNewPost()
-            
+            var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
+            var imageFiller = UIImage(named: "Food-Icon.png")
+            image.image = imageFiller
+           view.addSubview(image)
             for post in self.posts {
-                var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 175, self.view.bounds.height / 2 - 250, 350, 350))
+                var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
                 var gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
                 image.addGestureRecognizer(gesture)
                 image.userInteractionEnabled = true
@@ -74,17 +76,17 @@ class SimpleMatchingController: UIViewController {
                 
                 view.addSubview(image)
             }
-            
+    
             
     }
     }
     
     func wasDragged(gesture: UIPanGestureRecognizer){
-        
+
         var hasBeenSwiped: Bool = false
         let translation = gesture.translationInView(self.view)
         var xFromCenter: CGFloat = 0.00
-        var label = gesture.view!
+        var label = gesture.view! //Change variable name
         xFromCenter += translation.x
         var scale = min(50 / abs(xFromCenter), 1)
         label.center = CGPoint(x: label.center.x + translation.x, y: label.center.y + translation.y)
@@ -92,48 +94,70 @@ class SimpleMatchingController: UIViewController {
         var rotation: CGAffineTransform = CGAffineTransformMakeRotation(xFromCenter / 300)
         var stretch: CGAffineTransform = CGAffineTransformScale(rotation, scale, scale)
         label.transform = stretch
+        
+        println(label.center)
+        if(label.center.x > self.view.bounds.width - 10){
+            println("Chosen")
+            
+   
+          
+        }
+        else if(label.center.x < self.view.bounds.width - 350){
+            println("Not Chosen")
+       
+        }
+        
+        
+        
         if gesture.state == UIGestureRecognizerState.Ended {
         
+            /*
+            let velocity = gesture.velocityInView(self.view)
+            let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
+            let slideMultiplier = magnitude / 200
+            println("magnitude: \(magnitude), slideMultiplier: \(slideMultiplier)")
+            
+            // 2
+            let slideFactor = 0.1 * slideMultiplier     //Increase for more of a slide
+            // 3
+            var finalPoint = CGPoint(x:gesture.view!.center.x + (velocity.x * slideFactor),
+                y:gesture.view!.center.y + (velocity.y * slideFactor))
+            // 4
+            finalPoint.x = min(max(finalPoint.x, 0), self.view.bounds.size.width)
+            finalPoint.y = min(max(finalPoint.y, 0), self.view.bounds.size.height)
+            
+            // 5
+            UIView.animateWithDuration(Double(slideFactor * 2), delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: {gesture.view!.center = finalPoint }, completion: nil)
+            */
+            
             
           
-            if(finalPoint.x > self.view.bounds.width - 5){
+            if(label.center.x > self.view.bounds.width - 20){
                 println("Chosen")
                 self.currentDishIndex++
                 hasBeenSwiped = true
             }
-            else if(finalPoint.x < self.view.bounds.width - 370){
+            else if(label.center.x < self.view.bounds.width - 340){
                 println("Not Chosen")
                 self.currentDishIndex++
                 hasBeenSwiped = true
             }
-            else if self.currentDishIndex < self.posts.count  {
                 xFromCenter = 0.00
-             //   var scale = min(100 / abs(xFromCenter), 1)
-                label.center = CGPoint(x: 0, y: 0 )
+                var scale = min(100 / abs(xFromCenter), 1)
                 gesture.setTranslation(CGPointZero, inView: self.view)
                 var rotation: CGAffineTransform = CGAffineTransformMakeRotation(xFromCenter / 200)
                 var stretch: CGAffineTransform = CGAffineTransformScale(rotation, scale, scale)
                 label.transform = stretch
-                
-                /*label.removeFromSuperview()
-                var userImage: UIImageView = UIImageView(frame: CGRectMake(0, 0, self.view.frame.width, self.view.frame.height))
-                userImage.image = UIImage(data: self.dishImages[self.currentDishIndex])
-                userImage.contentMode = UIViewContentMode.ScaleAspectFit
-                self.view.addSubview(userImage)
-                var gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
-                userImage.addGestureRecognizer(gesture)
-                userImage.userInteractionEnabled = true
-                xFromCenter = 0*/
+                label.center.x = self.view.bounds.width / 2 - 150
+                label.center.y = self.view.frame.width
             }
-        }
+        
     
         if hasBeenSwiped == true {
-            if self.currentDishIndex < self.posts.count   {
+         
                 label.removeFromSuperview()
-            } else {
-                println("No more users")
-                
-            }
+       
+        
         }
     }
 
@@ -161,7 +185,8 @@ class SimpleMatchingController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
     
-        
+        likedLabel.hidden = true
+        likedLabel.bringSubviewToFront(self.likedLabel)
         
         
         
