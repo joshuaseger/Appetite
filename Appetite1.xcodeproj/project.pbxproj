@@ -50,6 +50,7 @@
 		242DA64C1AD4545800B3FF1F /* download.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 242DA64A1AD4545800B3FF1F /* download.jpeg */; };
 		242DA64D1AD4545800B3FF1F /* download1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 242DA64B1AD4545800B3FF1F /* download1.jpg */; };
 		244A0C901AB91E07000CAE30 /* dish6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 244A0C8F1AB91E07000CAE30 /* dish6.jpg */; };
+		244FFF361ADF1F890069EFD8 /* DishTray.png in Resources */ = {isa = PBXBuildFile; fileRef = 244FFF351ADF1F890069EFD8 /* DishTray.png */; };
 		245236251AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 245236241AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg */; };
 		24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24528ED91AA03B2F005253F3 /* SignupViewController.swift */; };
 		2464678D1ADB68440040A5FD /* CALayer+Pulsar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2464678C1ADB68440040A5FD /* CALayer+Pulsar.swift */; };
@@ -128,6 +129,7 @@
 		242DA64A1AD4545800B3FF1F /* download.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = download.jpeg; sourceTree = "<group>"; };
 		242DA64B1AD4545800B3FF1F /* download1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = download1.jpg; sourceTree = "<group>"; };
 		244A0C8F1AB91E07000CAE30 /* dish6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish6.jpg; sourceTree = "<group>"; };
+		244FFF351ADF1F890069EFD8 /* DishTray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DishTray.png; sourceTree = "<group>"; };
 		245236241AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "004-Franklins-BBQ-copy.jpg"; sourceTree = "<group>"; };
 		24528ED91AA03B2F005253F3 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = ../SignupViewController.swift; sourceTree = "<group>"; };
 		2464678C1ADB68440040A5FD /* CALayer+Pulsar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Pulsar.swift"; sourceTree = "<group>"; };
@@ -268,6 +270,7 @@
 		241668F21AB7AB7E003E21BD /* Dishes */ = {
 			isa = PBXGroup;
 			children = (
+				244FFF351ADF1F890069EFD8 /* DishTray.png */,
 				242DA64A1AD4545800B3FF1F /* download.jpeg */,
 				242DA64B1AD4545800B3FF1F /* download1.jpg */,
 				242DA6401AD4528B00B3FF1F /* fooddish.jpeg */,
@@ -429,6 +432,7 @@
 				242DA6451AD4528B00B3FF1F /* fooddish.jpeg in Resources */,
 				241DC4291AD4BCB9003C4ABB /* Settings-32.png in Resources */,
 				242DA6491AD4528B00B3FF1F /* pancakes.jpg in Resources */,
+				244FFF361ADF1F890069EFD8 /* DishTray.png in Resources */,
 				242DA6461AD4528B00B3FF1F /* fooddish2.jpeg in Resources */,
 				241086411A9FFAFE00F1E9E2 /* Main.storyboard in Resources */,
 				241668F81AB7AB7E003E21BD /* dish3.jpg in Resources */,
