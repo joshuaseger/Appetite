@@ -10,39 +10,31 @@ import UIKit
 
 class PostDetailsController: UIViewController{
 
-    @IBOutlet var scrollView: UIScrollView!
     var restaurant: PFObject?
-    
-    @IBAction func backButton(sender: AnyObject) {
-        
-         self.navigationController?.navigationBarHidden = true
-        self.navigationController?.popToRootViewControllerAnimated(true)
-    }
+    let scrollView = UIScrollView(frame: UIScreen.mainScreen().bounds)
+    let mainContent = UIView()
 
+    override func loadView() {
+        self.view = self.scrollView
+        self.scrollView.contentSize = CGSize (width: self.view.bounds.width, height: self.view.bounds.height * 2)
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-      
-        let width = self.view.frame.size.width
-        let height = self.view.frame.size.height
-        let center = width/2
-        
         var x: PFObject = restaurant?.fetchIfNeeded() as PFObject!
-         self.navigationController?.navigationBarHidden = false
         //Controller was only passed object reference.  Must fetch actual object from Parse now.
+         self.navigationController?.navigationBarHidden = true
         
-        let restaurantName: UILabel = UILabel(frame: CGRectMake(center, 15, 120, 50))
-        restaurantName.layer.borderColor = UIColor.redColor().CGColor
-        restaurantName.layer.borderWidth = 3.0
-        restaurantName.textAlignment = NSTextAlignment.Center
-       restaurantName.text = x["name"] as String!
-        scrollView.contentSize = CGSize(width: 350, height: 2500)
-        scrollView.showsVerticalScrollIndicator = true
-        scrollView.addSubview(restaurantName)
-    
-   
-     
-       
+        self.view.addSubview(mainContent)
+        
+        self.scrollView.contentOffset = CGPoint(x: 10, y: 20)
+        
+        
+        
+        
+
+        
         // Do any additional setup after loading the view.
     }
     

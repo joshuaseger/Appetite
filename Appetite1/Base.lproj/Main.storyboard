@@ -1104,53 +1104,17 @@
                         <viewControllerLayoutGuide type="bottom" id="JPQ-Ld-Esk"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="380-kk-iQJ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" misplaced="YES" placeholderIntrinsicWidth="382" placeholderIntrinsicHeight="1000" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khL-8j-aTO">
-                                <rect key="frame" x="16" y="86" width="382" height="1000"/>
-                                <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PIR-HZ-VOm">
-                                        <rect key="frame" x="0.0" y="-954" width="382" height="1699"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    </view>
-                                </subviews>
-                            </scrollView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstAttribute="centerX" secondItem="khL-8j-aTO" secondAttribute="centerX" id="8NO-fY-01Z"/>
-                            <constraint firstItem="khL-8j-aTO" firstAttribute="leading" secondItem="380-kk-iQJ" secondAttribute="leadingMargin" id="Kx9-Gn-NwT"/>
-                            <constraint firstItem="JPQ-Ld-Esk" firstAttribute="top" secondItem="khL-8j-aTO" secondAttribute="bottom" id="cqg-Es-pBi"/>
-                            <constraint firstItem="khL-8j-aTO" firstAttribute="top" secondItem="SL4-9L-9YG" secondAttribute="bottom" id="ggY-1Q-szf"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="khL-8j-aTO" secondAttribute="trailing" id="hkF-dA-5l6"/>
-                        </constraints>
                     </view>
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="cem-Pf-sSd">
-                        <barButtonItem key="backBarButtonItem" title="Back" id="akf-Hx-04R"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Jec-vf-Raa">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="ECq-ee-U5T">
-                                <rect key="frame" x="-23" y="-15" width="133" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Back">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="backButton:" destination="kMW-Eg-837" eventType="touchUpInside" id="RJJ-vv-KUm"/>
-                                </connections>
-                            </button>
-                        </barButtonItem>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" id="cem-Pf-sSd"/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
-                    <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina55"/>
-                    <connections>
-                        <outlet property="scrollView" destination="khL-8j-aTO" id="VFX-DQ-XFZ"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U6p-97-ljn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2549" y="-1346"/>
+            <point key="canvasLocation" x="2547" y="-1347"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="rUi-lF-lhn">
