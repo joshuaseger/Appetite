@@ -34,9 +34,10 @@ class SimpleMatchingController: UIViewController {
     var noMoreMatches: Bool = false
     
     @IBAction func likeButton(sender: AnyObject) {
-        if(noMoreMatches == false){
+        if(noMoreMatches == false) && (currentDishIndex < self.posts.count) {
+            currentDishIndex++
             var relation = self.user.relationForKey("PostList")
-            var post2Add: PFObject = self.posts[currentDishIndex] as PFObject
+            var post2Add: PFObject = self.posts[currentDishIndex - 1] as PFObject
             var numMatches: Int! = post2Add["numberMatches"] as Int!
             if (numMatches == nil){
                 numMatches = 0;
@@ -51,7 +52,8 @@ class SimpleMatchingController: UIViewController {
     }
     
     @IBAction func dislikeButton(sender: AnyObject) {
-        if(noMoreMatches == false){
+        if(noMoreMatches == false) && (currentDishIndex < self.posts.count){
+            currentDishIndex++
             removeImageAndAddNew()
         }
     }
@@ -59,7 +61,7 @@ class SimpleMatchingController: UIViewController {
     func removeImageAndAddNew(){
         imageReference.removeFromSuperview()
         labelReference.removeFromSuperview()
-        currentDishIndex++
+     
         if(currentDishIndex <= self.posts.count - 1){
             var newPost = self.posts[currentDishIndex]
             addDraggableImage(newPost)
@@ -67,9 +69,9 @@ class SimpleMatchingController: UIViewController {
         else{
             self.noMoreMatches == true
             var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
-            var imageFiller = UIImage(named: "Food-Icon.png")
-            image.image = imageFiller
-            view.addSubview(image)
+            var defaultImage = UIImage(named: "Food-Icon.png")
+            image.image = defaultImage
+            self.view.addSubview(image)
             var nameLabel = UILabel()
             nameLabel.frame.size.width = self.view.bounds.width - 20
             nameLabel.frame.size.height = 20
@@ -81,7 +83,6 @@ class SimpleMatchingController: UIViewController {
             self.view.addSubview(nameLabel)
             self.labelReference = nameLabel
             self.imageReference = image
-            
         }
         
     }
@@ -177,18 +178,16 @@ class SimpleMatchingController: UIViewController {
             self.loadedUsersMatches  = false
             self.loadedPosts  = false
             self.loadedRestaurants = false
+            if(self.labelReference != nil){
+                self.labelReference.removeFromSuperview()
+                self.imageReference.removeFromSuperview()
+            }
             viewDidLoad()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-      
-        
-
-        
-        
         
         
         var distanceStored: Float! = user["SearchDistance"] as Float!
