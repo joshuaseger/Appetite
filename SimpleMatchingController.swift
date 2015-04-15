@@ -46,50 +46,42 @@ class SimpleMatchingController: UIViewController {
             post2Add.save()
             relation.addObject(post2Add)
             self.user.save()
-            imageReference.removeFromSuperview()
-            labelReference.removeFromSuperview()
-            currentDishIndex++
-            if(currentDishIndex <= self.posts.count - 1){
-                var newPost = self.posts[currentDishIndex]
-                addDraggableImage(newPost)
-            }
-            else{
-                self.noMoreMatches = true
-                var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
-                var imageFiller = UIImage(named: "Food-Icon.png")
-                image.image = imageFiller
-                view.addSubview(image)
-            }
+            removeImageAndAddNew()
         }
     }
     
     @IBAction func dislikeButton(sender: AnyObject) {
         if(noMoreMatches == false){
-            imageReference.removeFromSuperview()
-            labelReference.removeFromSuperview()
-            currentDishIndex++
-            if(currentDishIndex <= self.posts.count - 1){
-                var newPost = self.posts[currentDishIndex]
-                addDraggableImage(newPost)
-            }
-            else{
-                self.noMoreMatches = true
-                var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
-                var imageFiller = UIImage(named: "Food-Icon.png")
-                image.image = imageFiller
-                view.addSubview(image)
-                var nameLabel = UILabel()
-                nameLabel.frame.size.width = self.view.bounds.width - 20
-                nameLabel.frame.size.height = 20
-                nameLabel.center.x = self.view.bounds.width / 2
-                nameLabel.center.y = self.view.bounds.height / 2 - 100
-                nameLabel.bringSubviewToFront(self.view)
-                nameLabel.textAlignment = NSTextAlignment.Center
-                nameLabel.text = "No more dish posts in your area"
-                self.view.addSubview(nameLabel)
-                
-            }
+            removeImageAndAddNew()
         }
+    }
+    
+    func removeImageAndAddNew(){
+        imageReference.removeFromSuperview()
+        labelReference.removeFromSuperview()
+        currentDishIndex++
+        if(currentDishIndex <= self.posts.count - 1){
+            var newPost = self.posts[currentDishIndex]
+            addDraggableImage(newPost)
+        }
+        else{
+            self.noMoreMatches = true
+            var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
+            var imageFiller = UIImage(named: "Food-Icon.png")
+            image.image = imageFiller
+            view.addSubview(image)
+            var nameLabel = UILabel()
+            nameLabel.frame.size.width = self.view.bounds.width - 20
+            nameLabel.frame.size.height = 20
+            nameLabel.center.x = self.view.bounds.width / 2
+            nameLabel.center.y = self.view.bounds.height / 2 - 100
+            nameLabel.bringSubviewToFront(self.view)
+            nameLabel.textAlignment = NSTextAlignment.Center
+            nameLabel.text = "No more dish posts in your area"
+            self.view.addSubview(nameLabel)
+            
+        }
+        
     }
     
     func prepareForDisplay(){
@@ -102,7 +94,6 @@ class SimpleMatchingController: UIViewController {
         }
         if (loadedPosts == true && loadedRestaurants == true){
             if self.posts.count > 0 {
-              
                 self.posts = self.shuffle(self.posts)
                 currentDishIndex = 0;
                 noMoreMatches = false
@@ -112,6 +103,7 @@ class SimpleMatchingController: UIViewController {
         }
     }
     
+
     
     func addDraggableImage(post: PFObject){
         var postImage = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
