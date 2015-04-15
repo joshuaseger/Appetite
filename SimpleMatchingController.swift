@@ -65,7 +65,7 @@ class SimpleMatchingController: UIViewController {
             addDraggableImage(newPost)
         }
         else{
-            self.noMoreMatches = true
+            self.noMoreMatches == true
             var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
             var imageFiller = UIImage(named: "Food-Icon.png")
             image.image = imageFiller
@@ -79,6 +79,8 @@ class SimpleMatchingController: UIViewController {
             nameLabel.textAlignment = NSTextAlignment.Center
             nameLabel.text = "No more dish posts in your area"
             self.view.addSubview(nameLabel)
+            self.labelReference = nameLabel
+            self.imageReference = image
             
         }
         
@@ -164,7 +166,6 @@ class SimpleMatchingController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
     
-        
         if(self.loadedRestaurants == true){
             var distanceStored: Float! = user["SearchDistance"] as Float!
             if distanceStored != nil{
