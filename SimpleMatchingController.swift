@@ -8,6 +8,14 @@
 import Foundation
 import UIKit
 
+
+
+//TO DO LIST
+/*
+Fix bugs
+Add loading indicator
+Pulse when out of dishes to display??? Check libraries
+*/
 class SimpleMatchingController: UIViewController {
     
     @IBOutlet var likedLabel: UILabel!
@@ -21,29 +29,67 @@ class SimpleMatchingController: UIViewController {
     var loadedUsersMatches: Bool = false
     var loadedPosts: Bool = false
     var loadedRestaurants: Bool = false
-    
-    @IBOutlet var dishNameLabel: UILabel!
+    var imageReference: UIImageView!
+    var labelReference: UILabel!
+    var noMoreMatches: Bool = false
     
     @IBAction func likeButton(sender: AnyObject) {
-
-        if currentDishIndex <= self.posts.count {
-        var relation = self.user.relationForKey("PostList")
-        var post2Add: PFObject = self.posts[currentDishIndex - 1] as PFObject
+        if(noMoreMatches == false){
+            var relation = self.user.relationForKey("PostList")
+            var post2Add: PFObject = self.posts[currentDishIndex] as PFObject
             var numMatches: Int! = post2Add["numberMatches"] as Int!
             if (numMatches == nil){
                 numMatches = 0;
             }
             numMatches = numMatches + 1
-        post2Add["numberMatches"] = numMatches
-        post2Add.save()
-        relation.addObject(post2Add)
-        self.user.save()
-        println(post2Add)
+            post2Add["numberMatches"] = numMatches
+            post2Add.save()
+            relation.addObject(post2Add)
+            self.user.save()
+            imageReference.removeFromSuperview()
+            labelReference.removeFromSuperview()
+            currentDishIndex++
+            if(currentDishIndex <= self.posts.count - 1){
+                var newPost = self.posts[currentDishIndex]
+                addDraggableImage(newPost)
+            }
+            else{
+                self.noMoreMatches = true
+                var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
+                var imageFiller = UIImage(named: "Food-Icon.png")
+                image.image = imageFiller
+                view.addSubview(image)
+            }
         }
     }
     
     @IBAction func dislikeButton(sender: AnyObject) {
-       
+        if(noMoreMatches == false){
+            imageReference.removeFromSuperview()
+            labelReference.removeFromSuperview()
+            currentDishIndex++
+            if(currentDishIndex <= self.posts.count - 1){
+                var newPost = self.posts[currentDishIndex]
+                addDraggableImage(newPost)
+            }
+            else{
+                self.noMoreMatches = true
+                var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
+                var imageFiller = UIImage(named: "Food-Icon.png")
+                image.image = imageFiller
+                view.addSubview(image)
+                var nameLabel = UILabel()
+                nameLabel.frame.size.width = self.view.bounds.width - 20
+                nameLabel.frame.size.height = 20
+                nameLabel.center.x = self.view.bounds.width / 2
+                nameLabel.center.y = self.view.bounds.height / 2 - 100
+                nameLabel.bringSubviewToFront(self.view)
+                nameLabel.textAlignment = NSTextAlignment.Center
+                nameLabel.text = "No more dish posts in your area"
+                self.view.addSubview(nameLabel)
+                
+            }
+        }
     }
     
     func prepareForDisplay(){
@@ -54,36 +100,40 @@ class SimpleMatchingController: UIViewController {
         if (self.loadedRestaurants == true && self.loadedPosts == false){
             findPosts();
         }
-        
         if (loadedPosts == true && loadedRestaurants == true){
-            if self.posts.count > 0 {self.posts = self.shuffle(self.posts)}
-            //self.retrieveNewPost()
-            var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
-            var imageFiller = UIImage(named: "Food-Icon.png")
-            image.image = imageFiller
-           view.addSubview(image)
-            for post in self.posts {
-                var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
-                var gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
-                image.addGestureRecognizer(gesture)
-                image.userInteractionEnabled = true
-                var imageToAdd = post["imageFile"] as PFFile;
-                imageToAdd.getDataInBackgroundWithBlock{
-                    (imageData: NSData!, error: NSError!) -> Void in
-                    if (error == nil){
-                        image.image = UIImage(data: imageData)
-                    }}
+            if self.posts.count > 0 {
+              
+                self.posts = self.shuffle(self.posts)
+                currentDishIndex = 0;
+                noMoreMatches = false
+                addDraggableImage(self.posts[currentDishIndex])
                 
-                view.addSubview(image)
             }
-    
-            
+        }
     }
+    
+    
+    func addDraggableImage(post: PFObject){
+        var postImage = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))
+        var gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
+        postImage.addGestureRecognizer(gesture)
+        postImage.userInteractionEnabled = true
+        var imageToAdd = post["imageFile"] as PFFile;
+        imageToAdd.getDataInBackgroundWithBlock{
+            (imageData: NSData!, error: NSError!) -> Void in
+            if (error == nil){
+                postImage.image = UIImage(data: imageData)
+            }
+            self.view.addSubview(postImage)
+            var nameLabel = UILabel(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 305, 300, 40))
+            nameLabel.text = post["DishName"] as String!
+            self.view.addSubview(nameLabel)
+            self.imageReference = postImage
+            self.labelReference = nameLabel
+        }
     }
     
     func wasDragged(gesture: UIPanGestureRecognizer){
-
-        var hasBeenSwiped: Bool = false
         let translation = gesture.translationInView(self.view)
         var xFromCenter: CGFloat = 0.00
         var label = gesture.view! //Change variable name
@@ -95,109 +145,58 @@ class SimpleMatchingController: UIViewController {
         var stretch: CGAffineTransform = CGAffineTransformScale(rotation, scale, scale)
         label.transform = stretch
         
-        println(label.center)
-        if(label.center.x > self.view.bounds.width - 10){
-            println("Chosen")
-            
-   
-          
-        }
-        else if(label.center.x < self.view.bounds.width - 350){
-            println("Not Chosen")
-       
-        }
-        
-        
         
         if gesture.state == UIGestureRecognizerState.Ended {
-        
-            /*
-            let velocity = gesture.velocityInView(self.view)
-            let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
-            let slideMultiplier = magnitude / 200
-            println("magnitude: \(magnitude), slideMultiplier: \(slideMultiplier)")
             
-            // 2
-            let slideFactor = 0.1 * slideMultiplier     //Increase for more of a slide
-            // 3
-            var finalPoint = CGPoint(x:gesture.view!.center.x + (velocity.x * slideFactor),
-                y:gesture.view!.center.y + (velocity.y * slideFactor))
-            // 4
-            finalPoint.x = min(max(finalPoint.x, 0), self.view.bounds.size.width)
-            finalPoint.y = min(max(finalPoint.y, 0), self.view.bounds.size.height)
-            
-            // 5
-            UIView.animateWithDuration(Double(slideFactor * 2), delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: {gesture.view!.center = finalPoint }, completion: nil)
-            */
-            
-            
-          
             if(label.center.x > self.view.bounds.width - 20){
                 println("Chosen")
-                self.currentDishIndex++
-                hasBeenSwiped = true
+                likeButton(self)
             }
             else if(label.center.x < self.view.bounds.width - 340){
                 println("Not Chosen")
-                self.currentDishIndex++
-                hasBeenSwiped = true
+                dislikeButton(self)
             }
-                xFromCenter = 0.00
-                var scale = min(100 / abs(xFromCenter), 1)
-                gesture.setTranslation(CGPointZero, inView: self.view)
-                var rotation: CGAffineTransform = CGAffineTransformMakeRotation(xFromCenter / 200)
-                var stretch: CGAffineTransform = CGAffineTransformScale(rotation, scale, scale)
-                label.transform = stretch
-                label.center.x = self.view.bounds.width / 2 - 150
-                label.center.y = self.view.frame.width
-            }
-        
-    
-        if hasBeenSwiped == true {
-         
-                label.removeFromSuperview()
-       
-        
+            xFromCenter = 0.00
+            var scale = min(100 / abs(xFromCenter), 1)
+            gesture.setTranslation(CGPointZero, inView: self.view)
+            var rotation: CGAffineTransform = CGAffineTransformMakeRotation(xFromCenter / 200)
+            var stretch: CGAffineTransform = CGAffineTransformScale(rotation, scale, scale)
+            label.transform = stretch
+            label.center.x = self.view.bounds.width / 2
+            label.center.y = self.view.bounds.height / 2 - 115
         }
-    }
-
-  
-    override func viewWillAppear(animated: Bool) {
-
-        if(self.loadedRestaurants == true){
-            
         
+        
+    }
+    
+    
+    override func viewWillAppear(animated: Bool) {
+    
+        
+        if(self.loadedRestaurants == true){
             var distanceStored: Float! = user["SearchDistance"] as Float!
             if distanceStored != nil{
                 distanceToSearch = Double(distanceStored)
             }
-        self.posts = [PFObject]()
-        self.restaurants = [PFUser]()
-        self.currentDishIndex = 0
-        self.usersMatches = [PFObject]()
-        self.loadedUsersMatches  = false
-        self.loadedPosts  = false
-        self.loadedRestaurants = false
-        viewDidLoad()
+            self.posts = [PFObject]()
+            self.restaurants = [PFUser]()
+            self.usersMatches = [PFObject]()
+            self.loadedUsersMatches  = false
+            self.loadedPosts  = false
+            self.loadedRestaurants = false
+            viewDidLoad()
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
-        likedLabel.hidden = true
-        likedLabel.bringSubviewToFront(self.likedLabel)
-        
-        
         
         var distanceStored: Float! = user["SearchDistance"] as Float!
         if distanceStored != nil{
             distanceToSearch = Double(distanceStored)
         }
-        
         var relation = user.relationForKey("PostList")
         if (relation != nil){
-            
             relation.query().findObjectsInBackgroundWithBlock {
                 (Posts: [AnyObject]!, error: NSError!) -> Void in
                 if error != nil {
@@ -223,7 +222,7 @@ class SimpleMatchingController: UIViewController {
                     for post in Posts{
                         self.usersMatches.append(post as PFObject);
                     }
-       
+                    
                     self.loadedUsersMatches = true
                     PFGeoPoint.geoPointForCurrentLocationInBackground{ (geopoint: PFGeoPoint!, error: NSError!) -> Void in
                         
@@ -237,13 +236,12 @@ class SimpleMatchingController: UIViewController {
                             self.prepareForDisplay()
                         }
                     }
-                    
                 }
             }
         }
-      }
-
-
+    }
+    
+    
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -258,47 +256,23 @@ class SimpleMatchingController: UIViewController {
         }
         return list
     }
-
- 
-    /*
-    func retrieveNewPost() {
-        if currentDishIndex < self.posts.count{
-            var postToDisplay = self.posts[self.currentDishIndex]
-            var dishName = postToDisplay["DishName"] as String;
-            self.dishNameLabel.text = dishName
-            var imageToAdd = postToDisplay["imageFile"] as PFFile;
-            imageToAdd.getDataInBackgroundWithBlock{
-                (imageData: NSData!, error: NSError!) -> Void in
-                if (error == nil){
-                    self.dishImage.image = UIImage(data: imageData)
-                }}
-                currentDishIndex++
-        }
-        else{
-            self.dishNameLabel.text = "No more Dish posts available in your area"
-            self.dishImage.image = UIImage(named: "Food-Icon.png")
-        }
-    }
     
-*/
+    
+    
     //Queries for Restaurants near current users location.
     func findRestaurants(){
         var query = PFQuery(className:"RestaurantLocation")
         query.whereKey("restaurantLocation", nearGeoPoint: self.currentLocation, withinMiles: self.distanceToSearch)
         query.findObjectsInBackgroundWithBlock { (restaurants: [AnyObject]!, error: NSError!) -> Void in
-
             for restaurant in restaurants
             {
                 var  userPointer: PFUser! = restaurant["userPointer"] as PFUser
-              
                 self.restaurants.append(userPointer)
-                
             }
-                self.loadedRestaurants = true
-                self.prepareForDisplay()
-            }
-            
+            self.loadedRestaurants = true
+            self.prepareForDisplay()
         }
+    }
     
     func findPosts(){
         var index = self.restaurants.count
@@ -326,26 +300,14 @@ class SimpleMatchingController: UIViewController {
                 }
                 index = index - 1
                 if index == 0{
-                self.loadedPosts = true
-                self.prepareForDisplay()
+                    self.loadedPosts = true
+                    self.prepareForDisplay()
                 }
             }
         }
     }
 }
 
-/*
-let velocity = gesture.velocityInView(self.view)
-let magnitude = sqrt((velocity.x * velocity.x) + (velocity.y * velocity.y))
-let slideMultiplier = magnitude / 500
-println("magnitude: \(magnitude), slideMultiplier: \(slideMultiplier)")
-let slideFactor = 0.1 * slideMultiplier     //Increase for more of a slide
-var finalPoint = CGPoint(x:gesture.view!.center.x + (velocity.x * slideFactor),
-y:gesture.view!.center.y + (velocity.y * slideFactor))
-finalPoint.x = min(max(finalPoint.x, 0), self.view.bounds.size.width)
-finalPoint.y = min(max(finalPoint.y, 0), self.view.bounds.size.height)
-UIView.animateWithDuration(Double(slideFactor * 1), delay: 0, options: UIViewAnimationOptions.CurveEaseOut, animations: {gesture.view!.center = finalPoint }, completion: nil)
 
-*/
 
 

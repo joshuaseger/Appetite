@@ -744,15 +744,6 @@
                                     <action selector="likeButton:" destination="zmF-RA-GcI" eventType="touchUpInside" id="95c-Xi-wJX"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jBr-qt-tAJ">
-                                <rect key="frame" x="122" y="20" width="346" height="55"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="55" id="SUT-EV-JvI"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VdH-zR-FuR">
                                 <rect key="frame" x="126" y="424" width="132" height="68"/>
                                 <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -774,31 +765,17 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wNV-6m-tJh">
-                                <rect key="frame" x="54" y="182" width="492" height="94"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="52"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                                <color key="shadowColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstAttribute="centerX" secondItem="jBr-qt-tAJ" secondAttribute="centerX" id="3kN-zO-Kxa"/>
-                            <constraint firstItem="jBr-qt-tAJ" firstAttribute="top" secondItem="sXh-QE-XJv" secondAttribute="bottom" id="6Pg-9f-wwL"/>
                             <constraint firstItem="BGe-q2-Pro" firstAttribute="leading" secondItem="VdH-zR-FuR" secondAttribute="trailing" constant="25" id="BM9-fQ-06s"/>
                             <constraint firstAttribute="centerX" secondItem="BGe-q2-Pro" secondAttribute="centerX" id="Dae-BV-v1L"/>
-                            <constraint firstAttribute="centerX" secondItem="wNV-6m-tJh" secondAttribute="centerX" id="Tjz-Qc-Ykn"/>
                             <constraint firstItem="Yj3-X2-x2E" firstAttribute="leading" secondItem="BGe-q2-Pro" secondAttribute="trailing" constant="18" id="UNb-CK-4f0"/>
                             <constraint firstItem="VdH-zR-FuR" firstAttribute="width" secondItem="Yj3-X2-x2E" secondAttribute="width" id="fBM-EP-ix8"/>
                         </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Waiter-32.png" id="jhk-MD-SKB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
-                    <connections>
-                        <outlet property="dishNameLabel" destination="jBr-qt-tAJ" id="tZb-Lg-C0e"/>
-                        <outlet property="likedLabel" destination="wNV-6m-tJh" id="mWE-aB-6Wz"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EiD-qK-p2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
