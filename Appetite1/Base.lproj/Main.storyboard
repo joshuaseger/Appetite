@@ -212,38 +212,6 @@
             </objects>
             <point key="canvasLocation" x="469" y="-440"/>
         </scene>
-        <!--Practice Controller-->
-        <scene sceneID="blj-cV-rmD">
-            <objects>
-                <viewController id="1lk-TH-Aww" customClass="PracticeController" customModule="Appetite1" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="WHg-5a-pba"/>
-                        <viewControllerLayoutGuide type="bottom" id="kkb-22-dyL"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Ram-Pr-n0U">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Food-Icon.png" translatesAutoresizingMaskIntoConstraints="NO" id="Mqk-WU-s19">
-                                <rect key="frame" x="73" y="213" width="455" height="344"/>
-                                <gestureRecognizers/>
-                                <connections>
-                                    <outletCollection property="gestureRecognizers" destination="e6p-Om-1zi" appends="YES" id="Xzd-rE-s9f"/>
-                                </connections>
-                            </imageView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="l87-Ky-GZ8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="e6p-Om-1zi">
-                    <connections>
-                        <action selector="handlePan:" destination="1lk-TH-Aww" id="P32-AM-qh1"/>
-                    </connections>
-                </panGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="-788" y="1182"/>
-        </scene>
         <!--User Matching Controller-->
         <scene sceneID="lug-1H-Ayh">
             <objects>
@@ -269,7 +237,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hoB-Jj-Lrs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-26.5" y="-265.5"/>
+            <point key="canvasLocation" x="-28.5" y="-461.5"/>
         </scene>
         <!--UpdateRestController-->
         <scene sceneID="Wcb-ZE-cux">
@@ -1171,40 +1139,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dYY-w0-e0V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="973" y="-1352"/>
-        </scene>
-        <!--Paged Scroll View Controller-->
-        <scene sceneID="EMq-yk-qgh">
-            <objects>
-                <viewController id="kDP-eh-Ybu" customClass="PagedScrollViewController" customModule="Appetite1" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="AHj-UC-zgm"/>
-                        <viewControllerLayoutGuide type="bottom" id="Jsw-5v-o0U"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="Etq-bg-8gu">
-                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="7vJ-Fd-LOq">
-                                <rect key="frame" x="20" y="531" width="564" height="37"/>
-                            </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yXi-iI-zUm">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="523"/>
-                                <connections>
-                                    <outlet property="delegate" destination="kDP-eh-Ybu" id="1oq-6W-TNQ"/>
-                                </connections>
-                            </scrollView>
-                        </subviews>
-                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="IKI-Ip-1Re"/>
-                    <connections>
-                        <outlet property="pageControl" destination="7vJ-Fd-LOq" id="OhM-s5-Od1"/>
-                        <outlet property="scrollView" destination="yXi-iI-zUm" id="BUY-7m-jbf"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="gHh-d8-RbG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2762" y="-507"/>
         </scene>
     </scenes>
     <resources>
