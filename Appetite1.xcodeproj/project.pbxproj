@@ -66,6 +66,15 @@
 		24EAECE71AB68C0A00FEE226 /* PostsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE61AB68C0A00FEE226 /* PostsListController.swift */; };
 		24EC46001AD362EA001CD0F5 /* PagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EC45FF1AD362EA001CD0F5 /* PagedScrollViewController.swift */; };
 		24F954DB1ACF1EF9002B4DD5 /* PracticeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F954DA1ACF1EF9002B4DD5 /* PracticeController.swift */; };
+		609032041ADF18BE00639F2C /* appetitelogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 609031FB1ADF18BE00639F2C /* appetitelogo.png */; };
+		609032051ADF18BE00639F2C /* back.png in Resources */ = {isa = PBXBuildFile; fileRef = 609031FC1ADF18BE00639F2C /* back.png */; };
+		609032061ADF18BE00639F2C /* back2.png in Resources */ = {isa = PBXBuildFile; fileRef = 609031FD1ADF18BE00639F2C /* back2.png */; };
+		609032071ADF18BE00639F2C /* back3.png in Resources */ = {isa = PBXBuildFile; fileRef = 609031FE1ADF18BE00639F2C /* back3.png */; };
+		609032081ADF18BE00639F2C /* yummy.ai in Resources */ = {isa = PBXBuildFile; fileRef = 609031FF1ADF18BE00639F2C /* yummy.ai */; };
+		609032091ADF18BE00639F2C /* yummy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 609032001ADF18BE00639F2C /* yummy.jpg */; };
+		6090320A1ADF18BE00639F2C /* yummy.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 609032011ADF18BE00639F2C /* yummy.pdf */; };
+		6090320B1ADF18BE00639F2C /* yummy.png in Resources */ = {isa = PBXBuildFile; fileRef = 609032021ADF18BE00639F2C /* yummy.png */; };
+		6090320C1ADF18BE00639F2C /* yummy.psd in Resources */ = {isa = PBXBuildFile; fileRef = 609032031ADF18BE00639F2C /* yummy.psd */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -143,6 +152,15 @@
 		24EAECE61AB68C0A00FEE226 /* PostsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsListController.swift; path = ../PostsListController.swift; sourceTree = "<group>"; };
 		24EC45FF1AD362EA001CD0F5 /* PagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedScrollViewController.swift; sourceTree = "<group>"; };
 		24F954DA1ACF1EF9002B4DD5 /* PracticeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeController.swift; sourceTree = "<group>"; };
+		609031FB1ADF18BE00639F2C /* appetitelogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = appetitelogo.png; sourceTree = "<group>"; };
+		609031FC1ADF18BE00639F2C /* back.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back.png; sourceTree = "<group>"; };
+		609031FD1ADF18BE00639F2C /* back2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back2.png; sourceTree = "<group>"; };
+		609031FE1ADF18BE00639F2C /* back3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = back3.png; sourceTree = "<group>"; };
+		609031FF1ADF18BE00639F2C /* yummy.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = yummy.ai; sourceTree = "<group>"; };
+		609032001ADF18BE00639F2C /* yummy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = yummy.jpg; sourceTree = "<group>"; };
+		609032011ADF18BE00639F2C /* yummy.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = yummy.pdf; sourceTree = "<group>"; };
+		609032021ADF18BE00639F2C /* yummy.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = yummy.png; sourceTree = "<group>"; };
+		609032031ADF18BE00639F2C /* yummy.psd */ = {isa = PBXFileReference; lastKnownFileType = file; path = yummy.psd; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,10 +246,11 @@
 				241086751A9FFB5500F1E9E2 /* ParseUI.framework */,
 				2410863B1A9FFAFE00F1E9E2 /* AppDelegate.swift */,
 				2410863F1A9FFAFE00F1E9E2 /* Main.storyboard */,
+				609031FA1ADF18BE00639F2C /* buttons */,
+				2410867E1A9FFC1700F1E9E2 /* Backgrounds */,
 				241086421A9FFAFE00F1E9E2 /* Images.xcassets */,
 				241086441A9FFAFE00F1E9E2 /* LaunchScreen.xib */,
 				241668F21AB7AB7E003E21BD /* Dishes */,
-				2410867E1A9FFC1700F1E9E2 /* Backgrounds */,
 				241086391A9FFAFE00F1E9E2 /* Supporting Files */,
 			);
 			path = Appetite1;
@@ -331,6 +350,22 @@
 			name = Icons;
 			sourceTree = "<group>";
 		};
+		609031FA1ADF18BE00639F2C /* buttons */ = {
+			isa = PBXGroup;
+			children = (
+				609031FB1ADF18BE00639F2C /* appetitelogo.png */,
+				609031FC1ADF18BE00639F2C /* back.png */,
+				609031FD1ADF18BE00639F2C /* back2.png */,
+				609031FE1ADF18BE00639F2C /* back3.png */,
+				609031FF1ADF18BE00639F2C /* yummy.ai */,
+				609032001ADF18BE00639F2C /* yummy.jpg */,
+				609032011ADF18BE00639F2C /* yummy.pdf */,
+				609032021ADF18BE00639F2C /* yummy.png */,
+				609032031ADF18BE00639F2C /* yummy.psd */,
+			);
+			path = buttons;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -411,29 +446,38 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6090320A1ADF18BE00639F2C /* yummy.pdf in Resources */,
 				24BE54111AD370A300E7A38A /* Waiter-32.png in Resources */,
 				241668FC1AB7ABE0003E21BD /* Food-Icon.png in Resources */,
 				241A7AE41ACDE4F800D2FB4E /* MethodHelper.strings in Resources */,
 				242DA6481AD4528B00B3FF1F /* fresh_salad_in_bowl_191669.jpg in Resources */,
 				242DA6451AD4528B00B3FF1F /* fooddish.jpeg in Resources */,
+				609032081ADF18BE00639F2C /* yummy.ai in Resources */,
 				241DC4291AD4BCB9003C4ABB /* Settings-32.png in Resources */,
 				242DA6491AD4528B00B3FF1F /* pancakes.jpg in Resources */,
 				242DA6461AD4528B00B3FF1F /* fooddish2.jpeg in Resources */,
 				241086411A9FFAFE00F1E9E2 /* Main.storyboard in Resources */,
+				609032071ADF18BE00639F2C /* back3.png in Resources */,
 				241668F81AB7AB7E003E21BD /* dish3.jpg in Resources */,
 				242DA6471AD4528B00B3FF1F /* fooddish3.jpg in Resources */,
+				609032051ADF18BE00639F2C /* back.png in Resources */,
 				241DC4281AD4BCB9003C4ABB /* Fridge-32.png in Resources */,
 				241086461A9FFAFE00F1E9E2 /* LaunchScreen.xib in Resources */,
 				244A0C901AB91E07000CAE30 /* dish6.jpg in Resources */,
+				609032091ADF18BE00639F2C /* yummy.jpg in Resources */,
 				245236251AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg in Resources */,
 				241668F71AB7AB7E003E21BD /* dish2.jpg in Resources */,
+				609032041ADF18BE00639F2C /* appetitelogo.png in Resources */,
 				2410867F1A9FFC1700F1E9E2 /* Backgrounds in Resources */,
+				609032061ADF18BE00639F2C /* back2.png in Resources */,
 				241668FA1AB7AB7E003E21BD /* dish5.jpg in Resources */,
 				241668F91AB7AB7E003E21BD /* dish4.jpg in Resources */,
+				6090320B1ADF18BE00639F2C /* yummy.png in Resources */,
 				242DA64C1AD4545800B3FF1F /* download.jpeg in Resources */,
 				241086431A9FFAFE00F1E9E2 /* Images.xcassets in Resources */,
 				24BE54141AD3716700E7A38A /* Dining Room-32.png in Resources */,
 				242DA64D1AD4545800B3FF1F /* download1.jpg in Resources */,
+				6090320C1ADF18BE00639F2C /* yummy.psd in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
