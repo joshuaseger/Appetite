@@ -29,6 +29,7 @@ class ViewController: UIViewController {
 
     @IBOutlet var password: UITextField!
     @IBOutlet var username: UITextField!
+    @IBOutlet var backgroundView: UIImageView!
     
     func displayError(title:String, error:String)
     {
@@ -65,16 +66,11 @@ class ViewController: UIViewController {
                             println("called segue to diner")
                             
                         self.performSegueWithIdentifier("DinerPostsSegue", sender: nil)
-                         
-                            
                         }
                         else {
                             self.performSegueWithIdentifier("RestaurantLoginSegue", sender: nil)
                             
                         }
-              
-                  
-                        
                     }
                                     } else {
                     var loginError = "Please try again or signup"
@@ -82,13 +78,14 @@ class ViewController: UIViewController {
                 }
             }
             
-            
         }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
     
+        
+        
         //Prints current user to logs for automatic login
         println(PFUser.currentUser())
         // Do any additional setup after loading the view, typically from a nib.

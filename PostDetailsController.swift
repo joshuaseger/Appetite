@@ -11,12 +11,10 @@ import UIKit
 class PostDetailsController: UIViewController{
 
     var restaurant: PFObject?
-    let scrollView = UIScrollView(frame: UIScreen.mainScreen().bounds)
-    let mainContent = UIView()
+
 
     override func loadView() {
-        self.view = self.scrollView
-        self.scrollView.contentSize = CGSize (width: self.view.bounds.width, height: self.view.bounds.height * 2)
+
         
     }
     
@@ -24,11 +22,10 @@ class PostDetailsController: UIViewController{
         super.viewDidLoad()
         var x: PFObject = restaurant?.fetchIfNeeded() as PFObject!
         //Controller was only passed object reference.  Must fetch actual object from Parse now.
-         self.navigationController?.navigationBarHidden = true
+
         
-        self.view.addSubview(mainContent)
-        
-        self.scrollView.contentOffset = CGPoint(x: 10, y: 20)
+
+
         
         
         

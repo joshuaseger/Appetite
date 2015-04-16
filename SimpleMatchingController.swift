@@ -93,30 +93,30 @@ class SimpleMatchingController: UIViewController {
     }
     
     
-func noMorePosts(){
-    self.noMoreMatches == true
-    var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 165, self.view.bounds.height / 2 - 225, 330, 200))
-    var defaultImage = UIImage(named: "DishTray.png")
-    image.image = defaultImage
-    self.view.addSubview(image)
-    var nameLabel = UILabel()
-    nameLabel.frame.size.width = self.view.bounds.width - 20
-    nameLabel.frame.size.height = 20
-    nameLabel.center.x = self.view.bounds.width / 2
-    nameLabel.center.y = self.view.bounds.height / 2 - 90
-    nameLabel.bringSubviewToFront(self.view)
-    nameLabel.textAlignment = NSTextAlignment.Center
-    nameLabel.text = "No more dish posts in your area"
-    self.view.addSubview(nameLabel)
-    self.labelReference = nameLabel
-    self.imageReference = image
-    self.imageReference.layer.addPulse{builder in
-        builder.borderColors = [UIColor.orangeColor().CGColor]
-        builder.backgroundColors = [UIColor.grayColor().CGColor]
-        builder.repeatCount = 1000
-        builder.duration = NSTimeInterval.abs(2)
-}
-}
+    func noMorePosts(){
+        self.noMoreMatches == true
+        var image = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 125, self.view.bounds.height / 2 - 225, 250, 200))
+        var defaultImage = UIImage(named: "DishIcon.png")
+        image.image = defaultImage
+        self.view.addSubview(image)
+        var nameLabel = UILabel()
+        nameLabel.frame.size.width = self.view.bounds.width - 20
+        nameLabel.frame.size.height = 20
+        nameLabel.center.x = self.view.bounds.width / 2
+        nameLabel.center.y = self.view.bounds.height / 2 - 10
+        nameLabel.bringSubviewToFront(self.view)
+        nameLabel.textAlignment = NSTextAlignment.Center
+        nameLabel.text = "No more dish posts in your area"
+        self.view.addSubview(nameLabel)
+        self.labelReference = nameLabel
+        self.imageReference = image
+        self.imageReference.layer.addPulse{builder in
+            builder.borderColors = [UIColor.orangeColor().CGColor]
+            builder.backgroundColors = [UIColor.grayColor().CGColor]
+            builder.repeatCount = 1000
+            builder.duration = NSTimeInterval.abs(2)
+    }
+    }
 
     func addDraggableImage(post: PFObject){
         var postImage = UIImageView(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 265, 300, 300))

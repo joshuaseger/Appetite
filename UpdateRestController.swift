@@ -133,6 +133,7 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
         {
             restName.text = name
         }
+      
         
         let phone = user["phone"] as String!
         if phone != nil
@@ -195,6 +196,8 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
                 slider.value = 90
             }
         }
+        
+        
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestWhenInUseAuthorization()

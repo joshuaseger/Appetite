@@ -29,7 +29,6 @@
 		241086781A9FFB5500F1E9E2 /* ParseCrashReporting.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241086731A9FFB5500F1E9E2 /* ParseCrashReporting.framework */; };
 		241086791A9FFB5500F1E9E2 /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241086741A9FFB5500F1E9E2 /* ParseFacebookUtils.framework */; };
 		2410867A1A9FFB5500F1E9E2 /* ParseUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 241086751A9FFB5500F1E9E2 /* ParseUI.framework */; };
-		2410867F1A9FFC1700F1E9E2 /* Backgrounds in Resources */ = {isa = PBXBuildFile; fileRef = 2410867E1A9FFC1700F1E9E2 /* Backgrounds */; };
 		241668F11AB7AA56003E21BD /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 241668F01AB7AA56003E21BD /* PostViewController.swift */; };
 		241668F71AB7AB7E003E21BD /* dish2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 241668F31AB7AB7E003E21BD /* dish2.jpg */; };
 		241668F81AB7AB7E003E21BD /* dish3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 241668F41AB7AB7E003E21BD /* dish3.jpg */; };
@@ -53,9 +52,11 @@
 		244FFF361ADF1F890069EFD8 /* DishTray.png in Resources */ = {isa = PBXBuildFile; fileRef = 244FFF351ADF1F890069EFD8 /* DishTray.png */; };
 		245236251AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 245236241AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg */; };
 		24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24528ED91AA03B2F005253F3 /* SignupViewController.swift */; };
+		2458F8C61ADF52C000CC1D75 /* squares_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2458F8C51ADF52C000CC1D75 /* squares_background.png */; };
 		2464678D1ADB68440040A5FD /* CALayer+Pulsar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2464678C1ADB68440040A5FD /* CALayer+Pulsar.swift */; };
 		247AE0231ACF4CDA00E1C0B8 /* SimpleMatchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */; };
 		2497F6011ACCD6AD0085BEDA /* UserMatchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */; };
+		2498245F1ADF5B3100845474 /* DishIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2498245E1ADF5B3100845474 /* DishIcon.png */; };
 		24A6FAC81AD08EC9001ECAFB /* PostDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6FAC71AD08EC9001ECAFB /* PostDetailsController.swift */; };
 		24AAAE6F1AB7BC4100B35C51 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */; };
 		24AC0DFD1AD07D3400FE4A5E /* UserPostListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AC0DFC1AD07D3400FE4A5E /* UserPostListController.swift */; };
@@ -108,7 +109,6 @@
 		241086741A9FFB5500F1E9E2 /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
 		241086751A9FFB5500F1E9E2 /* ParseUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseUI.framework; sourceTree = "<group>"; };
 		2410867B1A9FFB6900F1E9E2 /* Appetite1-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Appetite1-Bridging-Header.h"; sourceTree = "<group>"; };
-		2410867E1A9FFC1700F1E9E2 /* Backgrounds */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Backgrounds; sourceTree = "<group>"; };
 		241668F01AB7AA56003E21BD /* PostViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostViewController.swift; path = ../PostViewController.swift; sourceTree = "<group>"; };
 		241668F31AB7AB7E003E21BD /* dish2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish2.jpg; sourceTree = "<group>"; };
 		241668F41AB7AB7E003E21BD /* dish3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish3.jpg; sourceTree = "<group>"; };
@@ -132,9 +132,11 @@
 		244FFF351ADF1F890069EFD8 /* DishTray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DishTray.png; sourceTree = "<group>"; };
 		245236241AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "004-Franklins-BBQ-copy.jpg"; sourceTree = "<group>"; };
 		24528ED91AA03B2F005253F3 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = ../SignupViewController.swift; sourceTree = "<group>"; };
+		2458F8C51ADF52C000CC1D75 /* squares_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squares_background.png; sourceTree = "<group>"; };
 		2464678C1ADB68440040A5FD /* CALayer+Pulsar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Pulsar.swift"; sourceTree = "<group>"; };
 		247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleMatchingController.swift; path = ../SimpleMatchingController.swift; sourceTree = "<group>"; };
 		2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserMatchingController.swift; path = ../UserMatchingController.swift; sourceTree = "<group>"; };
+		2498245E1ADF5B3100845474 /* DishIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DishIcon.png; sourceTree = "<group>"; };
 		24A6FAC71AD08EC9001ECAFB /* PostDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostDetailsController.swift; path = ../PostDetailsController.swift; sourceTree = "<group>"; };
 		24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsTableViewCell.swift; path = ../PostsTableViewCell.swift; sourceTree = "<group>"; };
 		24AC0DFC1AD07D3400FE4A5E /* UserPostListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPostListController.swift; path = ../UserPostListController.swift; sourceTree = "<group>"; };
@@ -234,9 +236,10 @@
 				2464678B1ADB68440040A5FD /* Classes */,
 				2410863F1A9FFAFE00F1E9E2 /* Main.storyboard */,
 				241086421A9FFAFE00F1E9E2 /* Images.xcassets */,
-				241086441A9FFAFE00F1E9E2 /* LaunchScreen.xib */,
+				2498245E1ADF5B3100845474 /* DishIcon.png */,
+				2458F8C51ADF52C000CC1D75 /* squares_background.png */,
 				241668F21AB7AB7E003E21BD /* Dishes */,
-				2410867E1A9FFC1700F1E9E2 /* Backgrounds */,
+				241086441A9FFAFE00F1E9E2 /* LaunchScreen.xib */,
 				241086391A9FFAFE00F1E9E2 /* Supporting Files */,
 			);
 			path = Appetite1;
@@ -437,16 +440,17 @@
 				241086411A9FFAFE00F1E9E2 /* Main.storyboard in Resources */,
 				241668F81AB7AB7E003E21BD /* dish3.jpg in Resources */,
 				242DA6471AD4528B00B3FF1F /* fooddish3.jpg in Resources */,
+				2458F8C61ADF52C000CC1D75 /* squares_background.png in Resources */,
 				241DC4281AD4BCB9003C4ABB /* Fridge-32.png in Resources */,
 				241086461A9FFAFE00F1E9E2 /* LaunchScreen.xib in Resources */,
 				244A0C901AB91E07000CAE30 /* dish6.jpg in Resources */,
 				245236251AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg in Resources */,
 				241668F71AB7AB7E003E21BD /* dish2.jpg in Resources */,
-				2410867F1A9FFC1700F1E9E2 /* Backgrounds in Resources */,
 				241668FA1AB7AB7E003E21BD /* dish5.jpg in Resources */,
 				241668F91AB7AB7E003E21BD /* dish4.jpg in Resources */,
 				242DA64C1AD4545800B3FF1F /* download.jpeg in Resources */,
 				241086431A9FFAFE00F1E9E2 /* Images.xcassets in Resources */,
+				2498245F1ADF5B3100845474 /* DishIcon.png in Resources */,
 				24BE54141AD3716700E7A38A /* Dining Room-32.png in Resources */,
 				242DA64D1AD4545800B3FF1F /* download1.jpg in Resources */,
 			);
