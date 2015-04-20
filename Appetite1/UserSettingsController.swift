@@ -54,7 +54,7 @@ class UserSettingsController: UIViewController {
         distanceSlider.minimumValue = 1
         distanceSlider.maximumValue = 100
         
-        var storedValue = user["SearchDistance"] as Float!
+        var storedValue = user["SearchDistance"] as! Float!
         if (storedValue == nil){
             distanceSlider.value = 50
         }

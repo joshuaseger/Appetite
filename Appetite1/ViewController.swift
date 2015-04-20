@@ -62,7 +62,7 @@ class ViewController: UIViewController {
                     if (PFUser.currentUser() != nil) {
                         
                       var role: AnyObject! = PFUser.currentUser().objectForKey("role")
-                        if role as NSString == "diner" {
+                        if role as! NSString == "diner" {
                             println("called segue to diner")
                             
                         self.performSegueWithIdentifier("DinerPostsSegue", sender: nil)

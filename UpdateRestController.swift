@@ -110,7 +110,7 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
     
 
    func locationManager(manager: CLLocationManager!, didUpdateLocations locations: [AnyObject]!) {
-    var userLocation:CLLocation = locations[0] as CLLocation
+    var userLocation:CLLocation = locations[0] as! CLLocation
     latitudeDegrees = userLocation.coordinate.latitude
     longitudeDegrees = userLocation.coordinate.longitude
     latitude.text = "\(latitudeDegrees)"
@@ -128,51 +128,51 @@ class UpdateRestController: UIViewController, CLLocationManagerDelegate, MKMapVi
     override func viewDidLoad() {
         super.viewDidLoad()
         var user = PFUser.currentUser()
-        let name = user["name"] as String!
+        let name = user["name"] as! String!
         if name != nil
         {
             restName.text = name
         }
       
         
-        let phone = user["phone"] as String!
+        let phone = user["phone"] as! String!
         if phone != nil
         {
             restPhone.text = phone
         }
         
-        let email  = user["email"] as String!
+        let email  = user["email"] as! String!
         if email != nil
         {
             restEmail.text = email
         }
         
-        let address1 = user["address"] as String!
+        let address1 = user["address"] as! String!
         if address1 != nil
         {
             address.text = address1
         }
         
-        let city1 = user["city"] as String!
+        let city1 = user["city"] as! String!
         if city1 != nil
         {
             city.text = city1
         }
         
-        let state1 = user["state"] as String!
+        let state1 = user["state"] as! String!
         if state1 != nil
         {
             state.text = state1
         }
         
-        let zip1 = user["zip"] as String!
+        let zip1 = user["zip"] as! String!
         if zip != nil
         {
             zip.text = zip1
         }
 
         
-        let price = user["priceGrade"] as String!
+        let price = user["priceGrade"] as! String!
         if price != nil{
             
             if price == "$"

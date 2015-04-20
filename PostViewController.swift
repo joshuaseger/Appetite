@@ -58,7 +58,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             post["DishName"] = nameOfDish.text
             post["Restaurant"] = user
             post["numberMatches"] = 0
-            post.saveInBackgroundWithBlock{(success:Bool!, error: NSError!) -> Void in
+            post.saveInBackgroundWithBlock{(success:Bool, error: NSError!) -> Void in
                 
                 if success == false {
                     self.displayError("Failed to Post Image", error: "Cannot reach Parse Database")
@@ -68,7 +68,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     let imageData = UIImagePNGRepresentation(self.image2Post.image)
                     let imageFile = PFFile(name: "image.png", data: imageData)
                     post["imageFile"] = imageFile
-                    post.saveInBackgroundWithBlock{(success: Bool!, error: NSError!) -> Void in
+                    post.saveInBackgroundWithBlock{(success: Bool, error: NSError!) -> Void in
                         
                         if success == false {
                             self.displayError("Failed to Post Image", error: "Cannot reach Parse Database to Post Image")
@@ -114,7 +114,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
         image2Post.image = image

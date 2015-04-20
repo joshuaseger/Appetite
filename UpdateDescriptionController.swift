@@ -44,7 +44,7 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
             UIApplication.sharedApplication().beginIgnoringInteractionEvents()
             
             user["description"] = descriptionText.text
-            user.saveInBackgroundWithBlock{(success:Bool!, error: NSError!) -> Void in
+            user.saveInBackgroundWithBlock{(success:Bool, error: NSError!) -> Void in
                 
                 if success == false {
                     self.activityIndicator.stopAnimating()
@@ -99,7 +99,7 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
             let imageFile = PFFile(name: "image.png", data: imageData)
             user["profilePic"] = imageFile
             
-            user.saveInBackgroundWithBlock{(success:Bool!, error: NSError!) -> Void in
+            user.saveInBackgroundWithBlock{(success:Bool, error: NSError!) -> Void in
                 
                 if success == false {
                     self.displayError("Failed to Post Image", error: "Cannot reach Parse Database")
@@ -133,7 +133,7 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
     }
 
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
         profilePic.image = image
@@ -144,7 +144,7 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
     override func viewDidLoad() {
       
         //Code chunk used to retrieve and display a single image from Parse
-        var imageFile = user["profilePic"] as PFFile!
+        var imageFile = user["profilePic"] as! PFFile!
         if(imageFile != nil)    {
         imageFile.getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in
@@ -159,7 +159,7 @@ class UpdateDescriptionController: UIViewController, UIImagePickerControllerDele
         photoSelected = false
         descriptionText.text = ""
         
-        var description = user["description"] as String!
+        var description = user["description"] as! String!
         if description != nil
         {
             descriptionText.text = description
