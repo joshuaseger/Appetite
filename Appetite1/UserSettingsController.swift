@@ -32,7 +32,6 @@ class UserSettingsController: UIViewController {
             dispatch_async(dispatch_get_main_queue()) {
                 // update some UI 
             PFUser.logOut()
-        self.performSegueWithIdentifier("LogoutUserSegue", sender: nil)
             }
         }
        
@@ -48,13 +47,14 @@ class UserSettingsController: UIViewController {
         user["SearchDistance"] = valueToStore
         user.save()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         distanceSlider.minimumValue = 1
         distanceSlider.maximumValue = 100
         
-        var storedValue = user["SearchDistance"] as Float!
+        var storedValue = user["SearchDistance"] as! Float!
         if (storedValue == nil){
             distanceSlider.value = 50
         }
