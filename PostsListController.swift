@@ -111,7 +111,8 @@ class PostsListController: UITableViewController{
                 style: UITableViewCellStyle.Default, reuseIdentifier: "myCell") as PostsTableViewCell;
         }
         var post = self.posts[indexPath.row]
-        cell!.nameOfDish.text = post["DishName"] as! String!
+        cell!.nameOfDish.text = post["DishName"] as? String
+        cell!.priceOfDish.text = post["price"] as? String
         var imageFile = post["imageFile"]as! PFFile!
         imageFile.getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in

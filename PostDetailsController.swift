@@ -8,10 +8,19 @@
 
 import UIKit
 
-class PostDetailsController: UIViewController{
+class PostDetailsController: UIViewController {
 
+    @IBOutlet var scrollView: UIScrollView!
     var restaurant: PFObject?
+    @IBOutlet var restaurantNameLabel: UILabel!
 
+    @IBOutlet var RestaurantImage: UIImageView!
+    @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var phoneLabel: UILabel!
+    @IBOutlet var addressLabel: UILabel!
+    @IBOutlet var cityLabel: UILabel!
+    @IBOutlet var stateLabel: UILabel!
+    @IBOutlet var zipLabel: UILabel!
 
     override func loadView() {
 
