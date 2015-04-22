@@ -29,15 +29,22 @@ class PostDetailsController: UIViewController, UIScrollViewDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         var restaurantObject: PFObject = restaurant?.fetchIfNeeded() as PFObject!
-        println(restaurantObject)
         restaurantNameLabel.text = restaurantObject["name"] as! String!
-        priceLabel.text = restaurantObject["priceGrade"] as? String
-        phoneLabel.text = restaurantObject["phone"] as? String
-        addressLabel.text = restaurantObject["address"] as? String
-        cityLabel.text = restaurantObject["city"] as? String
-        stateLabel.text = restaurantObject["state"] as? String
-        zipLabel.text = restaurantObject["zip"] as? String
+        var price = restaurantObject["priceGrade"] as? String
+        var phone = restaurantObject["phone"] as? String
+        var address = restaurantObject["address"] as? String
+        var city = restaurantObject["city"] as? String
+        var state = restaurantObject["state"] as? String
+        var zip = restaurantObject["zip"] as? String
 
+        priceLabel.text = "Price Grade: " + price!
+        phoneLabel.text = "Phone: " + phone!
+        addressLabel.text = "Address: " + address!
+        cityLabel.text = "City: " + city!
+        stateLabel.text = "State: " + state!
+        zipLabel.text = "Zip: " + zip!
+        
+        
         var imageFile = restaurantObject["profilePic"] as! PFFile!
         if imageFile != nil {
             imageFile.getDataInBackgroundWithBlock{
