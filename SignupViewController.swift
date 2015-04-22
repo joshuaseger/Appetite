@@ -106,6 +106,7 @@ class SignupViewController: UIViewController {
                     
                     
                     user["role"] = "diner"
+                    user["searchDistance"] = 50.00
                     user.save()
                     self.dismissViewControllerAnimated(true, completion: nil)
         

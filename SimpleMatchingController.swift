@@ -204,7 +204,7 @@ class SimpleMatchingController: UIViewController {
         super.viewDidLoad()
         
         
-        var distanceStored: Float! = user["SearchDistance"] as! Float
+        var distanceStored: Float! = user["searchDistance"] as! Float
         if distanceStored != nil{
             distanceToSearch = Double(distanceStored)
         }

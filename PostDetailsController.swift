@@ -11,8 +11,16 @@ import UIKit
 class PostDetailsController: UIViewController, UIScrollViewDelegate {
 
 
+    @IBOutlet var zipLabel: UILabel!
+    @IBOutlet var stateLabel: UILabel!
+    @IBOutlet var cityLabel: UILabel!
+    @IBOutlet var addressLabel: UILabel!
+    @IBOutlet var phoneLabel: UILabel!
+    @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var restaurantImage: UIImageView!
     @IBOutlet var containerView: UIView!
     @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var restaurantNameLabel: UILabel!
     var restaurant: PFObject?
 
 
@@ -20,7 +28,31 @@ class PostDetailsController: UIViewController, UIScrollViewDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-   //     var x: PFObject = restaurant?.fetchIfNeeded() as PFObject!
+        var restaurantObject: PFObject = restaurant?.fetchIfNeeded() as PFObject!
+        println(restaurantObject)
+        restaurantNameLabel.text = restaurantObject["name"] as! String!
+        priceLabel.text = restaurantObject["priceGrade"] as? String
+        phoneLabel.text = restaurantObject["phone"] as? String
+        addressLabel.text = restaurantObject["address"] as? String
+        cityLabel.text = restaurantObject["city"] as? String
+        stateLabel.text = restaurantObject["state"] as? String
+        zipLabel.text = restaurantObject["zip"] as? String
+
+        var imageFile = restaurantObject["profilePic"] as! PFFile!
+        if imageFile != nil {
+            imageFile.getDataInBackgroundWithBlock{
+                (imageData: NSData!, error: NSError!) -> Void in
+                if (error == nil){
+                    let image = UIImage(data: imageData)
+                    self.restaurantImage.image = image
+                }
+            }
+        }
+        
+        
+        
+        
+        
         //Controller was only passed object reference.  Must fetch actual object from Parse now
         
         // Do any additional setup after loading the view.

@@ -44,8 +44,8 @@ class UserSettingsController: UIViewController {
     
     
     override func viewWillDisappear(animated: Bool) {
-        println("Search Distance Stored!")
-        user["SearchDistance"] = valueToStore
+        println("Search Distance Stored")
+        user["searchDistance"] = valueToStore
         user.save()
     }
     override func viewDidLoad() {
@@ -54,7 +54,7 @@ class UserSettingsController: UIViewController {
         distanceSlider.minimumValue = 1
         distanceSlider.maximumValue = 100
         
-        var storedValue = user["SearchDistance"] as! Float!
+        var storedValue = user["searchDistance"] as! Float!
         if (storedValue == nil){
             distanceSlider.value = 50
         }
