@@ -160,14 +160,15 @@ class SimpleMatchingController: UIViewController {
             self.indicatorLabel.hidden = false
             self.view.bringSubviewToFront(self.indicatorLabel)
             self.indicatorLabel.text = "Yummy"
-            self.indicatorLabel.textColor = UIColor.greenColor()
+            self.indicatorLabel.textColor = UIColor.whiteColor()
+            self.indicatorLabel.backgroundColor = UIColor.greenColor()
         }
         else if(label.center.x < self.view.bounds.width - 330){
             println("Not Chosen")
            self.indicatorLabel.hidden = false
             self.view.bringSubviewToFront(self.indicatorLabel)
             self.indicatorLabel.text = "Not Yummy"
-             self.indicatorLabel.textColor = UIColor.redColor()
+            self.indicatorLabel.backgroundColor = UIColor.redColor()
         }
         
         

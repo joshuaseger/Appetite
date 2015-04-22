@@ -713,8 +713,10 @@
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2r-OH-D4j">
-                                <rect key="frame" x="16" y="138" width="568" height="107"/>
+                                <rect key="frame" x="168" y="141" width="265" height="107"/>
+                                <color key="backgroundColor" red="0.30281230180000002" green="0.82247010549999999" blue="0.086154908000000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="65"/>
+                                <color key="textColor" red="0.94330585339999995" green="1" blue="0.89139257279999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -1127,10 +1129,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Ma-SM-DNf" userLabel="ScrollView">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                                <rect key="frame" x="0.0" y="30" width="414" height="706"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OKE-Sj-3iB" userLabel="ContainerView">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="1000"/>
+                                        <rect key="frame" x="0.0" y="30" width="414" height="1000"/>
                                         <subviews>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DishIcon.png" translatesAutoresizingMaskIntoConstraints="NO" id="42O-mC-uKG">
                                                 <rect key="frame" x="87" y="84" width="240" height="200"/>
@@ -1211,7 +1213,7 @@
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="OKE-Sj-3iB" firstAttribute="top" secondItem="5Ma-SM-DNf" secondAttribute="top" id="WPz-5R-r5L"/>
+                                    <constraint firstItem="OKE-Sj-3iB" firstAttribute="top" secondItem="5Ma-SM-DNf" secondAttribute="top" constant="30" id="WPz-5R-r5L"/>
                                     <constraint firstAttribute="trailing" secondItem="OKE-Sj-3iB" secondAttribute="trailing" id="eDz-98-YZU"/>
                                     <constraint firstItem="OKE-Sj-3iB" firstAttribute="leading" secondItem="5Ma-SM-DNf" secondAttribute="leading" id="qX5-Lk-xLC"/>
                                     <constraint firstAttribute="bottom" secondItem="OKE-Sj-3iB" secondAttribute="bottom" constant="-264" id="sQS-Ws-JMM"/>
@@ -1223,7 +1225,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="5Ma-SM-DNf" firstAttribute="top" secondItem="zCf-nQ-TZB" secondAttribute="top" id="0ST-mv-WSQ"/>
+                            <constraint firstItem="5Ma-SM-DNf" firstAttribute="top" secondItem="zCf-nQ-TZB" secondAttribute="top" constant="30" id="0ST-mv-WSQ"/>
                             <constraint firstItem="5Ma-SM-DNf" firstAttribute="leading" secondItem="zCf-nQ-TZB" secondAttribute="leading" id="OGO-Wj-B9n"/>
                             <constraint firstAttribute="width" secondItem="OKE-Sj-3iB" secondAttribute="width" id="Zug-sR-Qcq"/>
                             <constraint firstItem="5Ma-SM-DNf" firstAttribute="bottom" secondItem="VPq-hv-NY1" secondAttribute="top" id="o6k-Dj-M6U"/>
