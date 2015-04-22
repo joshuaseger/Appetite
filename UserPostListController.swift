@@ -157,7 +157,7 @@ class UserPostListController: UITableViewController {
     
         cell!.nameOfDish.text = dishName[indexPath.row]
         var newPost = posts[indexPath.row]
-        cell!.priceOfDish.text = newPost["price"] as? String
+        cell!.priceOfDish.text = "$ " + (newPost["price"] as? String)!
         imageFiles[indexPath.row].getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in
             if (error == nil){

@@ -52,8 +52,6 @@ class RestaurantController: UIViewController {
                 }
             }
         }
-        
-     
     }
     
     override func viewDidLoad() {
