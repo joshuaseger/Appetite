@@ -712,6 +712,11 @@
                             <imageView userInteractionEnabled="NO" alpha="0.5" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="squares_background" translatesAutoresizingMaskIntoConstraints="NO" id="p51-5B-B8v">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
                             </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" alpha="0.49999999999999961" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" misplaced="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="q2r-OH-D4j">
+                                <rect key="frame" x="16" y="138" width="568" height="107"/>
+                                <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="65"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
@@ -719,6 +724,7 @@
                             <constraint firstAttribute="trailingMargin" secondItem="p51-5B-B8v" secondAttribute="trailing" constant="-16" id="8iZ-GC-78V"/>
                             <constraint firstItem="2xQ-CE-5gu" firstAttribute="top" secondItem="p51-5B-B8v" secondAttribute="bottom" id="DBi-JY-c4e"/>
                             <constraint firstItem="BGe-q2-Pro" firstAttribute="baseline" secondItem="Yj3-X2-x2E" secondAttribute="baseline" id="FHf-b9-SeL"/>
+                            <constraint firstAttribute="centerX" secondItem="q2r-OH-D4j" secondAttribute="centerX" id="Fee-IP-giU"/>
                             <constraint firstItem="p51-5B-B8v" firstAttribute="leading" secondItem="RwS-zj-hgq" secondAttribute="leadingMargin" constant="-16" id="NMQ-N7-vo6"/>
                             <constraint firstItem="BGe-q2-Pro" firstAttribute="leading" secondItem="VdH-zR-FuR" secondAttribute="trailing" constant="25" id="Sdv-c5-K8K"/>
                             <constraint firstItem="BGe-q2-Pro" firstAttribute="firstBaseline" secondItem="Yj3-X2-x2E" secondAttribute="baseline" id="Y3n-8R-gDy"/>
@@ -730,6 +736,9 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" image="Waiter-32.png" id="jhk-MD-SKB"/>
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
+                    <connections>
+                        <outlet property="indicatorLabel" destination="q2r-OH-D4j" id="GUD-V6-k3w"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EiD-qK-p2Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

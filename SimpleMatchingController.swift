@@ -18,7 +18,7 @@ Pulse when out of dishes to display??? Check libraries
 */
 class SimpleMatchingController: UIViewController {
     
-    @IBOutlet var likedLabel: UILabel!
+    @IBOutlet var indicatorLabel: UILabel!
     let user = PFUser.currentUser()
     var distanceToSearch: Double = 50.00
     var posts = [PFObject]()
@@ -153,15 +153,34 @@ class SimpleMatchingController: UIViewController {
         var rotation: CGAffineTransform = CGAffineTransformMakeRotation(xFromCenter / 300)
         var stretch: CGAffineTransform = CGAffineTransformScale(rotation, scale, scale)
         label.transform = stretch
+        self.indicatorLabel.hidden = true
+
+        if(label.center.x > self.view.bounds.width - 30){
+            println("Chosen")
+            self.indicatorLabel.hidden = false
+            self.view.bringSubviewToFront(self.indicatorLabel)
+            self.indicatorLabel.text = "Yummy"
+            self.indicatorLabel.textColor = UIColor.greenColor()
+        }
+        else if(label.center.x < self.view.bounds.width - 330){
+            println("Not Chosen")
+           self.indicatorLabel.hidden = false
+            self.view.bringSubviewToFront(self.indicatorLabel)
+            self.indicatorLabel.text = "Not Yummy"
+             self.indicatorLabel.textColor = UIColor.redColor()
+        }
+        
         
         
         if gesture.state == UIGestureRecognizerState.Ended {
             
-            if(label.center.x > self.view.bounds.width - 20){
+            self.indicatorLabel.hidden = true
+            
+            if(label.center.x > self.view.bounds.width - 30){
                 println("Chosen")
                 likeButton(self)
             }
-            else if(label.center.x < self.view.bounds.width - 340){
+            else if(label.center.x < self.view.bounds.width - 330){
                 println("Not Chosen")
                 dislikeButton(self)
             }
@@ -180,9 +199,11 @@ class SimpleMatchingController: UIViewController {
     
     
     override func viewWillAppear(animated: Bool) {
+        
+        self.indicatorLabel.hidden = true
     
         if(self.loadedRestaurants == true){
-            var distanceStored: Float! = user["SearchDistance"] as! Float
+            var distanceStored: Float! = user["searchDistance"] as! Float
             if distanceStored != nil{
                 distanceToSearch = Double(distanceStored)
             }
