@@ -46,10 +46,18 @@
 		242DA6471AD4528B00B3FF1F /* fooddish3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 242DA6421AD4528B00B3FF1F /* fooddish3.jpg */; };
 		242DA6481AD4528B00B3FF1F /* fresh_salad_in_bowl_191669.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 242DA6431AD4528B00B3FF1F /* fresh_salad_in_bowl_191669.jpg */; };
 		242DA6491AD4528B00B3FF1F /* pancakes.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 242DA6441AD4528B00B3FF1F /* pancakes.jpg */; };
-		242DA64C1AD4545800B3FF1F /* download.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 242DA64A1AD4545800B3FF1F /* download.jpeg */; };
 		242DA64D1AD4545800B3FF1F /* download1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 242DA64B1AD4545800B3FF1F /* download1.jpg */; };
+		2443075F1AE73EAD0064CD26 /* BlueSushi.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 244307571AE73EAD0064CD26 /* BlueSushi.jpg */; };
+		244307601AE73EAD0064CD26 /* bluesushi1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 244307581AE73EAD0064CD26 /* bluesushi1.jpg */; };
+		244307611AE73EAD0064CD26 /* bluesushi2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 244307591AE73EAD0064CD26 /* bluesushi2.jpg */; };
+		244307621AE73EAD0064CD26 /* eattheworm.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 2443075A1AE73EAD0064CD26 /* eattheworm.jpeg */; };
+		244307631AE73EAD0064CD26 /* eatthewormnachos.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2443075B1AE73EAD0064CD26 /* eatthewormnachos.jpg */; };
+		244307641AE73EAD0064CD26 /* roja.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2443075C1AE73EAD0064CD26 /* roja.jpg */; };
+		244307651AE73EAD0064CD26 /* rojataco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2443075D1AE73EAD0064CD26 /* rojataco.jpg */; };
+		244307661AE73EAD0064CD26 /* rojataco1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2443075E1AE73EAD0064CD26 /* rojataco1.jpg */; };
+		244307691AE73ECF0064CD26 /* twistedfork.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 244307671AE73ECF0064CD26 /* twistedfork.jpg */; };
+		2443076A1AE73ECF0064CD26 /* twistedforktaco.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 244307681AE73ECF0064CD26 /* twistedforktaco.jpg */; };
 		244A0C901AB91E07000CAE30 /* dish6.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 244A0C8F1AB91E07000CAE30 /* dish6.jpg */; };
-		244FFF361ADF1F890069EFD8 /* DishTray.png in Resources */ = {isa = PBXBuildFile; fileRef = 244FFF351ADF1F890069EFD8 /* DishTray.png */; };
 		245236251AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 245236241AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg */; };
 		24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24528ED91AA03B2F005253F3 /* SignupViewController.swift */; };
 		2458F8C61ADF52C000CC1D75 /* squares_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2458F8C51ADF52C000CC1D75 /* squares_background.png */; };
@@ -114,7 +122,7 @@
 		241668F41AB7AB7E003E21BD /* dish3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish3.jpg; sourceTree = "<group>"; };
 		241668F51AB7AB7E003E21BD /* dish4.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish4.jpg; sourceTree = "<group>"; };
 		241668F61AB7AB7E003E21BD /* dish5.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish5.jpg; sourceTree = "<group>"; };
-		241668FB1AB7ABE0003E21BD /* Food-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Food-Icon.png"; sourceTree = "<group>"; };
+		241668FB1AB7ABE0003E21BD /* Food-Icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Food-Icon.png"; path = "New Folder With Items/Food-Icon.png"; sourceTree = "<group>"; };
 		241668FD1AB7B7BB003E21BD /* PostsNavController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsNavController.swift; path = ../PostsNavController.swift; sourceTree = "<group>"; };
 		241A7AE31ACDE4F800D2FB4E /* MethodHelper.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = MethodHelper.strings; sourceTree = "<group>"; };
 		241DC4261AD4BCB9003C4ABB /* Fridge-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Fridge-32.png"; sourceTree = "<group>"; };
@@ -126,11 +134,19 @@
 		242DA6421AD4528B00B3FF1F /* fooddish3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fooddish3.jpg; sourceTree = "<group>"; };
 		242DA6431AD4528B00B3FF1F /* fresh_salad_in_bowl_191669.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = fresh_salad_in_bowl_191669.jpg; sourceTree = "<group>"; };
 		242DA6441AD4528B00B3FF1F /* pancakes.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = pancakes.jpg; sourceTree = "<group>"; };
-		242DA64A1AD4545800B3FF1F /* download.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = download.jpeg; sourceTree = "<group>"; };
-		242DA64B1AD4545800B3FF1F /* download1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = download1.jpg; sourceTree = "<group>"; };
+		242DA64B1AD4545800B3FF1F /* download1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = download1.jpg; path = "New Folder With Items/download1.jpg"; sourceTree = "<group>"; };
+		244307571AE73EAD0064CD26 /* BlueSushi.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = BlueSushi.jpg; path = "New Folder With Items/BlueSushi.jpg"; sourceTree = "<group>"; };
+		244307581AE73EAD0064CD26 /* bluesushi1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bluesushi1.jpg; sourceTree = "<group>"; };
+		244307591AE73EAD0064CD26 /* bluesushi2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bluesushi2.jpg; sourceTree = "<group>"; };
+		2443075A1AE73EAD0064CD26 /* eattheworm.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = eattheworm.jpeg; path = "New Folder With Items/eattheworm.jpeg"; sourceTree = "<group>"; };
+		2443075B1AE73EAD0064CD26 /* eatthewormnachos.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = eatthewormnachos.jpg; sourceTree = "<group>"; };
+		2443075C1AE73EAD0064CD26 /* roja.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = roja.jpg; path = "New Folder With Items/roja.jpg"; sourceTree = "<group>"; };
+		2443075D1AE73EAD0064CD26 /* rojataco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rojataco.jpg; sourceTree = "<group>"; };
+		2443075E1AE73EAD0064CD26 /* rojataco1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = rojataco1.jpg; sourceTree = "<group>"; };
+		244307671AE73ECF0064CD26 /* twistedfork.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = twistedfork.jpg; sourceTree = "<group>"; };
+		244307681AE73ECF0064CD26 /* twistedforktaco.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = twistedforktaco.jpg; path = ../twistedforktaco.jpg; sourceTree = "<group>"; };
 		244A0C8F1AB91E07000CAE30 /* dish6.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dish6.jpg; sourceTree = "<group>"; };
-		244FFF351ADF1F890069EFD8 /* DishTray.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DishTray.png; sourceTree = "<group>"; };
-		245236241AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "004-Franklins-BBQ-copy.jpg"; sourceTree = "<group>"; };
+		245236241AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; name = "004-Franklins-BBQ-copy.jpg"; path = "New Folder With Items/004-Franklins-BBQ-copy.jpg"; sourceTree = "<group>"; };
 		24528ED91AA03B2F005253F3 /* SignupViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SignupViewController.swift; path = ../SignupViewController.swift; sourceTree = "<group>"; };
 		2458F8C51ADF52C000CC1D75 /* squares_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squares_background.png; sourceTree = "<group>"; };
 		2464678C1ADB68440040A5FD /* CALayer+Pulsar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Pulsar.swift"; sourceTree = "<group>"; };
@@ -238,6 +254,7 @@
 				241086421A9FFAFE00F1E9E2 /* Images.xcassets */,
 				2498245E1ADF5B3100845474 /* DishIcon.png */,
 				2458F8C51ADF52C000CC1D75 /* squares_background.png */,
+				244307561AE73D4B0064CD26 /* RestaurantPics */,
 				241668F21AB7AB7E003E21BD /* Dishes */,
 				241086441A9FFAFE00F1E9E2 /* LaunchScreen.xib */,
 				241086391A9FFAFE00F1E9E2 /* Supporting Files */,
@@ -273,16 +290,17 @@
 		241668F21AB7AB7E003E21BD /* Dishes */ = {
 			isa = PBXGroup;
 			children = (
-				244FFF351ADF1F890069EFD8 /* DishTray.png */,
-				242DA64A1AD4545800B3FF1F /* download.jpeg */,
-				242DA64B1AD4545800B3FF1F /* download1.jpg */,
+				244307681AE73ECF0064CD26 /* twistedforktaco.jpg */,
+				244307581AE73EAD0064CD26 /* bluesushi1.jpg */,
+				244307591AE73EAD0064CD26 /* bluesushi2.jpg */,
+				2443075B1AE73EAD0064CD26 /* eatthewormnachos.jpg */,
+				2443075D1AE73EAD0064CD26 /* rojataco.jpg */,
+				2443075E1AE73EAD0064CD26 /* rojataco1.jpg */,
 				242DA6401AD4528B00B3FF1F /* fooddish.jpeg */,
 				242DA6411AD4528B00B3FF1F /* fooddish2.jpeg */,
 				242DA6421AD4528B00B3FF1F /* fooddish3.jpg */,
 				242DA6431AD4528B00B3FF1F /* fresh_salad_in_bowl_191669.jpg */,
 				242DA6441AD4528B00B3FF1F /* pancakes.jpg */,
-				245236241AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg */,
-				241668FB1AB7ABE0003E21BD /* Food-Icon.png */,
 				241668F31AB7AB7E003E21BD /* dish2.jpg */,
 				241668F41AB7AB7E003E21BD /* dish3.jpg */,
 				241668F51AB7AB7E003E21BD /* dish4.jpg */,
@@ -291,6 +309,20 @@
 			);
 			name = Dishes;
 			path = "New Folder With Items";
+			sourceTree = "<group>";
+		};
+		244307561AE73D4B0064CD26 /* RestaurantPics */ = {
+			isa = PBXGroup;
+			children = (
+				244307671AE73ECF0064CD26 /* twistedfork.jpg */,
+				244307571AE73EAD0064CD26 /* BlueSushi.jpg */,
+				2443075A1AE73EAD0064CD26 /* eattheworm.jpeg */,
+				2443075C1AE73EAD0064CD26 /* roja.jpg */,
+				241668FB1AB7ABE0003E21BD /* Food-Icon.png */,
+				245236241AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg */,
+				242DA64B1AD4545800B3FF1F /* download1.jpg */,
+			);
+			name = RestaurantPics;
 			sourceTree = "<group>";
 		};
 		2464678B1ADB68440040A5FD /* Classes */ = {
@@ -428,6 +460,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				244307621AE73EAD0064CD26 /* eattheworm.jpeg in Resources */,
 				24BE54111AD370A300E7A38A /* Waiter-32.png in Resources */,
 				241668FC1AB7ABE0003E21BD /* Food-Icon.png in Resources */,
 				241A7AE41ACDE4F800D2FB4E /* MethodHelper.strings in Resources */,
@@ -435,22 +468,29 @@
 				242DA6451AD4528B00B3FF1F /* fooddish.jpeg in Resources */,
 				241DC4291AD4BCB9003C4ABB /* Settings-32.png in Resources */,
 				242DA6491AD4528B00B3FF1F /* pancakes.jpg in Resources */,
-				244FFF361ADF1F890069EFD8 /* DishTray.png in Resources */,
 				242DA6461AD4528B00B3FF1F /* fooddish2.jpeg in Resources */,
+				244307641AE73EAD0064CD26 /* roja.jpg in Resources */,
 				241086411A9FFAFE00F1E9E2 /* Main.storyboard in Resources */,
 				241668F81AB7AB7E003E21BD /* dish3.jpg in Resources */,
 				242DA6471AD4528B00B3FF1F /* fooddish3.jpg in Resources */,
 				2458F8C61ADF52C000CC1D75 /* squares_background.png in Resources */,
+				244307651AE73EAD0064CD26 /* rojataco.jpg in Resources */,
 				241DC4281AD4BCB9003C4ABB /* Fridge-32.png in Resources */,
 				241086461A9FFAFE00F1E9E2 /* LaunchScreen.xib in Resources */,
 				244A0C901AB91E07000CAE30 /* dish6.jpg in Resources */,
+				244307661AE73EAD0064CD26 /* rojataco1.jpg in Resources */,
 				245236251AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg in Resources */,
+				244307691AE73ECF0064CD26 /* twistedfork.jpg in Resources */,
+				2443075F1AE73EAD0064CD26 /* BlueSushi.jpg in Resources */,
 				241668F71AB7AB7E003E21BD /* dish2.jpg in Resources */,
+				244307631AE73EAD0064CD26 /* eatthewormnachos.jpg in Resources */,
 				241668FA1AB7AB7E003E21BD /* dish5.jpg in Resources */,
+				244307611AE73EAD0064CD26 /* bluesushi2.jpg in Resources */,
 				241668F91AB7AB7E003E21BD /* dish4.jpg in Resources */,
-				242DA64C1AD4545800B3FF1F /* download.jpeg in Resources */,
+				2443076A1AE73ECF0064CD26 /* twistedforktaco.jpg in Resources */,
 				241086431A9FFAFE00F1E9E2 /* Images.xcassets in Resources */,
 				2498245F1ADF5B3100845474 /* DishIcon.png in Resources */,
+				244307601AE73EAD0064CD26 /* bluesushi1.jpg in Resources */,
 				24BE54141AD3716700E7A38A /* Dining Room-32.png in Resources */,
 				242DA64D1AD4545800B3FF1F /* download1.jpg in Resources */,
 			);

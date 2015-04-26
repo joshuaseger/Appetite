@@ -53,7 +53,7 @@ class PostsListController: UITableViewController{
                 //success
                 self.posts = [PFObject]()
                 for post in Posts{
-                    self.posts.append(post as PFObject);
+                    self.posts.append(post as! PFObject);
                 }
             }
             self.numRows = self.posts.count
@@ -81,7 +81,7 @@ class PostsListController: UITableViewController{
             // handle delete (by removing the data from your array and updating the tableview)
             // Fist must delete post from Parse database, then remove post data from local arrays and reload the table view
             var postToDelete: PFObject = self.posts[indexPath.row]
-            postToDelete.deleteInBackgroundWithBlock({(deleted: Bool!, error: NSError!) -> Void in
+            postToDelete.deleteInBackgroundWithBlock({(deleted: Bool, error: NSError!) -> Void in
                 if error == nil {
                     self.posts.removeAtIndex(indexPath.row)
                     self.displayError("Delete Successful!", error: "The Post was removed from Appetite")
@@ -111,8 +111,9 @@ class PostsListController: UITableViewController{
                 style: UITableViewCellStyle.Default, reuseIdentifier: "myCell") as PostsTableViewCell;
         }
         var post = self.posts[indexPath.row]
-        cell!.nameOfDish.text = post["DishName"] as String!
-        var imageFile = post["imageFile"] as PFFile!
+        cell!.nameOfDish.text = post["DishName"] as? String
+        cell!.priceOfDish.text = post["price"] as? String
+        var imageFile = post["imageFile"]as! PFFile!
         imageFile.getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in
             if (error == nil){

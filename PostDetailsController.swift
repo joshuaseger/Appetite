@@ -8,33 +8,103 @@
 
 import UIKit
 
-class PostDetailsController: UIViewController{
+class PostDetailsController: UIViewController, UIScrollViewDelegate {
 
+
+    @IBOutlet var zipLabel: UILabel!
+    @IBOutlet var stateLabel: UILabel!
+    @IBOutlet var cityLabel: UILabel!
+    @IBOutlet var addressLabel: UILabel!
+    @IBOutlet var phoneLabel: UILabel!
+    @IBOutlet var priceLabel: UILabel!
+    @IBOutlet var restaurantImage: UIImageView!
+    @IBOutlet var containerView: UIView!
+    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet var restaurantNameLabel: UILabel!
     var restaurant: PFObject?
 
 
-    override func loadView() {
-
-        
-    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        var x: PFObject = restaurant?.fetchIfNeeded() as PFObject!
-        //Controller was only passed object reference.  Must fetch actual object from Parse now.
+        var restaurantObject: PFObject = restaurant?.fetchIfNeeded() as PFObject!
+        restaurantNameLabel.text = restaurantObject["name"] as! String!
+        var price = restaurantObject["priceGrade"] as? String
+        var phone = restaurantObject["phone"] as? String
+        var address = restaurantObject["address"] as? String
+        var city = restaurantObject["city"] as? String
+        var state = restaurantObject["state"] as? String
+        var zip = restaurantObject["zip"] as? String
 
+        priceLabel.text = "Price Grade: " + price!
+        phoneLabel.text = "Phone: " + phone!
+        addressLabel.text = "Address: " + address!
+        cityLabel.text = "City: " + city!
+        stateLabel.text = "State: " + state!
+        zipLabel.text = "Zip: " + zip!
         
-
-
+        
+        var imageFile = restaurantObject["profilePic"] as! PFFile!
+        if imageFile != nil {
+            imageFile.getDataInBackgroundWithBlock{
+                (imageData: NSData!, error: NSError!) -> Void in
+                if (error == nil){
+                    let image = UIImage(data: imageData)
+                    self.restaurantImage.image = image
+                }
+            }
+        }
         
         
         
         
-
+        
+        //Controller was only passed object reference.  Must fetch actual object from Parse now
         
         // Do any additional setup after loading the view.
+    
+        scrollView.contentSize = containerView.frame.size;
+        
+        // Set up the minimum & maximum zoom scale
+        let scrollViewFrame = scrollView.frame
+        let scaleWidth = scrollViewFrame.size.width / scrollView.contentSize.width
+        let scaleHeight = scrollViewFrame.size.height / scrollView.contentSize.height
+        let minScale = min(scaleWidth, scaleHeight)
+        
+        scrollView.minimumZoomScale = minScale
+        scrollView.maximumZoomScale = 1.0
+        scrollView.zoomScale = 1.0
+        
+        centerScrollViewContents()
     }
     
+    func centerScrollViewContents() {
+        let boundsSize = scrollView.bounds.size
+        var contentsFrame = containerView.frame
+        
+        if contentsFrame.size.width < boundsSize.width {
+            contentsFrame.origin.x = (boundsSize.width - contentsFrame.size.width) / 2.0
+        } else {
+            contentsFrame.origin.x = 0.0
+        }
+        
+        if contentsFrame.size.height < boundsSize.height {
+            contentsFrame.origin.y = (boundsSize.height - contentsFrame.size.height) / 2.0
+        } else {
+            contentsFrame.origin.y = 0.0
+        }
+        
+        containerView.frame = contentsFrame
+    }
+    
+    func viewForZoomingInScrollView(scrollView: UIScrollView) -> UIView? {
+        return containerView
+    }
+    
+    func scrollViewDidZoom(scrollView: UIScrollView) {
+        centerScrollViewContents()
+    }
 
 
     override func didReceiveMemoryWarning() {

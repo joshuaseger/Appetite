@@ -44,7 +44,7 @@ class SignupViewController: UIViewController {
             user.username = username.text
             user.password = password.text
             
-            user.signUpInBackgroundWithBlock({(succeeded: Bool!, signupError: NSError!) -> Void in
+            user.signUpInBackgroundWithBlock({(succeeded: Bool, signupError: NSError!) -> Void in
                 if signupError == nil {
                     user["role"] = "restaurant"
                     user.save()
@@ -71,7 +71,7 @@ class SignupViewController: UIViewController {
                 }
                 else{
                     if let errorString = signupError.userInfo?["error"] as? NSString {
-                        error = errorString;
+                        error = errorString as String;
                     }
                     else{
                         error = "Please try again later."
@@ -101,11 +101,12 @@ class SignupViewController: UIViewController {
             user.password = password.text
             
        
-            user.signUpInBackgroundWithBlock({(succeeded: Bool!, signupError: NSError!) -> Void in
+            user.signUpInBackgroundWithBlock({(succeeded: Bool, signupError: NSError!) -> Void in
                 if signupError == nil {
                     
                     
                     user["role"] = "diner"
+                    user["searchDistance"] = 50.00
                     user.save()
                     self.dismissViewControllerAnimated(true, completion: nil)
         
@@ -113,7 +114,7 @@ class SignupViewController: UIViewController {
                 }
                 else{
                     if let errorString = signupError.userInfo?["error"] as? NSString {
-                        error = errorString;
+                        error = errorString as String;
                     }
                     else{
                         error = "Please try again later."

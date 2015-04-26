@@ -35,9 +35,9 @@ class UserPostListController: UITableViewController {
                 self.dishName = [String]()
                 self.imageFiles = [PFFile]()
                 for post in Posts{
-                    self.posts.append(post as PFObject);
-                    self.dishName.append(post["DishName"] as String);
-                    self.imageFiles.append(post["imageFile"] as PFFile);
+                    self.posts.append(post as! PFObject);
+                    self.dishName.append(post["DishName"]as! String);
+                    self.imageFiles.append(post["imageFile"] as! PFFile);
                     
                 }
                 self.numRows = Posts.count
@@ -83,9 +83,9 @@ class UserPostListController: UITableViewController {
                 self.dishName = [String]()
                 self.imageFiles = [PFFile]()
                 for post in Posts{
-                    self.posts.append(post as PFObject);
-                    self.dishName.append(post["DishName"] as String);
-                    self.imageFiles.append(post["imageFile"] as PFFile);
+                    self.posts.append(post as! PFObject);
+                    self.dishName.append(post["DishName"] as! String);
+                    self.imageFiles.append(post["imageFile"] as! PFFile);
              
                 }
             self.numRows = Posts.count
@@ -156,7 +156,8 @@ class UserPostListController: UITableViewController {
         cell!.accessoryType = UITableViewCellAccessoryType.DisclosureIndicator
     
         cell!.nameOfDish.text = dishName[indexPath.row]
-        
+        var newPost = posts[indexPath.row]
+        cell!.priceOfDish.text = "$ " + (newPost["price"] as? String)!
         imageFiles[indexPath.row].getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in
             if (error == nil){
@@ -174,7 +175,7 @@ class UserPostListController: UITableViewController {
             
             //set label text before presenting the viewController
              var post = posts[indexPath.row]
-            let restaurant: PFObject = post["Restaurant"] as PFObject
+            let restaurant: PFObject = post["Restaurant"] as! PFObject
             vc.restaurant = restaurant
             //load detail view controller
             self.navigationController?.pushViewController(vc, animated: true)

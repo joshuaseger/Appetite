@@ -52,8 +52,6 @@ class RestaurantController: UIViewController {
                 }
             }
         }
-        
-     
     }
     
     override func viewDidLoad() {
@@ -61,7 +59,7 @@ class RestaurantController: UIViewController {
        self.navigationController?.navigationBarHidden = true
         //Code chunk used to retrieve and display a single image from Parse
        
-      var imageFile = user["profilePic"] as PFFile!
+      var imageFile = user["profilePic"] as! PFFile!
         if imageFile != nil {
         imageFile.getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in
@@ -72,8 +70,8 @@ class RestaurantController: UIViewController {
         }
         }
         
-        var name: String! = user["name"] as String!
-        var description: String! = user["description"] as String!
+        var name: String! = user["name"] as! String!
+        var description: String! = user["description"]as! String!
      if name != nil
         {
             restaurantName.text = name

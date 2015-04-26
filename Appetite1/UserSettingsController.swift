@@ -43,8 +43,8 @@ class UserSettingsController: UIViewController {
     
     
     override func viewWillDisappear(animated: Bool) {
-        println("Search Distance Stored!")
-        user["SearchDistance"] = valueToStore
+        println("Search Distance Stored")
+        user["searchDistance"] = valueToStore
         user.save()
     }
     

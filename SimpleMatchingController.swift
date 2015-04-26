@@ -18,7 +18,7 @@ Pulse when out of dishes to display??? Check libraries
 */
 class SimpleMatchingController: UIViewController {
     
-    @IBOutlet var likedLabel: UILabel!
+    @IBOutlet var indicatorLabel: UILabel!
     let user = PFUser.currentUser()
     var distanceToSearch: Double = 50.00
     var posts = [PFObject]()
@@ -33,12 +33,13 @@ class SimpleMatchingController: UIViewController {
     var labelReference: UILabel!
     var noMoreMatches: Bool = false
     
+
     @IBAction func likeButton(sender: AnyObject) {
         if(noMoreMatches == false) && (currentDishIndex < self.posts.count) {
             currentDishIndex++
             var relation = self.user.relationForKey("PostList")
             var post2Add: PFObject = self.posts[currentDishIndex - 1] as PFObject
-            var numMatches: Int! = post2Add["numberMatches"] as Int!
+            var numMatches: Int! = post2Add["numberMatches"] as! Int
             if (numMatches == nil){
                 numMatches = 0;
             }
@@ -48,6 +49,8 @@ class SimpleMatchingController: UIViewController {
             relation.addObject(post2Add)
             self.user.save()
             removeImageAndAddNew()
+            
+            
         }
     }
     
@@ -123,7 +126,7 @@ class SimpleMatchingController: UIViewController {
         var gesture = UIPanGestureRecognizer(target: self, action: Selector("wasDragged:"))
         postImage.addGestureRecognizer(gesture)
         postImage.userInteractionEnabled = true
-        var imageToAdd = post["imageFile"] as PFFile;
+        var imageToAdd = post["imageFile"] as! PFFile;
         imageToAdd.getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in
             if (error == nil){
@@ -131,7 +134,7 @@ class SimpleMatchingController: UIViewController {
             }
             self.view.addSubview(postImage)
             var nameLabel = UILabel(frame: CGRectMake(self.view.bounds.width / 2 - 150, self.view.bounds.height / 2 - 305, 300, 40))
-            nameLabel.text = post["DishName"] as String!
+            nameLabel.text = post["DishName"] as! String!
             nameLabel.textAlignment = NSTextAlignment.Center
             self.view.addSubview(nameLabel)
             self.imageReference = postImage
@@ -150,15 +153,35 @@ class SimpleMatchingController: UIViewController {
         var rotation: CGAffineTransform = CGAffineTransformMakeRotation(xFromCenter / 300)
         var stretch: CGAffineTransform = CGAffineTransformScale(rotation, scale, scale)
         label.transform = stretch
+        self.indicatorLabel.hidden = true
+
+        if(label.center.x > self.view.bounds.width - 30){
+            println("Chosen")
+            self.indicatorLabel.hidden = false
+            self.view.bringSubviewToFront(self.indicatorLabel)
+            self.indicatorLabel.text = "Yummy"
+            self.indicatorLabel.textColor = UIColor.whiteColor()
+            self.indicatorLabel.backgroundColor = UIColor.greenColor()
+        }
+        else if(label.center.x < self.view.bounds.width - 330){
+            println("Not Chosen")
+           self.indicatorLabel.hidden = false
+            self.view.bringSubviewToFront(self.indicatorLabel)
+            self.indicatorLabel.text = "Not Yummy"
+            self.indicatorLabel.backgroundColor = UIColor.redColor()
+        }
+        
         
         
         if gesture.state == UIGestureRecognizerState.Ended {
             
-            if(label.center.x > self.view.bounds.width - 20){
+            self.indicatorLabel.hidden = true
+            
+            if(label.center.x > self.view.bounds.width - 30){
                 println("Chosen")
                 likeButton(self)
             }
-            else if(label.center.x < self.view.bounds.width - 340){
+            else if(label.center.x < self.view.bounds.width - 330){
                 println("Not Chosen")
                 dislikeButton(self)
             }
@@ -177,9 +200,11 @@ class SimpleMatchingController: UIViewController {
     
     
     override func viewWillAppear(animated: Bool) {
+        
+        self.indicatorLabel.hidden = true
     
         if(self.loadedRestaurants == true){
-            var distanceStored: Float! = user["SearchDistance"] as Float!
+            var distanceStored: Float! = user["searchDistance"] as! Float
             if distanceStored != nil{
                 distanceToSearch = Double(distanceStored)
             }
@@ -201,7 +226,7 @@ class SimpleMatchingController: UIViewController {
         super.viewDidLoad()
         
         
-        var distanceStored: Float! = user["SearchDistance"] as Float!
+        var distanceStored: Float! = user["searchDistance"] as! Float
         if distanceStored != nil{
             distanceToSearch = Double(distanceStored)
         }
@@ -216,12 +241,12 @@ class SimpleMatchingController: UIViewController {
                         
                         if error == nil{
                             self.user["location"] = geopoint
-                            self.currentLocation = self.user["location"] as PFGeoPoint!
+                            self.currentLocation = self.user["location"] as! PFGeoPoint
                             self.prepareForDisplay()
                         }
                         else {
                             println(error)
-                            self.currentLocation = self.user["location"] as PFGeoPoint!
+                            self.currentLocation = self.user["location"] as! PFGeoPoint
                             self.prepareForDisplay()
                         }
                     }
@@ -230,7 +255,7 @@ class SimpleMatchingController: UIViewController {
                 {
                     //For loop adds posts that user has already been matched with
                     for post in Posts{
-                        self.usersMatches.append(post as PFObject);
+                        self.usersMatches.append(post as! PFObject)
                     }
                     
                     self.loadedUsersMatches = true
@@ -238,11 +263,11 @@ class SimpleMatchingController: UIViewController {
                         
                         if error == nil{
                             self.user["location"] = geopoint
-                            self.currentLocation = self.user["location"] as PFGeoPoint!
+                            self.currentLocation = self.user["location"] as! PFGeoPoint
                             self.prepareForDisplay()                      }
                         else {
                             println(error)
-                            self.currentLocation = self.user["location"] as PFGeoPoint!
+                            self.currentLocation = self.user["location"] as! PFGeoPoint
                             self.prepareForDisplay()
                         }
                     }
@@ -259,9 +284,9 @@ class SimpleMatchingController: UIViewController {
     }
     
     func shuffle<C: MutableCollectionType where C.Index == Int>(var list: C) -> C {
-        let count = countElements(list)
-        for i in 0..<(count - 1) {
-            let j = Int(arc4random_uniform(UInt32(count - i))) + i
+        let listCount = count(list)
+        for i in 0..<(listCount - 1) {
+            let j = Int(arc4random_uniform(UInt32(listCount - i))) + i
             swap(&list[i], &list[j])
         }
         return list
@@ -276,7 +301,7 @@ class SimpleMatchingController: UIViewController {
         query.findObjectsInBackgroundWithBlock { (restaurants: [AnyObject]!, error: NSError!) -> Void in
             for restaurant in restaurants
             {
-                var  userPointer: PFUser! = restaurant["userPointer"] as PFUser
+                var  userPointer: PFUser! = restaurant["userPointer"] as! PFUser
                 self.restaurants.append(userPointer)
             }
             self.loadedRestaurants = true
@@ -304,7 +329,7 @@ class SimpleMatchingController: UIViewController {
                             }
                         }
                         if (canAdd == true){
-                            self.posts.append(post as PFObject)
+                            self.posts.append(post as! PFObject)
                         }
                     }
                 }

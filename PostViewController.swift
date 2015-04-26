@@ -10,6 +10,7 @@ import UIKit
 
 class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    @IBOutlet var priceOfDish: UITextField!
     @IBOutlet var nameOfDish: UITextField!
     @IBOutlet var image2Post: UIImageView!
     var photoSelected:Bool = false
@@ -35,9 +36,12 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
         else if (nameOfDish.text == "")
         {
-            error = "Please enter a dish name!"
+            error = "Please fill out all the fields"
         }
-        
+        else if (priceOfDish.text == "")
+        {
+            error = "Please fill out all the fields"
+        }
         if (error != "")
         {
             displayError("Error!", error: error)
@@ -55,10 +59,11 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             
             
             var post = PFObject(className: "Post")
+            post["price"] = priceOfDish.text
             post["DishName"] = nameOfDish.text
             post["Restaurant"] = user
             post["numberMatches"] = 0
-            post.saveInBackgroundWithBlock{(success:Bool!, error: NSError!) -> Void in
+            post.saveInBackgroundWithBlock{(success:Bool, error: NSError!) -> Void in
                 
                 if success == false {
                     self.displayError("Failed to Post Image", error: "Cannot reach Parse Database")
@@ -68,7 +73,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                     let imageData = UIImagePNGRepresentation(self.image2Post.image)
                     let imageFile = PFFile(name: "image.png", data: imageData)
                     post["imageFile"] = imageFile
-                    post.saveInBackgroundWithBlock{(success: Bool!, error: NSError!) -> Void in
+                    post.saveInBackgroundWithBlock{(success: Bool, error: NSError!) -> Void in
                         
                         if success == false {
                             self.displayError("Failed to Post Image", error: "Cannot reach Parse Database to Post Image")
@@ -87,6 +92,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                             self.photoSelected = false
                             self.image2Post.image = UIImage(named: "Food-Icon.png")
                             self.nameOfDish.text = ""
+                            self.priceOfDish.text = ""
                         }
                     }
                 }
@@ -114,7 +120,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         self.presentViewController(alert, animated: true, completion: nil)
     }
     
-    func imagePickerController(picker: UIImagePickerController!, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
+    func imagePickerController(picker: UIImagePickerController, didFinishPickingImage image: UIImage!, editingInfo: [NSObject : AnyObject]!) {
         
         self.dismissViewControllerAnimated(true, completion: nil)
         image2Post.image = image
@@ -126,6 +132,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         photoSelected = false
         image2Post.image = UIImage(named: "Food-Icon.png")
         nameOfDish.text = ""
+        priceOfDish.text = ""
         
         // Do any additional setup after loading the view.
     }
@@ -142,20 +149,5 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBAction func backgroundTap(sender: UIControl) {
         nameOfDish.resignFirstResponder()
     }
-
-    /*
-    UPDATE AN OBJECT QUERY
-    var query = PFQuery(className:"GameScore")
-    query.getObjectInBackgroundWithId("xWMyZEGZ") {
-    (gameScore: PFObject!, error: NSError!) -> Void in
-    if error != nil {
-    println(error)
-    } else {
-    gameScore["cheatMode"] = true
-    gameScore["score"] = 1338
-    gameScore.saveInBackground()
-    }
-    }
-    */
 
 }
