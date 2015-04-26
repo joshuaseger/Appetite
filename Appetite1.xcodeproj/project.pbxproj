@@ -63,6 +63,11 @@
 		2458F8C61ADF52C000CC1D75 /* squares_background.png in Resources */ = {isa = PBXBuildFile; fileRef = 2458F8C51ADF52C000CC1D75 /* squares_background.png */; };
 		2464678D1ADB68440040A5FD /* CALayer+Pulsar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2464678C1ADB68440040A5FD /* CALayer+Pulsar.swift */; };
 		247AE0231ACF4CDA00E1C0B8 /* SimpleMatchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */; };
+		2480F8EC1AED5323007DB63A /* blueBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2480F8E91AED5323007DB63A /* blueBackground.jpg */; };
+		2480F8ED1AED5323007DB63A /* redBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2480F8EA1AED5323007DB63A /* redBackground.jpg */; };
+		2480F8EE1AED5323007DB63A /* whiteBackground.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 2480F8EB1AED5323007DB63A /* whiteBackground.jpg */; };
+		2480F8EF1AED6D38007DB63A /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EAECE01AB6260400FEE226 /* MapKit.framework */; };
+		2480F8F01AED6D38007DB63A /* MapKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24EAECE01AB6260400FEE226 /* MapKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2497F6011ACCD6AD0085BEDA /* UserMatchingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */; };
 		2498245F1ADF5B3100845474 /* DishIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2498245E1ADF5B3100845474 /* DishIcon.png */; };
 		24A6FAC81AD08EC9001ECAFB /* PostDetailsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24A6FAC71AD08EC9001ECAFB /* PostDetailsController.swift */; };
@@ -88,6 +93,20 @@
 			remoteInfo = Appetite1;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		2480F8F11AED6D39007DB63A /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				2480F8F01AED6D38007DB63A /* MapKit.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		241086361A9FFAFE00F1E9E2 /* Appetite1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Appetite1.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -151,6 +170,9 @@
 		2458F8C51ADF52C000CC1D75 /* squares_background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = squares_background.png; sourceTree = "<group>"; };
 		2464678C1ADB68440040A5FD /* CALayer+Pulsar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "CALayer+Pulsar.swift"; sourceTree = "<group>"; };
 		247AE0221ACF4CDA00E1C0B8 /* SimpleMatchingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SimpleMatchingController.swift; path = ../SimpleMatchingController.swift; sourceTree = "<group>"; };
+		2480F8E91AED5323007DB63A /* blueBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = blueBackground.jpg; sourceTree = "<group>"; };
+		2480F8EA1AED5323007DB63A /* redBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = redBackground.jpg; sourceTree = "<group>"; };
+		2480F8EB1AED5323007DB63A /* whiteBackground.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = whiteBackground.jpg; sourceTree = "<group>"; };
 		2497F6001ACCD6AD0085BEDA /* UserMatchingController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserMatchingController.swift; path = ../UserMatchingController.swift; sourceTree = "<group>"; };
 		2498245E1ADF5B3100845474 /* DishIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = DishIcon.png; sourceTree = "<group>"; };
 		24A6FAC71AD08EC9001ECAFB /* PostDetailsController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostDetailsController.swift; path = ../PostDetailsController.swift; sourceTree = "<group>"; };
@@ -176,6 +198,7 @@
 				241086661A9FFB4200F1E9E2 /* AudioToolbox.framework in Frameworks */,
 				241086671A9FFB4200F1E9E2 /* CFNetwork.framework in Frameworks */,
 				241086681A9FFB4200F1E9E2 /* CoreGraphics.framework in Frameworks */,
+				2480F8EF1AED6D38007DB63A /* MapKit.framework in Frameworks */,
 				241086761A9FFB5500F1E9E2 /* Bolts.framework in Frameworks */,
 				241086691A9FFB4200F1E9E2 /* CoreLocation.framework in Frameworks */,
 				241086781A9FFB5500F1E9E2 /* ParseCrashReporting.framework in Frameworks */,
@@ -314,6 +337,9 @@
 		244307561AE73D4B0064CD26 /* RestaurantPics */ = {
 			isa = PBXGroup;
 			children = (
+				2480F8E91AED5323007DB63A /* blueBackground.jpg */,
+				2480F8EA1AED5323007DB63A /* redBackground.jpg */,
+				2480F8EB1AED5323007DB63A /* whiteBackground.jpg */,
 				244307671AE73ECF0064CD26 /* twistedfork.jpg */,
 				244307571AE73EAD0064CD26 /* BlueSushi.jpg */,
 				2443075A1AE73EAD0064CD26 /* eattheworm.jpeg */,
@@ -390,6 +416,7 @@
 				241086321A9FFAFE00F1E9E2 /* Sources */,
 				241086331A9FFAFE00F1E9E2 /* Frameworks */,
 				241086341A9FFAFE00F1E9E2 /* Resources */,
+				2480F8F11AED6D39007DB63A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -467,6 +494,7 @@
 				242DA6481AD4528B00B3FF1F /* fresh_salad_in_bowl_191669.jpg in Resources */,
 				242DA6451AD4528B00B3FF1F /* fooddish.jpeg in Resources */,
 				241DC4291AD4BCB9003C4ABB /* Settings-32.png in Resources */,
+				2480F8EC1AED5323007DB63A /* blueBackground.jpg in Resources */,
 				242DA6491AD4528B00B3FF1F /* pancakes.jpg in Resources */,
 				242DA6461AD4528B00B3FF1F /* fooddish2.jpeg in Resources */,
 				244307641AE73EAD0064CD26 /* roja.jpg in Resources */,
@@ -478,6 +506,7 @@
 				241DC4281AD4BCB9003C4ABB /* Fridge-32.png in Resources */,
 				241086461A9FFAFE00F1E9E2 /* LaunchScreen.xib in Resources */,
 				244A0C901AB91E07000CAE30 /* dish6.jpg in Resources */,
+				2480F8EE1AED5323007DB63A /* whiteBackground.jpg in Resources */,
 				244307661AE73EAD0064CD26 /* rojataco1.jpg in Resources */,
 				245236251AC23D4F0010C747 /* 004-Franklins-BBQ-copy.jpg in Resources */,
 				244307691AE73ECF0064CD26 /* twistedfork.jpg in Resources */,
@@ -489,6 +518,7 @@
 				241668F91AB7AB7E003E21BD /* dish4.jpg in Resources */,
 				2443076A1AE73ECF0064CD26 /* twistedforktaco.jpg in Resources */,
 				241086431A9FFAFE00F1E9E2 /* Images.xcassets in Resources */,
+				2480F8ED1AED5323007DB63A /* redBackground.jpg in Resources */,
 				2498245F1ADF5B3100845474 /* DishIcon.png in Resources */,
 				244307601AE73EAD0064CD26 /* bluesushi1.jpg in Resources */,
 				24BE54141AD3716700E7A38A /* Dining Room-32.png in Resources */,

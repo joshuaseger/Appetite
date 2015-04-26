@@ -10,9 +10,7 @@ import UIKit
 
 class UserPostListController: UITableViewController {
  
-
-
-   
+    
     @IBOutlet var tableViewPosts: UITableView!
     let user = PFUser.currentUser();
    
@@ -129,12 +127,9 @@ class UserPostListController: UITableViewController {
                     self.dishName.removeAtIndex(indexPath.row)
                     self.imageFiles.removeAtIndex(indexPath.row)
                     self.posts.removeAtIndex(indexPath.row)
-                    self.displayError("Post Deleted", error: "The Post was removed from Appetite")
+                    self.displayError("Dish Unmatched", error: "This dish will no longer show up in your Dish List")
                     self.numRows = self.dishName.count
                     self.viewDidLoad()
-            
-        
-            
         }
     }
     
@@ -180,24 +175,6 @@ class UserPostListController: UITableViewController {
             //load detail view controller
             self.navigationController?.pushViewController(vc, animated: true)
         }
-        
-        
     }
-    
-    /*
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-      if segue.identifier == "PostDetailsSegue"{
-        var index = self.tableViewPosts.indexPathForSelectedRow()?.row
-        println(index)
-        var post = posts[index!]
-        let restaurant = post["Restaurant"] as PFObject
-        println(restaurant)
-        let destinationController =  PostDetailsController()
-        destinationController.restaurant = restaurant
-        destinationController.performSegueWithIdentifier("PostDetailsSegue", sender: self)
-        }
-    }
-  */
-    
 }
 

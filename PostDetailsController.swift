@@ -7,12 +7,18 @@
 //
 
 import UIKit
+import MapKit
 
-class PostDetailsController: UIViewController, UIScrollViewDelegate {
+class PostDetailsController: UIViewController, MKMapViewDelegate, UIScrollViewDelegate {
 
 
-    @IBOutlet var zipLabel: UILabel!
-    @IBOutlet var stateLabel: UILabel!
+    @IBAction func backButton(sender: AnyObject) {
+        navigationController?.popViewControllerAnimated(true)
+    }
+
+   
+    @IBOutlet var restaurantDescription: UILabel!
+    @IBOutlet var userMap: MKMapView!
     @IBOutlet var cityLabel: UILabel!
     @IBOutlet var addressLabel: UILabel!
     @IBOutlet var phoneLabel: UILabel!
@@ -22,13 +28,30 @@ class PostDetailsController: UIViewController, UIScrollViewDelegate {
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var restaurantNameLabel: UILabel!
     var restaurant: PFObject?
-
+    
 
    
     
     override func viewDidLoad() {
+       
         super.viewDidLoad()
+        //Create Map
+          userMap.mapType = MKMapType.Satellite
         var restaurantObject: PFObject = restaurant?.fetchIfNeeded() as PFObject!
+        var locationPFObject = restaurantObject["location"] as! PFGeoPoint
+        var latitude: CLLocationDegrees = locationPFObject.latitude as CLLocationDegrees
+        var longitude: CLLocationDegrees = locationPFObject.longitude as CLLocationDegrees
+        println("Latitude and Longitude")
+        println(latitude)
+        println(longitude)
+        var latDelta: CLLocationDegrees = 0.1
+        var longDelta: CLLocationDegrees = 0.1
+        var span: MKCoordinateSpan = MKCoordinateSpanMake(latDelta, longDelta)
+        var location: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude, longitude)
+        var region: MKCoordinateRegion = MKCoordinateRegionMake(location, span)
+        userMap.setRegion(region, animated: true)
+        userMap.mapType = MKMapType.Standard
+        //Create Text Labels
         restaurantNameLabel.text = restaurantObject["name"] as! String!
         var price = restaurantObject["priceGrade"] as? String
         var phone = restaurantObject["phone"] as? String
@@ -36,15 +59,17 @@ class PostDetailsController: UIViewController, UIScrollViewDelegate {
         var city = restaurantObject["city"] as? String
         var state = restaurantObject["state"] as? String
         var zip = restaurantObject["zip"] as? String
-
+        var description = restaurantObject["description"] as? String
+        
+        restaurantDescription.text = description
+        restaurantDescription.textAlignment = NSTextAlignment.Center
         priceLabel.text = "Price Grade: " + price!
         phoneLabel.text = "Phone: " + phone!
         addressLabel.text = "Address: " + address!
-        cityLabel.text = "City: " + city!
-        stateLabel.text = "State: " + state!
-        zipLabel.text = "Zip: " + zip!
+        cityLabel.text = "" + city! + ", " + state! + " " + zip!
+
         
-        
+        //Create Image
         var imageFile = restaurantObject["profilePic"] as! PFFile!
         if imageFile != nil {
             imageFile.getDataInBackgroundWithBlock{
@@ -55,27 +80,15 @@ class PostDetailsController: UIViewController, UIScrollViewDelegate {
                 }
             }
         }
-        
-        
-        
-        
-        
-        //Controller was only passed object reference.  Must fetch actual object from Parse now
-        
-        // Do any additional setup after loading the view.
-    
         scrollView.contentSize = containerView.frame.size;
-        
         // Set up the minimum & maximum zoom scale
         let scrollViewFrame = scrollView.frame
         let scaleWidth = scrollViewFrame.size.width / scrollView.contentSize.width
         let scaleHeight = scrollViewFrame.size.height / scrollView.contentSize.height
         let minScale = min(scaleWidth, scaleHeight)
-        
         scrollView.minimumZoomScale = minScale
         scrollView.maximumZoomScale = 1.0
         scrollView.zoomScale = 1.0
-        
         centerScrollViewContents()
     }
     

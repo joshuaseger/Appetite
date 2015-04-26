@@ -12,13 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var locationManager:CLLocationManager?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         
         Parse.setApplicationId("mHzadRuf3Dg9hleCx5ljT3nV1tr6uMY6PAvtb2k0", clientKey: "pv60BRhfhVuSrtZxUdZu43OslKpWxjSYGFeoxYpC")
         
+        locationManager = CLLocationManager()
+        locationManager?.requestWhenInUseAuthorization()
         // Override point for customization after application launch.
         return true
     }

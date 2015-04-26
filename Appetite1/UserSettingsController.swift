@@ -20,8 +20,8 @@ class UserSettingsController: UIViewController {
         var value = String(format: "%0.f", currentValue)
         distanceLabel.text = "Search Distance: \(value) Miles"
         valueToStore = NSNumber(float: currentValue)
+
        
-        
     }
     @IBAction func Logout(sender: AnyObject) {
         
@@ -32,14 +32,27 @@ class UserSettingsController: UIViewController {
             dispatch_async(dispatch_get_main_queue()) {
                 // update some UI 
             PFUser.logOut()
+            self.navigationController?.popViewControllerAnimated(true)
             }
         }
        
        
         
     }
+    @IBAction func sliderFinished(sender: AnyObject) {
+        var currentValue = distanceSlider.value
+        var value = String(format: "%0.f", currentValue)
+        distanceLabel.text = "Search Distance: \(value) Miles"
+        valueToStore = NSNumber(float: currentValue)
+        user["searchDistance"] = valueToStore
+        user.save();
+        
+    }
+    
     @IBOutlet var priceRangeSelector: UISegmentedControl!
     @IBAction func changedPriceRange(sender: AnyObject) { }
+    
+  
     
     
     override func viewWillDisappear(animated: Bool) {
@@ -54,7 +67,7 @@ class UserSettingsController: UIViewController {
         distanceSlider.minimumValue = 1
         distanceSlider.maximumValue = 100
         
-        var storedValue = user["SearchDistance"] as! Float!
+        var storedValue = user["searchDistance"] as! Float!
         if (storedValue == nil){
             distanceSlider.value = 50
         }
