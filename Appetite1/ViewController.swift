@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     {
         var alert = UIAlertController(title: title, message: error, preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "OK", style: .Default, handler: {action in
-            self.dismissViewControllerAnimated(true, completion: nil)
+           // self.dismissViewControllerAnimated(true, completion: nil)
             
         }))
         self.presentViewController(alert, animated: true, completion: nil)
@@ -57,7 +57,7 @@ class ViewController: UIViewController {
             
             PFUser.logInWithUsernameInBackground(username.text, password: password.text) {
                 (user: PFUser!, loginError: NSError!) -> Void in
-                if user != nil {
+                if loginError == nil {
          
                     if (PFUser.currentUser() != nil) {
                         

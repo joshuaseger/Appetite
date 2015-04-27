@@ -80,15 +80,13 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                         }
                             
                         else{
-                            
-                          
                             var relation = self.user.relationForKey("PostList")
                             relation.addObject(post)
                             self.user.save()
                             self.activityIndicator.stopAnimating()
                             UIApplication.sharedApplication().endIgnoringInteractionEvents()
                             println("Successfully saved post to Parse")
-                            self.displayError("Great Success!", error: "Your image has been posted successfully and can be viewed in Posts List")
+                            self.displayError("Great Success", error: "Your image has been posted successfully and can be viewed in Posts List")
                             self.photoSelected = false
                             self.image2Post.image = UIImage(named: "Food-Icon.png")
                             self.nameOfDish.text = ""

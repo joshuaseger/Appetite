@@ -59,8 +59,6 @@ class PostsListController: UITableViewController{
             self.numRows = self.posts.count
             self.tableViewPosts.reloadData()
         }
-        
-        // Do any additional setup after loading the view.
     }
 
     override func didReceiveMemoryWarning() {
@@ -107,12 +105,10 @@ class PostsListController: UITableViewController{
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier("myCell", forIndexPath: indexPath) as? PostsTableViewCell
         if ( cell == nil){
-            var cell = PostsTableViewCell  (
-                style: UITableViewCellStyle.Default, reuseIdentifier: "myCell") as PostsTableViewCell;
-        }
+            var cell = PostsTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: "myCell") as PostsTableViewCell;}
         var post = self.posts[indexPath.row]
         cell!.nameOfDish.text = post["DishName"] as? String
-        cell!.priceOfDish.text = post["price"] as? String
+        cell!.priceOfDish.text = "$ " + (post["price"] as? String)!
         var imageFile = post["imageFile"]as! PFFile!
         imageFile.getDataInBackgroundWithBlock{
             (imageData: NSData!, error: NSError!) -> Void in

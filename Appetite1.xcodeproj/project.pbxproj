@@ -74,14 +74,17 @@
 		24AAAE6F1AB7BC4100B35C51 /* PostsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */; };
 		24AC0DFD1AD07D3400FE4A5E /* UserPostListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AC0DFC1AD07D3400FE4A5E /* UserPostListController.swift */; };
 		24AC0E011AD07EA800FE4A5E /* UserPostViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24AC0E001AD07EA800FE4A5E /* UserPostViewCell.swift */; };
+		24B92DD31AEDB6C900967A0F /* omavore.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 24B92DCE1AEDB6C900967A0F /* omavore.jpg */; };
+		24B92DD41AEDB6C900967A0F /* Omavore2.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 24B92DCF1AEDB6C900967A0F /* Omavore2.jpg */; };
+		24B92DD51AEDB6C900967A0F /* omavore3.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 24B92DD01AEDB6C900967A0F /* omavore3.jpg */; };
+		24B92DD61AEDB6C900967A0F /* Oysters.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 24B92DD11AEDB6C900967A0F /* Oysters.jpg */; };
+		24B92DD71AEDB6C900967A0F /* plank.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 24B92DD21AEDB6C900967A0F /* plank.jpg */; };
 		24BE54111AD370A300E7A38A /* Waiter-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE54101AD370A300E7A38A /* Waiter-32.png */; };
 		24BE54141AD3716700E7A38A /* Dining Room-32.png in Resources */ = {isa = PBXBuildFile; fileRef = 24BE54131AD3716700E7A38A /* Dining Room-32.png */; };
 		24EAECE11AB6260400FEE226 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24EAECE01AB6260400FEE226 /* MapKit.framework */; };
 		24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */; };
 		24EAECE51AB63DF500FEE226 /* UpdateRestController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */; };
 		24EAECE71AB68C0A00FEE226 /* PostsListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EAECE61AB68C0A00FEE226 /* PostsListController.swift */; };
-		24EC46001AD362EA001CD0F5 /* PagedScrollViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24EC45FF1AD362EA001CD0F5 /* PagedScrollViewController.swift */; };
-		24F954DB1ACF1EF9002B4DD5 /* PracticeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F954DA1ACF1EF9002B4DD5 /* PracticeController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,14 +182,17 @@
 		24AAAE6E1AB7BC4100B35C51 /* PostsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsTableViewCell.swift; path = ../PostsTableViewCell.swift; sourceTree = "<group>"; };
 		24AC0DFC1AD07D3400FE4A5E /* UserPostListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UserPostListController.swift; path = ../UserPostListController.swift; sourceTree = "<group>"; };
 		24AC0E001AD07EA800FE4A5E /* UserPostViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserPostViewCell.swift; sourceTree = "<group>"; };
+		24B92DCE1AEDB6C900967A0F /* omavore.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = omavore.jpg; sourceTree = "<group>"; };
+		24B92DCF1AEDB6C900967A0F /* Omavore2.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Omavore2.jpg; sourceTree = "<group>"; };
+		24B92DD01AEDB6C900967A0F /* omavore3.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = omavore3.jpg; sourceTree = "<group>"; };
+		24B92DD11AEDB6C900967A0F /* Oysters.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = Oysters.jpg; sourceTree = "<group>"; };
+		24B92DD21AEDB6C900967A0F /* plank.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = plank.jpg; sourceTree = "<group>"; };
 		24BE54101AD370A300E7A38A /* Waiter-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Waiter-32.png"; sourceTree = "<group>"; };
 		24BE54131AD3716700E7A38A /* Dining Room-32.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Dining Room-32.png"; sourceTree = "<group>"; };
 		24EAECE01AB6260400FEE226 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		24EAECE21AB62FBD00FEE226 /* RestaurantController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestaurantController.swift; path = ../RestaurantController.swift; sourceTree = "<group>"; };
 		24EAECE41AB63DF500FEE226 /* UpdateRestController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = UpdateRestController.swift; path = ../UpdateRestController.swift; sourceTree = "<group>"; };
 		24EAECE61AB68C0A00FEE226 /* PostsListController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PostsListController.swift; path = ../PostsListController.swift; sourceTree = "<group>"; };
-		24EC45FF1AD362EA001CD0F5 /* PagedScrollViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PagedScrollViewController.swift; sourceTree = "<group>"; };
-		24F954DA1ACF1EF9002B4DD5 /* PracticeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PracticeController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -228,8 +234,6 @@
 		2410862D1A9FFAFE00F1E9E2 = {
 			isa = PBXGroup;
 			children = (
-				24EC45FF1AD362EA001CD0F5 /* PagedScrollViewController.swift */,
-				24F954DA1ACF1EF9002B4DD5 /* PracticeController.swift */,
 				241A7AE31ACDE4F800D2FB4E /* MethodHelper.strings */,
 				241086381A9FFAFE00F1E9E2 /* Appetite1 */,
 				24EAECE01AB6260400FEE226 /* MapKit.framework */,
@@ -277,6 +281,7 @@
 				241086421A9FFAFE00F1E9E2 /* Images.xcassets */,
 				2498245E1ADF5B3100845474 /* DishIcon.png */,
 				2458F8C51ADF52C000CC1D75 /* squares_background.png */,
+				24B92DD81AEDB6D700967A0F /* Demo */,
 				244307561AE73D4B0064CD26 /* RestaurantPics */,
 				241668F21AB7AB7E003E21BD /* Dishes */,
 				241086441A9FFAFE00F1E9E2 /* LaunchScreen.xib */,
@@ -395,6 +400,18 @@
 			name = Authentication;
 			sourceTree = "<group>";
 		};
+		24B92DD81AEDB6D700967A0F /* Demo */ = {
+			isa = PBXGroup;
+			children = (
+				24B92DCE1AEDB6C900967A0F /* omavore.jpg */,
+				24B92DCF1AEDB6C900967A0F /* Omavore2.jpg */,
+				24B92DD01AEDB6C900967A0F /* omavore3.jpg */,
+				24B92DD11AEDB6C900967A0F /* Oysters.jpg */,
+				24B92DD21AEDB6C900967A0F /* plank.jpg */,
+			);
+			name = Demo;
+			sourceTree = "<group>";
+		};
 		24BE54121AD370AB00E7A38A /* Icons */ = {
 			isa = PBXGroup;
 			children = (
@@ -487,15 +504,18 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24B92DD71AEDB6C900967A0F /* plank.jpg in Resources */,
 				244307621AE73EAD0064CD26 /* eattheworm.jpeg in Resources */,
 				24BE54111AD370A300E7A38A /* Waiter-32.png in Resources */,
 				241668FC1AB7ABE0003E21BD /* Food-Icon.png in Resources */,
 				241A7AE41ACDE4F800D2FB4E /* MethodHelper.strings in Resources */,
 				242DA6481AD4528B00B3FF1F /* fresh_salad_in_bowl_191669.jpg in Resources */,
 				242DA6451AD4528B00B3FF1F /* fooddish.jpeg in Resources */,
+				24B92DD51AEDB6C900967A0F /* omavore3.jpg in Resources */,
 				241DC4291AD4BCB9003C4ABB /* Settings-32.png in Resources */,
 				2480F8EC1AED5323007DB63A /* blueBackground.jpg in Resources */,
 				242DA6491AD4528B00B3FF1F /* pancakes.jpg in Resources */,
+				24B92DD31AEDB6C900967A0F /* omavore.jpg in Resources */,
 				242DA6461AD4528B00B3FF1F /* fooddish2.jpeg in Resources */,
 				244307641AE73EAD0064CD26 /* roja.jpg in Resources */,
 				241086411A9FFAFE00F1E9E2 /* Main.storyboard in Resources */,
@@ -504,6 +524,7 @@
 				2458F8C61ADF52C000CC1D75 /* squares_background.png in Resources */,
 				244307651AE73EAD0064CD26 /* rojataco.jpg in Resources */,
 				241DC4281AD4BCB9003C4ABB /* Fridge-32.png in Resources */,
+				24B92DD61AEDB6C900967A0F /* Oysters.jpg in Resources */,
 				241086461A9FFAFE00F1E9E2 /* LaunchScreen.xib in Resources */,
 				244A0C901AB91E07000CAE30 /* dish6.jpg in Resources */,
 				2480F8EE1AED5323007DB63A /* whiteBackground.jpg in Resources */,
@@ -522,6 +543,7 @@
 				2498245F1ADF5B3100845474 /* DishIcon.png in Resources */,
 				244307601AE73EAD0064CD26 /* bluesushi1.jpg in Resources */,
 				24BE54141AD3716700E7A38A /* Dining Room-32.png in Resources */,
+				24B92DD41AEDB6C900967A0F /* Omavore2.jpg in Resources */,
 				242DA64D1AD4545800B3FF1F /* download1.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -544,11 +566,9 @@
 				247AE0231ACF4CDA00E1C0B8 /* SimpleMatchingController.swift in Sources */,
 				241668F11AB7AA56003E21BD /* PostViewController.swift in Sources */,
 				242BF88A1ABBB22F00DCF6DA /* UpdateDescriptionController.swift in Sources */,
-				24F954DB1ACF1EF9002B4DD5 /* PracticeController.swift in Sources */,
 				24AC0DFD1AD07D3400FE4A5E /* UserPostListController.swift in Sources */,
 				24528EDA1AA03B2F005253F3 /* SignupViewController.swift in Sources */,
 				24A6FAC81AD08EC9001ECAFB /* PostDetailsController.swift in Sources */,
-				24EC46001AD362EA001CD0F5 /* PagedScrollViewController.swift in Sources */,
 				241668FE1AB7B7BB003E21BD /* PostsNavController.swift in Sources */,
 				24EAECE31AB62FBD00FEE226 /* RestaurantController.swift in Sources */,
 				24EAECE51AB63DF500FEE226 /* UpdateRestController.swift in Sources */,
