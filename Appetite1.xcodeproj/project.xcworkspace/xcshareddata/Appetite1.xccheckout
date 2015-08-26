@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>0A4D04A8-F65B-4757-B136-0ADC3180BA8A</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Appetite1</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>6D624DD5238855EFDC1C926555997CBD57D36F38</key>
+		<string>https://github.com/joshuaseger/Appetite.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Appetite1.xcodeproj</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>6D624DD5238855EFDC1C926555997CBD57D36F38</key>
+		<string>../..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/joshuaseger/Appetite.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>6D624DD5238855EFDC1C926555997CBD57D36F38</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>6D624DD5238855EFDC1C926555997CBD57D36F38</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Appetite</string>
+		</dict>
+	</array>
+</dict>
+</plist>

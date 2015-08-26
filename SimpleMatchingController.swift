@@ -49,8 +49,6 @@ class SimpleMatchingController: UIViewController {
             relation.addObject(post2Add)
             self.user.save()
             removeImageAndAddNew()
-            
-            
         }
     }
     
@@ -277,7 +275,6 @@ class SimpleMatchingController: UIViewController {
     }
     
     
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -291,7 +288,6 @@ class SimpleMatchingController: UIViewController {
         }
         return list
     }
-    
     
     
     //Queries for Restaurants near current users location.
